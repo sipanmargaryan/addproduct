@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load opengraph %}
+{% load storage %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'plugins/jssocials/jssocials.css' %}">
+
+{% endblock %}
+
+{% block opengraph_meta %}
+  {% storage_url ad.primary_image as primary_image %}
+  {% opengraph_meta title=ad.title image=primary_image description=ad.description %}
+{% endblock %}
+
+{% block content %}
+<main class="main productList company">
+    <div class="main-component">
+      <div class="topSide small">
+        <div class="leftSide">
+          <div class="sliderImages">
+            {% for image in images %}
+              <span class="imgWrap js-select-image" data-url="{{ image.image.url }}">
+                <img src="{{ image.image.url }}" alt="{{ ad.title }}" />
+              </span>
+            {% endfor %}
+          </div>
+          <div class="mainImg">
+            {% for image in images %}
+              {% if image.is_primary %}
+                <img src="{{ image.image.url }}" class="js-main-image" alt="{{ ad.title }}"/>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="rightSide user">
+          <h1 class="title">{{ ad.title }}</h1>
+
+          <div class="priceWrap">
+            <span class="price">
+              {% if ad.price > 0 %}
+                {{ ad.price }} {{ ad.currency }}
+              {% endif %}
+            </span>
+            {% if ad.user.get_full_name %}
+              <span class="author">{% trans "by" %}
+                <a href="{{ ad.user.get_seller_url }}"><b>{{ ad.user.get_full_name }}</b></a>
+              </span>
+            {% else %}
+              <a href="{{ ad.external_url }}" target="_blank">
+                {% if "olx.com.kw" in ad.external_url %}
+                  <img src="{% static 'assets/logo/olx_logo.png' %}">
+                {% elif "mourjan.com" in ad.external_url %}
+                  <img src="{% static 'assets/logo/mourjan_logo.png' %}">
+                {% endif %}
+              </a>
+            {% endif %}
+          </div>
+          <div class="location">
+            <div class="locationWrap">
+              <span><i class="icon locationActive"></i></span>
+              <span class="text"> {{ ad.city.name }}</span>
+            </div>
+
+            <div class="statWrap">
+              <span class="iconWrap js-detail-favorite-btn"
+                data-favorite-url="{% url 'ads:add_remove_favorite' %}"
+                data-ad-id="{{ ad.pk }}">
+                {% if ad.is_favorite %}
+                <i class="icon favorite"></i>
+                {% else %}
+                <i class="icon empty"></i>
+                {% endif %}
+              </span>
+            </div>
+          </div>
+
+          {% if related_data %}
+          <div class="timeWrap related-data">
+            {% for key, value in related_data.items %}
+              <div class="element ">
+                <span class="iconWrap">
+                  <i class="icon clockGrey"></i>
+                </span>
+                <span class="text">{{ key }}: <strong>{{ value }}</strong></span>
+              </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if contact_detail.phone_number %}
+            <div class="socialWrap">
+              <div class="element">
+                <a href="tel:{{ contact_detail.phone_number }}" class="button viber">
+                  <span class="iconWrap">
+                    <i class="icon phone"></i>
+                  </span> {% trans "Call seller" %}
+                </a>
+              </div>
+              <div class="element">
+                <a href="https://wa.me/{{ contact_detail.phone_number_clean }}" class="button whatsapp">
+                  {% trans "Call to WhatsApp" %}
+                </a>
+              </div>
+              <div class="element">
+                <a href="{% url 'messaging:go_to_thread' ad.pk %}" class="button message">
+                  {% trans "Write message" %}
+                </a>
+              </div>
+              <div class="element">
+                <a href="https://wa.me/{{ contact_detail.phone_number_clean }}?text={{ ad.title }}" class="button whatsapp">
+                  {% trans "Write to WhatsApp" %}
+                </a>
+              </div>
+            </div>
+          {% elif ad.external_phone_number %}
+            <div class="socialWrap">
+              <div class="element">
+                <a href="tel:{{ ad.external_phone_number_clean }}" class="button viber">
+                  <span class="iconWrap">
+                    <i class="icon phone"></i>
+                  </span> {% trans "Call seller" %}
+                </a>
+              </div>
+              <div class="element">
+                <a href="https://wa.me/{{ ad.external_phone_number_clean }}" class="button whatsapp">
+                  {% trans "Call to WhatsApp" %}
+                </a>
+              </div>
+              <div class="element">
+                <a href="https://wa.me/{{ ad.external_phone_number_clean }}?text={{ ad.title }}" class="button whatsapp">
+                  {% trans "Write to WhatsApp" %}
+                </a>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if contact_detail.phone_number or ad.external_phone_number_clean %}
+          <div class="buttonWrap">
+            <span class="button" style="cursor: default;">
+              {% if contact_detail.phone_number %}
+                {{ contact_detail.phone_number_clean }}
+              {% elif ad.external_phone_number %}
+                {{ ad.external_phone_number_clean }}
+              {% endif %}
+            </span>
+          </div>
+          {% endif %}
+
+          {% if ad.external_url %}
+          {% else %}
+            <div class="buttonWrap">
+              <a href="{{ ad.user.get_seller_url }}" class="button transparent">{% trans "See Other ads for this seller" %}</a>
+            </div>
+          {% endif %}
+
+          <div class="shareWrap">
+            <p class="text">{% trans "Share with your friends" %}</p>
+            <div id="share"></div>
+            <input type="text" id="js-current-url" value="{{ request.build_absolute_uri }}">
+          </div>
+        </div>
+      </div>
+      <div class="description small">
+        <div class="heading">
+          <h1 class="title">{% trans "Description" %}</h1>
+          <div class="info">
+            <span class="publish">{% trans "Publish" %} <span class="date">{{ ad.publish_date|date:"d.m.Y" }}</span></span>
+            <span>viewed
+              <span class="iconWrap">
+                <i class="icon view"></i>
+              </span>
+              <b>{{ ad.views }}</b>
+            </span>
+          </div>
+        </div>
+        <p class="descriptionText">
+          {{ ad.description }}
+        </p>
+        {% if comments %}
+          <div class="reviewsWrap">
+            <div class="heading">
+              <h1 class="title">{% trans "Reviews about product" %} ({{ comments|length }})</h1>
+            </div>
+          </div>
+          {% for comment in comments %}
+          <div class="reviewsWrap">
+            <div class="review">
+              <div class="nameWrap">
+                <h1 class="name">{{ comment.user.get_full_name }}</h1>
+                <span class="date">{{ comment.created|date:"d.m.Y" }}</span>
+              </div>
+              <p class="comment">
+                {{ comment.description }}
+              </p>
+            </div>
+
+          </div>
+          {% endfor %}
+        {% endif %}
+
+        {% if request.user.is_authenticated and request.user.pk != ad.user.pk %}
+
+          <form id="send-comment-form" action="{% url 'ads:add_comment' %}" method="post" class="adMessageWrap">
+            {% csrf_token %}
+            <h1 class="commentTitle">{% trans "Leave a comment" %}</h1>
+            <div class="commentWrap">
+              <textarea id="ad-comment" placeholder='{% trans "Enter your feedback" %}' name="description"></textarea>
+            </div>
+            <div class="buttonWrap">
+              <div class="element">
+                <input type="hidden" name="ad" value="{{ ad.pk }}">
+                <input type="submit" class="button mainColor" value='{% trans "Leave feedback" %}'>
+              </div>
+            </div>
+          </form>
+
+        {% endif %}
+      </div>
+
+      {% if recommended_ads %}
+        <div class="bottomSide">
+          <h1 class="title small">{% trans "Recommended Ads For You" %}</h1>
+          <div class="bottomSide-content recommendations small">
+            {% for ad in recommended_ads %}
+              {% include 'ads/includes/ad_element.html' with ad=ad %}
+            {% endfor %}
+          </div>
+          <div class="elementWrap">
+            <button class="eventsPrev prev slick-arrow"></button>
+            <div class="element">
+              <a href="{% url 'ads:ads' %}" class="button mainColor">{% trans "See more ads" %}</a>
+            </div>
+            <button type="button" class="eventsNext next slick-arrow"></button>
+          </div>
+          <div class="elementWrapMobile">
+            <a href="{% url 'ads:ads' %}" class="button mainColor">{% trans "See more ads" %}</a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </main>
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'plugins/jssocials/jssocials.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/ad_detail.js' %}"></script>
+
+{% endblock %}

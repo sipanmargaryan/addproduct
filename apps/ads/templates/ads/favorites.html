@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load storage %}
+{% load humanize %}
+
+{% block content %}
+
+<main class="main">
+  <div class="main-content">
+    <div class="profile">
+      <div class="heading small">
+        {% include 'profile/includes/profile_heading.html' %}
+        <div class="heading-bottomSide">
+          {% include 'profile/includes/profile_nav.html' with tab='favoriteads' %}
+        </div>
+      </div>
+      <div class="mainMenu favorites">
+        <div class="container small">
+          {% for favorite in favorites %}
+            <div class="column oneLine js-ad-column-{{ favorite.ad.pk }}">
+              <div class="element">
+                {% if favorite.primary_image %}
+                  <span class="img">
+                    <img src="{% storage_url favorite.primary_image %}" alt="{{ favorite.ad.title }}">
+                  </span>
+                {% endif %}
+              </div>
+              <div class="textWrap">
+                <h1 class="title">{{ favorite.ad.title }}</h1>
+                <span class="text">{{ favorite.ad.description|truncatechars:50 }}</span>
+              </div>
+            </div>
+            <div class="column js-ad-column-{{ favorite.ad.pk }}">
+              <span>{{ favorite.ad.price|intcomma }}$</span>
+            </div>
+            <div class="column js-ad-column-{{ favorite.ad.pk }}">
+              <span>{{ favorite.saved_at|date:"d.m.y" }}</span>
+            </div>
+            <div class="column actions js-ad-column-{{ favorite.ad.pk }}">
+              <span class="iconWrap js-toggle-favorite" data-id="{{ favorite.ad.pk }}"
+                      data-url="{% url 'ads:add_remove_favorite' %}">
+                <i class="icon favorite"></i>
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'js/components/favorite_ads.js' %}"></script>
+
+{% endblock %}

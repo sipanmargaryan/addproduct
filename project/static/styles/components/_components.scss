@@ -1,0 +1,41 @@
+
+body {
+
+  &.noOverflow {
+    overflow: hidden;
+
+    @media screen and (max-width: 767px) {
+      overflow: initial;
+    }
+  }
+
+  .main {
+    width: 100%;
+
+    > .main-content {
+      width: 100%;
+      position: relative;
+    }
+
+    .small {
+      max-width: $desktop;
+      margin: 0 auto;
+    }
+  }
+}
+
+@import "header";
+@import "login";
+@import "addAd";
+@import "terms_privacy";
+@import "contactUs";
+@import "faq";
+@import "blog";
+@import "events";
+@import "help_support";
+@import "personal_info";
+@import "about_us";
+@import "homepage";
+@import "products";
+@import "footer";
+@import "popup";

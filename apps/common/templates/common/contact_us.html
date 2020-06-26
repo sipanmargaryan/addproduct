@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<main class="main ">
+  <div class="main-content small">
+    <div class="contactUs">
+      <h1 class="title">{% trans "Contact us" %}</h1>
+      <h2 class="subTitle">{% trans "Write us if you have any questions" %}</h2>
+      <form action="{% url 'common:contact_us' %}" method="post" class="mainMenu" novalidate>
+        {% csrf_token %}
+        <div class="topSide">
+          <div class="leftSide">
+            <div class="element input">
+              <i class="icon person"></i>
+              {{ form.name|attr:"class:inputAuthorisation"|attr:"placeholder:Enter your Name" }}
+            </div>
+            {{ form.name.errors }}
+          </div>
+          <div class="rightSide">
+            <div class="element input">
+              <i class="icon email"></i>
+              {{ form.email|attr:"class:inputAuthorisation"|attr:"placeholder:Enter your email address" }}
+            </div>
+            {{ form.email.errors }}
+          </div>
+        </div>
+        <div class="bottomSide">
+          <div class="element">
+            {{ form.message|attr:"placeholder:Enter your message" }}
+          </div>
+          {{ form.message.errors }}
+
+          {{ form.non_field_errors }}
+
+          <div class="buttonWrap">
+            <input type="submit" class="button mainColor" value='{% trans "Send" %}'>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+<main class="main">
+  <div class="popup">
+    <div class="content">
+      <div class="iconWrap">
+        <span class="iconHolder">
+          <i class="icon check"></i>
+        </span>
+      </div>
+      <h1 class="title">{% trans "Congratulation" %}!</h1>
+      <p class="text">{% trans "Your payment was successful" %}</p>
+      <div class="element">
+        <a href="{% url 'ads:home' %}" class="button mainColor">{% trans "Go to homepage" %}</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}

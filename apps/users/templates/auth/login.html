@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<main class="main">
+  <div class="main-content small">
+    <div class="authorisation">
+      <div class="leftSide ">
+        <div class="leftSide-content">
+          <h1 class="title">{% trans "Sign in your account" %}</h1>
+          <div class="topMenu">
+            <div class="leftSide">
+              <a href="{% url 'users:login' %}" class="breadcrumbs active">{% trans "Sign in" %}</a>
+            </div>
+            <div class="rightSide">
+              <a href="{% url 'users:signup' %}" class="breadcrumbs">{% trans "Sign up" %}</a>
+            </div>
+          </div>
+          <div class="mainMenu">
+            <div class="mainMenu-topSide">
+              <form method="post" novalidate>
+                {% csrf_token %}
+                <div class="element input">
+                  <i class="icon email"></i>
+                  {{ form.email|attr:"class:inputAuthorisation" }}
+                </div>
+                {{ form.email.errors }}
+
+                <div class="element input">
+                  <i class="icon password"></i>
+                  {{ form.password|attr:"class:inputAuthorisation flexEndIcon" }}
+                  <a href="{% url 'users:forgot_password' %}" class="forgotPass"><i class="icon help"></i></a>
+                </div>
+                {{ form.password.errors }}
+
+                {{ form.non_field_errors }}
+
+                <div class="element">
+                  <input type="submit" class="button mainColor" value='{% trans "Sign in" %}'>
+                </div>
+              </form>
+            </div>
+            {% include 'auth/includes/social.html' %}
+          </div>
+        </div>
+      </div>
+      <div class="rightSide">
+        <img src="{% static 'assets/images/login/bg.jpg' %}"
+             srcset="{% static 'assets/images/login/bg.jpg' %} 1x,
+                      {% static 'assets/images/login/bg@2x.jpg' %} 2x,
+                      {% static 'assets/images/login/bg@3x.jpg' %} 3x"/>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

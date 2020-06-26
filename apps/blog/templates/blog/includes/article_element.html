@@ -1,0 +1,9 @@
+<div class="element">
+  <div class="topSide">
+    <span class="iconWrap">
+      <i class="icon clockActive"></i>
+    </span>
+    {{ post.created|date:"d.m.y" }}
+  </div>
+  <a href="{{ post.get_absolute_url }}" class="text">{{ post.title|truncatechars:30 }}</a>
+</div>

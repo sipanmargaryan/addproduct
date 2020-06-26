@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load core_utils %}
+{% load widget_tweaks %}
+
+{% block content %}
+<main class="main productList">
+  <div class="main-component">
+    <div class="heading small">
+      <div class="buttonWrap" id="showFilter">
+        <a href="#" class="button transparent">{% trans "Add filter" %}</a>
+      </div>
+      <h1 class="title">{{ ads_count }} {% trans "ads in Appliances for Sale in Armenia" %}</h1>
+      <div class="sorting">
+        <span class="text">{% trans "Sorting by" %}</span>
+        <div class="element input">
+          <select name="sort" class="form-control js-select2 js-sort-by">
+            <option value="-publish_date" {% ifequal sort_by "-publish_date" %}selected{% endifequal %}>{% trans "Most recent" %}</option>
+            <option value="price" {% ifequal sort_by "price" %}selected{% endifequal %}>{% trans "Price low to high" %}</option>
+            <option value="-price" {% ifequal sort_by "-price" %}selected{% endifequal %}>{% trans "Price high to low" %}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="main-content small">
+      {% include "ads/includes/filter_form.html" %}
+      <div class="rightSide">
+        <div class="elementWrap" id="ad-content-wrapper">
+          {% for ad in top_ads %}
+            {% include "ads/includes/ad_element.html" with ad=ad top=True %}
+          {% endfor %}
+
+          {% for ad in ads %}
+            {% include "ads/includes/ad_element.html" with ad=ad %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="bottomSide">
+          {% if is_paginated %}
+            {% include "core/includes/pagination.html" with page_obj=page_obj %}
+            <div class="buttonWrap" style="margin-bottom: 20px;">
+              <a href="#" id="js-upload-next" data-page-number="{{page_obj.number}}" class="button mainColor">{% trans "load next" %} 12 {% trans "ads" %}</a>
+            </div>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock content %}
+
+{% block extra_js %}
+
+<script type="text/javascript">
+
+  var minPrice = parseInt("{{ ads_data.price__min }}");
+  var maxPrice = parseInt("{{ ads_data.price__max }}");
+  var minValue = parseInt("{{ request.GET.price_min }}");
+  var maxValue = parseInt("{{ request.GET.price_max }}");
+
+  if (minPrice === maxPrice) {
+    maxPrice = minPrice + 1;
+  }
+  if (!minValue) {
+    minValue = minPrice;
+  }
+  if(!maxValue) {
+    maxValue = maxPrice;
+  }
+  if(minValue < minPrice) {
+    minValue = minPrice
+  }
+  if(maxValue < minPrice) {
+    maxValue = minPrice
+  }
+  if(maxValue > maxPrice) {
+    maxValue = maxPrice
+  }
+  if (minValue === maxValue) {
+    maxValue = minValue + 1;
+  }
+
+  $('#id_price_min').attr('value', minValue);
+  $('#id_price_max').attr('value', maxValue);
+
+  $("#slider-range").slider({
+    range: true,
+    min: minPrice,
+    max: maxPrice,
+    values: [minValue, maxValue],
+    slide: function (event, ui) {
+        $('#id_price_min').val(ui.values[0]);
+        $('#id_price_max').val(ui.values[1]);
+    }
+  });
+</script>
+<script type="text/javascript" src="{% static 'js/components/ads.js' %}"></script>
+
+{% endblock %}

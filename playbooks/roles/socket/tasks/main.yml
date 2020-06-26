@@ -1,0 +1,11 @@
+---
+
+- name: Install supervisord
+  apt:
+    name: "supervisor"
+  tags: ["supervisor", "socket"]
+
+- name: Create conf file
+  template:
+    src: templates/project.conf
+    dest: "/etc/supervisor/conf.d/project.conf"

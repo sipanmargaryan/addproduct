@@ -1,0 +1,6 @@
+{% for event in events %}
+  {% include 'events/includes/event_element.html' with event=event %}
+{% endfor %}
+{% if paginate.has_next %}
+  <div class="js-event-next-page" data-page="{{ paginate.next_page_number }}" hidden></div>
+{% endif %}

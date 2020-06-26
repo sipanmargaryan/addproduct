@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+<main class="main">
+  <div class="main-content">
+    <div class="profile">
+      <div class="heading small">
+        {% include 'profile/includes/profile_heading.html' %}
+        <div class="heading-bottomSide">
+          {% include 'profile/includes/profile_nav.html' with tab='paymenthistory' %}
+        </div>
+      </div>
+      <div class="mainMenu history">
+        <div class="container small">
+          <div class=" heading heading1">
+            <h1 class="title">{% trans "Date" %}</h1>
+          </div>
+          <div class=" heading heading2">
+            <h1 class="title">{% trans "Type" %}</h1>
+          </div>
+          <div class=" heading heading3">
+            <h1 class="title">{% trans "Number" %}</h1>
+          </div>
+          <div class=" heading heading4">
+            <h1 class="title">{% trans "Payment method" %}</h1>
+          </div>
+          <div class=" heading heading5">
+            <h1 class="title">{% trans "Cost" %}</h1>
+          </div>
+          {% for payment in payments %}
+            <div class="column">
+              <span>{{ payment.created|date:"m.d.Y" }}</span>
+            </div>
+            <div class="column allLine">
+              <span>{{ payment.payment_type }}</span>
+            </div>
+            <div class="column shadow">
+              <span>#{{ payment.pk }}</span>
+            </div>
+            <div class="column shadow">
+              <span>{{ payment.method }}</span>
+            </div>
+            <div class="column cost">
+              <span>-${{ payment.cost }}</span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

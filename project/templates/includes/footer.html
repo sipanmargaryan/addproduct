@@ -1,0 +1,80 @@
+{% load static %}
+{% load i18n %}
+
+<div class="footer-content">
+  <div class="footer-topSide">
+    <div class="listBlock">
+      <h1 class="title">{% trans "About Us" %}</h1>
+      <ul class="list">
+        <li class="item"><a href="{% url 'ads:home' %}" class="link">{% trans "Home" %}</a></li>
+        <li class="item"><a href="{% url 'ads:ads' %}" class="link">{% trans "Products" %}</a></li>
+        <li class="item"><a href="{% url 'common:about_us' %}" class="link">{% trans "About Masaha" %}</a></li>
+      </ul>
+    </div>
+    <div class="listBlock">
+      <h1 class="title">categories</h1>
+      <ul class="list">
+        <li class="item"><a href="{% url 'ads:ads' %}?category=Cars" class="link">{% trans "Cars" %}</a></li>
+        <li class="item"><a href="{% url 'ads:ads' %}?category=Real Estate" class="link">{% trans "Real Estate" %}</a></li>
+        <li class="item"><a href="{% url 'ads:ads' %}?category=Services" class="link">{% trans "Services" %}</a></li>
+      </ul>
+    </div>
+    <div class="listBlock noHeading">
+      <ul class="list">
+        <li class="item"><a href="{% url 'ads:ads' %}?category=Jobs" class="link">{% trans "Jobs" %}</a></li>
+        <li class="item"><a href="{% url 'ads:ads' %}?category=Properties" class="link">{% trans "Properties" %}</a></li>
+        <li class="item"><a href="{% url 'ads:ads' %}?category=Pets" class="link">{% trans "Pets" %}</a></li>
+      </ul>
+    </div>
+    <div class="listBlock">
+      <h1 class="title">living in armenia</h1>
+      <ul class="list">
+        <li class="item"><a href="{% url 'events:upcoming_events' %}" class="link">{% trans "Events" %}</a></li>
+        <!-- TODO: missing link below -->
+        <li class="item"><a href="#" class="link">{% trans "Categories" %}</a></li>
+        <li class="item"><a href="{% url 'faq:recent_questions' %}" class="link">{% trans "FAQ" %}</a></li>
+      </ul>
+    </div>
+    <div class="listBlock">
+      <h1 class="title">{% trans "Help & Contact" %}</h1>
+      <ul class="list">
+        <li class="item"><a href="{% url 'common:contact_us' %}" class="link">{% trans "Contact Us" %}</a></li>
+        <li class="item"><a href="{% url 'common:terms' %}" class="link">{% trans "Terms of Use" %}</a></li>
+        <li class="item"><a href="{% url 'common:help_and_support' %}" class="link">{% trans "Help & Support" %}</a></li>
+        <li class="item"><a href="{% url 'common:privacy_policy' %}" class="link">{% trans "Privacy Policy" %}</a></li>
+      </ul>
+    </div>
+    <div class="listBlock">
+      <h1 class="title">{% trans "Mobile apps" %}</h1>
+      <ul class="list">
+        <li class="item">
+          <a href="#" target="_blank" class="link">
+            <img src="{% static 'assets/icons/ios.svg' %}" alt="IOS"/>
+          </a>
+        </li>
+        <li class="item">
+          <a href="#" target="_blank" class="link">
+            <img src="{% static 'assets/icons/android.svg' %}" alt="Android"/>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottomSide">
+    <p class="copy">{% trans "Copyright" %} &copy; {% now "Y" %} AddProduct. {% trans "All rights reserved." %}</p>
+    <div class="social">
+      <a href='#' target="_blank" class="element">
+        <i class="icon facebookSquare"></i>
+      </a>
+      <a href='#' target="_blank" class="element">
+        <i class="icon twitterSquare"></i>
+      </a>
+      <a href='#' target="_blank" class="element">
+        <i class="icon instagramSquare"></i>
+      </a>
+      <a href='#' target="_blank" class="element">
+        <i class="icon linkedinSquare"></i>
+      </a>
+    </div>
+  </div>
+</div>

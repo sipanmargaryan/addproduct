@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<main class="main blog">
+  <div class="main-component">
+    <div class="topSide">
+      <div class="bgWrap">
+        <div class="imgWrap">
+          <img src="{% static 'assets/images/blog/bg.jpg' %}"/>
+        </div>
+      </div>
+      <h1 class="title">{% trans "Blog" %}</h1>
+      <div class="filterWrap">
+        <div class="element dropdown">
+          <span class="iconWrap"><i class="icon theme"></i></span>
+          <select class="form-control js-select2 js-blog-category">
+            <option value="">{% trans "All" %}</option>
+            {% for category in categories %}
+              <option value="{{ category.pk }}">{{ category.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="element input">
+          <i class="icon search"></i>
+          <input class="inputAuthorisation js-blog-search" placeholder='{% trans "Search question" %}' />
+        </div>
+      </div>
+    </div>
+    <div class="main-content ">
+      <div class="topSide small">
+        <h1 class="title">{% trans "Latest news" %}</h1>
+        <div class="sortWrap">
+          <span>{% trans "Sorting by" %}</span>
+          <div class="element">
+            <select class="form-control js-select2">
+              <option value="-created">{% trans "Date" %}</option>
+              <option value="-hit_count">{% trans "Most viewed" %}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="mainWrap small">
+        <div class="tableWrap">
+          <div class="big">
+            <div class="bgWrap">
+              <img src="../../assets/images/blog/mask.jpg"/>
+            </div>
+            <div class="bottomSide">
+              <div class="infoWrap">
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon clockWhite"></i>
+                    </span>
+                  <span class="text">03.07.18</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon comment"></i>
+                    </span>
+                  <span class="text">2</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon view"></i>
+                    </span>
+                  <span class="text">100</span>
+                </div>
+              </div>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+            </div>
+          </div>
+          <div class="normal">
+            <div class="bgWrap">
+              <img src="../../assets/images/blog/mask.jpg"/>
+            </div>
+            <div class="bottomSide">
+              <div class="infoWrap">
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon clockWhite"></i>
+                    </span>
+                  <span class="text">03.07.18</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon comment"></i>
+                    </span>
+                  <span class="text">2</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon view"></i>
+                    </span>
+                  <span class="text">100</span>
+                </div>
+              </div>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+            </div>
+          </div>
+          <div class="normal">
+            <div class="bgWrap">
+              <img src="../../assets/images/blog/mask.jpg"/>
+            </div>
+            <div class="bottomSide">
+              <div class="infoWrap">
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon clockWhite"></i>
+                    </span>
+                  <span class="text">03.07.18</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon comment"></i>
+                    </span>
+                  <span class="text">2</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon view"></i>
+                    </span>
+                  <span class="text">100</span>
+                </div>
+              </div>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+            </div>
+          </div>
+          <div class="normal">
+            <div class="bgWrap">
+              <img src="../../assets/images/blog/mask.jpg"/>
+            </div>
+            <div class="bottomSide">
+              <div class="infoWrap">
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon clockWhite"></i>
+                    </span>
+                  <span class="text">03.07.18</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon comment"></i>
+                    </span>
+                  <span class="text">2</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon view"></i>
+                    </span>
+                  <span class="text">100</span>
+                </div>
+              </div>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+            </div>
+          </div>
+          <div class="normal">
+            <div class="bgWrap">
+              <img src="../../assets/images/blog/mask.jpg"/>
+            </div>
+            <div class="bottomSide">
+              <div class="infoWrap">
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon clockWhite"></i>
+                    </span>
+                  <span class="text">03.07.18</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon comment"></i>
+                    </span>
+                  <span class="text">2</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon view"></i>
+                    </span>
+                  <span class="text">100</span>
+                </div>
+              </div>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+            </div>
+          </div>
+          <div class="normal">
+            <div class="bgWrap">
+              <img src="../../assets/images/blog/mask.jpg"/>
+            </div>
+            <div class="bottomSide">
+              <div class="infoWrap">
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon clockWhite"></i>
+                    </span>
+                  <span class="text">03.07.18</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon comment"></i>
+                    </span>
+                  <span class="text">2</span>
+                </div>
+                <div class="element">
+                    <span class="iconWrap">
+                      <i class="icon view"></i>
+                    </span>
+                  <span class="text">100</span>
+                </div>
+              </div>
+              <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+            </div>
+          </div>
+        </div>
+
+        {% if articles %}
+        <div class="newsWrap">
+          <h1 class="title">{% trans "News" %}</h1>
+          <div class="elementWrap">
+
+            {% for article in articles %}
+            <div class="element">
+              <div class="bgWrap">
+                <img src="{{ article.cover.url }}"/>
+              </div>
+              <div class="bottomSide">
+                <div class="infoWrap">
+                  <div class="element">
+                      <span class="iconWrap">
+                        <i class="icon clockActive"></i>
+                      </span>
+                    <span class="text date">{{ article.created|date:"d.m.y" }}</span>
+                  </div>
+                  <div class="element">
+                      <span class="iconWrap">
+                        <i class="icon commentGrey"></i>
+                      </span>
+                    <span class="text">{{ article.comment_count }}</span>
+                  </div>
+                  <div class="element">
+                      <span class="iconWrap">
+                        <i class="icon view"></i>
+                      </span>
+                    <span class="text">{{ article.hit_count }}</span>
+                  </div>
+                </div>
+                <a href="{{ article.get_absolute_url }}" class="text">{{ article.title|truncatechars:33 }}</a>
+                <p class="smallText">{{ article.description|striptags|truncatechars:80 }}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="bottomSide">
+          {% if is_paginated %}
+            {% include "core/includes/pagination.html" with page_obj=page_obj %}
+          {% endif %}
+        </div>
+
+        {% endif %}
+      </div>
+      <div class="subscribeWrap ">
+        <h1 class="title">{% trans "Subscribe to our news" %}</h1>
+        <form class="elementWrap">
+          <div class="element input">
+            <i class="icon emailActive"></i>
+             {{ form.email|attr:"class:inputAuthorisation"|attr:"placeholder:Email" }}
+          </div>
+          <div class="buttonWrap">
+            <button class="button mainColor" data-url="{% url 'common:subscribe' %}">{% trans "Subscribe" %}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

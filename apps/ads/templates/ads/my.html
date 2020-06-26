@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load storage %}
+
+{% block content %}
+
+<main class="main">
+  <div class="main-content">
+    <div class="profile">
+      <div class="heading small">
+        {% include 'profile/includes/profile_heading.html' %}
+        <div class="heading-bottomSide">
+          {% include 'profile/includes/profile_nav.html' with tab='myads' %}
+          <div class="switchWrap">
+            <form>
+              <span>
+                <input class="checkbox js-filter-my-ads" data-url="{% url 'ads:my' %}" id="active-ads" type="checkbox" {% ifequal filter_by "active" %}checked{% endifequal %} {% ifequal filter_by None %}checked{% endifequal %}>
+                <label for="active-ads">{% trans "Active" %}</label>
+              </span>
+              <span>
+                <input class="checkbox js-filter-my-ads" data-url="{% url 'ads:my' %}" id="inactive-ads" type="checkbox" {% ifequal filter_by "inactive" %}checked{% endifequal %} {% ifequal filter_by None %}checked{% endifequal %}>
+                <label for="inactive-ads">{% trans "Inactive" %}</label>
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="mainMenu my-Ads">
+        <div class="container small">
+
+          <div class="heading heading1">
+            <input type="checkbox" class="checkbox"/>
+            <h1 class="title">{% trans "Product" %}</h1>
+          </div>
+          <div class="heading heading2">
+            <h1 class="title">{% trans "Price" %}</h1>
+          </div>
+          <div class="heading heading3">
+            <h1 class="title">{% trans "Date publish" %}</h1>
+          </div>
+          <div class="heading heading4">
+            <h1 class="title">{% trans "Messages" %}</h1>
+          </div>
+          <div class="heading heading5">
+            <h1 class="title">{% trans "Actions" %}</h1>
+          </div>
+
+          {% for ad in ads %}
+            <div class="column oneLine js-ad-column-{{ ad.pk }}">
+              <div class="element">
+                <input class="checkbox" type="checkbox" >
+              </div>
+              <div class="imgWrap">
+                <span class="img">
+                  {% if ad.primary_image %}
+                    <img src="{% storage_url ad.primary_image %}">
+                  {% endif %}
+                </span>
+                <span class="text">{{ ad.title }}</span>
+              </div>
+            </div>
+            <div class="column js-ad-column-{{ ad.pk }}">
+              <span>{{ ad.price }}$</span>
+            </div>
+            <div class="column js-date-column js-ad-column-{{ ad.pk }}">
+              <span>{{ ad.publish_date|date:"d.m.Y" }}</span>
+            </div>
+            <div class="column messages js-ad-column-{{ ad.pk }}">
+              <span>{{ ad.message_count }}</span>
+              <span class="iconWrap">
+                <i class="icon email"></i>
+              </span>
+            </div>
+            <div class="column actions oneLine js-ad-column-{{ ad.pk }}">
+              <span class="iconWrap repeat active js-republish-ad" data-id="{{ ad.pk }}" data-url="{% url 'ads:republish' %}">
+                <i class="icon repeat"></i>
+              </span>
+              <a href="{% url 'ads:edit' ad.pk %}" class="iconWrap">
+                <i class="icon edit"></i>
+              </a>
+              <span class="iconWrap js-remove-ad" data-id="{{ ad.pk }}" data-url="{% url 'ads:delete' %}">
+                <i class="icon delete"></i>
+              </span>
+              <span class="switchWrap active">
+                <input class="switch js-switch-ad" id="switch-ad-{{ ad.pk }}" type="checkbox"  data-id="{{ ad.pk }}" data-url="{% url 'ads:toggle_status' %}" {% if ad.status %}checked{% endif %}>
+                <label for="switch-ad-{{ ad.pk }}">
+                  <i class="icon"></i>
+                </label>
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'js/components/my_ads.js' %}"></script>
+
+{% endblock %}

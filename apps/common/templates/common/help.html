@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+<main class="main contact terms">
+  <div class="main-content small">
+    <div class="help-support">
+      <h1 class="title">{% trans "Help & support" %}</h1>
+      <h2 class="subTitle">{% trans "If you still have questions you can" %} <a href="{% url 'common:contact_us' %}">{% trans "Write us" %}</a></h2>
+      <form action="{% url 'common:help_and_support' %}" method="get" class="elementWrap">
+        <div class="element input">
+          <i class="icon search"></i>
+          <input type="text" name="q" value="{{ request.GET.q }}" class="inputAuthorisation" placeholder='{% trans "Search question" %}'/>
+        </div>
+      </form>
+      <div class="mainMenu">
+        {% for article in articles %}
+          <div class="element">
+            <div class="logoWrap">
+              <span></span>
+            </div>
+            <h3 class="title">{{ article.title }}</h3>
+
+            <p class="text">{{ article.description|truncatechars:142 }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

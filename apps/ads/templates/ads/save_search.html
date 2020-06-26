@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<main class="main">
+  <div class="main-content">
+    <div class="profile">
+      <div class="heading small">
+        {% include 'profile/includes/profile_heading.html' %}
+        <div class="heading-bottomSide">
+          {% include 'profile/includes/profile_nav.html' with tab='searches' %}
+        </div>
+      </div>
+      <div class="mainMenu favorites">
+        <div class="container small">
+          {% for search in searches %}
+            <div class="column oneLine js-search-column-{{ search.pk }}">
+              <a href="{{ search.search_url }}">{{ search.info }}</a>
+            </div>
+            <div class="column js-search-column-{{ search.pk }}">
+              <span></span>
+            </div>
+            <div class="column js-search-column-{{ search.pk }}">
+              <span></span>
+            </div>
+            <div class="column actions js-search-column-{{ search.pk }}">
+              <span class="iconWrap js-remove-search" data-id="{{ search.pk }}" data-url="{% url 'ads:save_search' %}">
+                <i class="icon delete"></i>
+              </span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'js/components/save_search.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load core_utils %}
+
+{% block content %}
+
+<main class="main homepage">
+    <div class="heading">
+
+      <div class="content small">
+        <form action="{% url 'ads:ads' %}" method="get" class="topSide" autocomplete="off" novalidate>
+          <div class="leftSide">
+            <div class="element input">
+              <i class="icon searchWhite"></i>
+              <input type="text" class="inputAuthorisation" placeholder="{% trans 'What are you looking for?' %}" name="q" />
+            </div>
+          </div>
+          <div class="rightSide">
+            <div class="element input">
+              <i class="icon locationWhite"></i>
+              <select class="form-control inputAuthorisation js-select2" name="city">
+                {% for city in cities %}
+                  <option value="{{ city.name }}">{{ city.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="buttonWrap">
+              <input type="submit" class="button blackWhite" value="Search">
+            </div>
+          </div>
+        </form>
+        <div class="bottomSide home-ad-categories">
+          <div class="element">
+            <div class="iconWrap">
+              <i class="icon car"></i>
+            </div>
+            <a class="inputAuthorisation form-control" href="{% url 'ads:ads' %}?category=Cars">{% trans "Cars" %}</a>
+          </div>
+          <div class="element">
+            <div class="iconWrap">
+              <i class="icon sale"></i>
+            </div>
+            <a class="inputAuthorisation form-control" href="{% url 'ads:ads' %}?category=Mobile">{% trans "Mobile" %}</a>
+          </div>
+          <div class="element">
+            <div class="iconWrap">
+              <i class="icon service"></i>
+            </div>
+            <a class="inputAuthorisation form-control" href="{% url 'ads:ads' %}?category=Services">{% trans "Services" %}</a>
+          </div>
+          <div class="element">
+            <div class="iconWrap">
+              <i class="icon job"></i>
+            </div>
+            <a class="inputAuthorisation form-control" href="{% url 'ads:ads' %}?category=Jobs">{% trans "Jobs" %}</a>
+          </div>
+          <div class="element">
+            <div class="iconWrap">
+              <i class="icon property"></i>
+            </div>
+            <a class="inputAuthorisation form-control" href="{% url 'ads:ads' %}?category=Real Estate">{% trans "Real Estate" %}</a>
+          </div>
+          <div class="element">
+            <div class="iconWrap">
+              <i class="icon pets"></i>
+            </div>
+            <a class="inputAuthorisation form-control" href="{% url 'ads:ads' %}?category=Pets">{% trans "Pets" %}</a>
+          </div>
+        </div>
+
+        <div class="bottomSide-mobile">
+          <div class="element">
+            <a href="{% url 'ads:ads' %}?category=Cars" class="link">
+              <div class="iconWrap">
+                <i class="icon car"></i>
+              </div>
+              <h1 class="text">cars</h1>
+            </a>
+          </div>
+          <div class="element">
+            <a href="{% url 'ads:ads' %}?category=Mobile" class="link">
+              <div class="iconWrap">
+                <i class="icon sale"></i>
+              </div>
+              <h1 class="text">Mobile</h1>
+            </a>
+          </div>
+          <div class="element">
+            <a href="{% url 'ads:ads' %}?category=Services" class="link">
+              <div class="iconWrap">
+                <i class="icon service"></i>
+              </div>
+              <h1 class="text">services</h1>
+            </a>
+          </div>
+          <div class="element">
+            <a href="{% url 'ads:ads' %}?category=Jobs" class="link">
+              <div class="iconWrap">
+                <i class="icon job"></i>
+              </div>
+              <h1 class="text">jobs</h1>
+            </a>
+          </div>
+          <div class="element">
+            <a href="{% url 'ads:ads' %}?category=Real Estate" class="link">
+              <div class="iconWrap">
+                <i class="icon property"></i>
+              </div>
+              <h1 class="text">real estate</h1>
+            </a>
+          </div>
+          <div class="element">
+            <a href="{% url 'ads:ads' %}?category=Pets" class="link">
+              <div class="iconWrap">
+                <i class="icon pets"></i>
+              </div>
+              <h1 class="text">pets</h1>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="main-content ">
+      <h1 class="title small">{% trans "Latest ads in Armenia" %}</h1>
+      <div class="hotSale small">
+        <div class="elementWrap">
+          {% for ad in ads %}
+            {% include "ads/includes/ad_element.html" with ad=ad %}
+          {% endfor %}
+        </div>
+        <div class="buttonWrap">
+          <a href="{% url 'ads:ads' %}" class="button mainColor">{% trans "See more ads" %}</a>
+        </div>
+      </div>
+
+      {% if events %}
+        <div class="events">
+          <h1 class="title small">{% trans "Latest events in Armenia" %}</h1>
+          <div class="eventsWrap" data-count="{{ events|length }}">
+            {% for event in events %}
+              {% include 'events/includes/event_element.html' with event=event %}
+            {% endfor %}
+          </div>
+          <div class="elementWrap">
+            <button class="eventsPrev prev"></button>
+            <div class="element">
+              <a href="{% url 'events:upcoming_events' %}" class="button mainColor">{% trans "See more events in Armenia" %}</a>
+            </div>
+            <button type="button" class="eventsNext next "></button>
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="tours">
+        <h1 class="title small">{% trans "Top places in Yerevan" %}</h1>
+        <div class="toursWrap" data-count="{{ services|length }}">
+          {% for service in services %}
+          <div class="toursElement">
+            <div class="imgWrap">
+              <img src="{{ service.cover.url }}" />
+            </div>
+            <div class="infoWrap">
+              <h1 class="title">{{ service.name }}</h1>
+              <div class="stars">
+                <span class="iconWrap">
+                  <i class="icon starActive"></i>
+                </span>
+                <span class="iconWrap">
+                  <i class="icon starActive"></i>
+                </span>
+                <span class="iconWrap">
+                  <i class="icon starActive"></i>
+                </span>
+                <span class="iconWrap">
+                  <i class="icon starActive"></i>
+                </span>
+                <span class="iconWrap">
+                  <i class="icon starInActive"></i>
+                </span>
+              </div>
+              <p class="text">
+                <span class="iconWrap">
+                  <i class="icon clockWhite"></i>
+                </span>
+                {{ service.opening_time }} - {{ service.closing_time }}
+              </p>
+              <p class="text">
+                <span class="iconWrap">
+                  <i class="icon locationWhite"></i>
+                </span>
+                {{ service.address }}
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="elementWrap">
+          <button class="toursPrev prev"></button>
+          <div class="element">
+            <a href="{% url 'common:services' %}" class="button mainColor">{% trans "See more places in Armenia" %}</a>
+          </div>
+          <button type="button" class="toursNext next "></button>
+        </div>
+      </div>
+
+      <div class="subscribeWrap ">
+        <h1 class="title">{% trans "Subscribe to our news" %}</h1>
+        <div class="elementWrap">
+          <div class="element input">
+            <i class="icon emailActive"></i>
+            <input class="inputAuthorisation" type="email" placeholder="Email">
+          </div>
+          <div class="buttonWrap">
+            <button class="button mainColor">{% trans "Subscribe" %}</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript">
+  {% if events %}
+    var eventCount = parseInt($('.eventsWrap').data('count'));
+    if (eventCount > 5) {
+      eventCount = 5;
+    }
+
+    $('.eventsWrap').slick({
+      slidesToShow: eventCount,
+      slidesToScroll: 1,
+      dots: false,
+      centerMode: true,
+      focusOnSelect: false,
+      prevArrow: $('.eventsPrev'),
+      nextArrow: $('.eventsNext'),
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            infinite: true,
+            dots: true
+          }
+        }
+      ]
+    });
+  {% endif %}
+
+  {% if services %}
+
+    var serviceCount = parseInt($('.toursWrap').data('count'));
+    if (serviceCount > 5) {
+      serviceCount = 5;
+    }
+    $('.toursWrap').slick({
+      slidesToShow: serviceCount,
+      slidesToScroll: 1,
+      dots: false,
+      centerMode: true,
+      focusOnSelect: false,
+      prevArrow: $('.toursPrev'),
+      nextArrow: $('.toursNext'),
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            infinite: true,
+            dots: true
+          }
+        }
+      ]
+    });
+  {% endif %}
+</script>
+
+{% endblock %}

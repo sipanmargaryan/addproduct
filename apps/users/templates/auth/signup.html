@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<main class="main ">
+  <div class="main-content small">
+    <div class="authorisation">
+
+      <div class="leftSide ">
+        <div class="leftSide-content">
+
+          <h1 class="title">{% trans "Sign up to your account" %}</h1>
+          <div class="topMenu">
+            <div class="leftSide">
+              <a href="{% url 'users:login' %}" class="breadcrumbs">{% trans "Sign in" %}</a>
+            </div>
+            <div class="rightSide">
+              <a href="{% url 'users:signup' %}" class="breadcrumbs active">{% trans "Sign up" %}</a>
+            </div>
+          </div>
+          <div class="mainMenu">
+            <div class="mainMenu-topSide">
+              <form action="{% url 'users:signup' %}" method="post" novalidate>
+                {% csrf_token %}
+                <div class="element input">
+                  <i class="icon person"></i>
+                  {{ form.full_name|attr:"class:inputAuthorisation" }}
+                </div>
+                {{ form.full_name.errors }}
+
+                <div class="element input">
+                  <i class="icon email"></i>
+                  {{ form.email|attr:"class:inputAuthorisation" }}
+                </div>
+                {{ form.email.errors }}
+
+                <div class="element input">
+                  <i class="icon smartphone"></i>
+                  {{ form.phone_number|attr:"type:tel"|attr:"class:inputAuthorisation" }}
+                </div>
+                {{ form.phone_number.errors }}
+
+                <div class="element input">
+                  <i class="icon password"></i>
+                  {{ form.password|attr:"class:inputAuthorisation" }}
+                </div>
+                {{ form.password.errors }}
+
+                {{ form.non_field_errors }}
+
+                <div class="element input">
+                  <input type="submit" class="button mainColor" value='{% trans "Sign up" %}'>
+                </div>
+
+              </form>
+            </div>
+            {% include 'auth/includes/social.html' %}
+          </div>
+        </div>
+      </div>
+      <div class="rightSide">
+        <img src="{% static 'assets/images/login/reg.jpg' %}"
+             srcset="{% static 'assets/images/login/reg.jpg' %} 1x,
+                      {% static 'assets/images/login/reg@2x.jpg' %} 2x,
+                      {% static 'assets/images/login/reg@3x.jpg' %} 3x"/>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

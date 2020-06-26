@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<main class="main">
+  <div class="main-content small">
+    <div class="authorisation">
+      <div class="leftSide ">
+        <div class="leftSide-content">
+          <h1 class="title">{% trans "Complete signup" %}</h1>
+          <h2 class="subTitle">{% trans "Enter your email to finish the last step" %}</h2>
+          <div class="mainMenu">
+            <div class="mainMenu-topSide">
+              <form method="post" action="{% url 'users:oauth_email' %}" novalidate>
+                {% csrf_token %}
+                <div class="element input">
+                  <i class="icon email"></i>
+                  {{ form.email|attr:"class:inputAuthorisation"|attr:"placeholder:Email" }}
+                </div>
+                {{ form.email.errors }}
+
+                {{ form.non_field_errors }}
+
+                <div class="element ">
+                  <input type="submit" class="button mainColor" value='{% trans "Sign up" %}'>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rightSide">
+        <img src="{% static 'assets/images/login/fs.jpg' %}"
+             srcset="{% static 'assets/images/login/fs.jpg' %} 1x,
+                      {% static 'assets/images/login/fs@2x.jpg' %} 2x,
+                      {% static 'assets/images/login/fs@3x.jpg' %} 3x"/>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

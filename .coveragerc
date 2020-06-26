@@ -1,0 +1,4 @@
+[report]
+omit =
+    apps/**/apps.py
+    apps/blog/*

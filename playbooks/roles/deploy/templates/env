@@ -1,0 +1,48 @@
+DEBUG={{ app_debug }}
+SECRET_KEY={{ app_secret_key }}
+ALLOWED_HOSTS={{ app_allowed_hosts }}
+INTERNAL_IPS=127.0.0.1
+
+ENABLE_DEBUG_TOOLBAR={{ app_debug_toolbar }}
+CELERY_TASK_ALWAYS_EAGER={{ app_celery_eager }}
+REDIS_HOST={{ app_redis_host }}
+COMPRESS_ENABLED={{ app_compress_enabled }}
+
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+
+DATABASE_URL={{ app_database_url }}
+
+CLIENT_DOMAIN={{ app_client_domain }}
+URL_SCHEME={{ app_url_scheme }}
+ENABLE_HTTP_BASIC_AUTH={{ app_basic_auth }}
+
+SOCIAL_GOOGLE_KEY={{ social_google_key }}
+SOCIAL_GOOGLE_SECRET={{ social_google_secret }}
+SOCIAL_TWITTER_CONSUMER_KEY={{ social_twitter_consumer_key }}
+SOCIAL_TWITTER_CONSUMER_SECRET={{ social_twitter_consumer_secret }}
+SOCIAL_FACEBOOK_KEY={{ social_facebook_key }}
+SOCIAL_FACEBOOK_SECRET={{ social_facebook_secret }}
+SOCIAL_INSTAGRAM_KEY={{ social_instagram_key }}
+SOCIAL_INSTAGRAM_SECRET={{ social_instagram_secret }}
+
+AWS_ACCESS_KEY_ID={{ aws_access_key }}
+AWS_SECRET_ACCESS_KEY={{ aws_secret_key }}
+AWS_STORAGE_BUCKET_NAME={{ aws_bucket_name }}
+
+
+PAYPAL_RECEIVER_EMAIL={{ paypal_receiver_email }}
+PAYPAL_IS_TEST_MODE={{ paypal_is_test_mode }}
+KNET_API_KEY={{ knet_api_key }}
+
+GOOGLE_API_KEY={{ google_api_key }}
+
+MAILCHIMP_API_KEY={{ mailchimp_api_key }}
+MAILCHIMP_LIST_ID={{ mailchimp_list_id }}
+
+GOOGLE_ANALYTICS_ID={{ google_analytics_id }}
+
+FCM_SERVER_KEY={{ fcm_server_key }}
+FIXER_KEY={{ fixer_key }}
+SENTRY_KEY={{ sentry_key }}

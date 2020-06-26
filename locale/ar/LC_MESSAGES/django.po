@@ -1,0 +1,1410 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-14 06:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: apps/ads/filters.py:29
+msgid "What are you looking for ?"
+msgstr ""
+
+#: apps/ads/models/ads.py:52 build/lib/ads/models.py:48
+msgid "New"
+msgstr "جديد"
+
+#: apps/ads/models/ads.py:53 build/lib/ads/models.py:49
+msgid "Used"
+msgstr ""
+
+#: apps/ads/models/ads.py:62
+#: apps/ads/templates/ads/includes/filter_form.html:21
+msgid "Private"
+msgstr "خاص"
+
+#: apps/ads/models/ads.py:63
+#, fuzzy
+#| msgid "Publish"
+msgid "Public"
+msgstr "نشر"
+
+#: apps/ads/models/subcategories.py:65
+msgid "Sedan"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:66
+msgid "Hatchback"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:67
+msgid "Wagon"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:68
+msgid "Coupe"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:69
+msgid "Convertible"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:70
+msgid "SUV/Truck"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:71
+msgid "Pickup Truck"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:72
+msgid "Minivan/Minibus"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:73
+msgid "Van"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:74
+msgid "Limousine"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:119
+msgid "Shop"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:120
+msgid "Apartment"
+msgstr ""
+
+#: apps/ads/models/subcategories.py:121
+msgid "Villa"
+msgstr ""
+
+#: apps/ads/templates/ads/ad_detail.html:50
+msgid "by"
+msgstr "من قبل"
+
+#: apps/ads/templates/ads/ad_detail.html:101
+#: apps/ads/templates/ads/ad_detail.html:126
+msgid "Call seller"
+msgstr "اتصل بالبائع"
+
+#: apps/ads/templates/ads/ad_detail.html:106
+#: apps/ads/templates/ads/ad_detail.html:131
+msgid "Call to WhatsApp"
+msgstr "اتصل من تطبيق الواتساب"
+
+#: apps/ads/templates/ads/ad_detail.html:111
+msgid "Write message"
+msgstr "اكتب رسالة"
+
+#: apps/ads/templates/ads/ad_detail.html:116
+#: apps/ads/templates/ads/ad_detail.html:136
+msgid "Write to WhatsApp"
+msgstr "اكتب رسالة على تطبيق الواتساب"
+
+#: apps/ads/templates/ads/ad_detail.html:157
+msgid "See Other ads for this seller"
+msgstr "شاهد اعلانات اخرى لهذا البائع"
+
+#: apps/ads/templates/ads/ad_detail.html:162
+msgid "Share with your friends"
+msgstr "شارك مع أصدقائك"
+
+#: apps/ads/templates/ads/ad_detail.html:170
+#: apps/ads/templates/ads/add_edit.html:224
+#: apps/events/templates/events/event_detail.html:75
+#: apps/faq/templates/faq/ask.html:54
+#: apps/faq/templates/faq/question_detail.html:107
+msgid "Description"
+msgstr "وصف"
+
+#: apps/ads/templates/ads/ad_detail.html:172
+msgid "Publish"
+msgstr "نشر"
+
+#: apps/ads/templates/ads/ad_detail.html:187
+msgid "Reviews about product"
+msgstr "آراء حول المنتج"
+
+#: apps/ads/templates/ads/ad_detail.html:210
+msgid "Leave a comment"
+msgstr "اترك تعليق"
+
+#: apps/ads/templates/ads/ad_detail.html:212
+msgid "Enter your feedback"
+msgstr "ضع رأيك"
+
+#: apps/ads/templates/ads/ad_detail.html:217
+msgid "Leave feedback"
+msgstr "ادخل تعليقك "
+
+#: apps/ads/templates/ads/ad_detail.html:227
+msgid "Recommended Ads For You"
+msgstr "إعلانات موصى بها لك"
+
+#: apps/ads/templates/ads/ad_detail.html:236
+#: apps/ads/templates/ads/ad_detail.html:241
+#: apps/ads/templates/ads/home.html:136
+msgid "See more ads"
+msgstr "شاهد المزيد من الاعلانات"
+
+#: apps/ads/templates/ads/add_edit.html:14
+msgid "Edit an ad"
+msgstr "عدّل إعلان"
+
+#: apps/ads/templates/ads/add_edit.html:16
+#: apps/payments/templates/payments/payment.html:12
+#, fuzzy
+#| msgid "Add an ad"
+msgid "Add an ad"
+msgstr "أضف إعلان"
+
+#: apps/ads/templates/ads/add_edit.html:20
+msgid "What do you want to sell?"
+msgstr "ماذا تريد أن تبيع؟"
+
+#: apps/ads/templates/ads/add_edit.html:23
+#: apps/ads/templates/ads/includes/filter_form.html:45
+#: apps/common/templates/common/living_in_kuwait.html:48
+#: apps/common/templates/common/living_in_kuwait.html:89
+#: apps/common/templates/common/services.html:39
+#: apps/events/templates/events/events.html:58
+#: apps/faq/templates/faq/ask.html:46
+#: apps/faq/templates/faq/question_detail.html:142
+#: apps/faq/templates/faq/questions.html:75
+msgid "Category"
+msgstr "صنف"
+
+#: apps/ads/templates/ads/add_edit.html:78
+msgid "Choose type of real estate"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:82
+#, fuzzy
+#| msgid "Seller"
+msgid "Sell"
+msgstr "بائع"
+
+#: apps/ads/templates/ads/add_edit.html:86
+msgid "Rental"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:98
+msgid "Car details"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:99
+msgid "Mileage"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:110 apps/payments/forms.py:21
+#: apps/payments/templates/payments/payment.html:66
+msgid "Year"
+msgstr "سنة"
+
+#: apps/ads/templates/ads/add_edit.html:116
+msgid "Body Style"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:130
+msgid "Estate details"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:131
+#: apps/ads/templates/ads/includes/filter_form.html:18
+#: apps/ads/templates/ads/includes/filter_form.html:83
+#: apps/payments/templates/payments/history.html:22
+msgid "Type"
+msgstr "نوع"
+
+#: apps/ads/templates/ads/add_edit.html:142
+msgid "Bedrooms"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:148
+msgid "Bathrooms"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:162
+msgid "Select Price"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:163
+#: apps/ads/templates/ads/includes/filter_form.html:59
+#: apps/ads/templates/ads/my.html:39
+msgid "Price"
+msgstr "سعر"
+
+#: apps/ads/templates/ads/add_edit.html:174
+msgid "Currency"
+msgstr "عملة"
+
+#: apps/ads/templates/ads/add_edit.html:180
+msgid "Type seller?"
+msgstr "نوع البائع؟"
+
+#: apps/ads/templates/ads/add_edit.html:182
+msgid "Seller"
+msgstr "بائع"
+
+#: apps/ads/templates/ads/add_edit.html:193
+#, fuzzy
+#| msgid "What is the state of product?"
+msgid "What is the state of your product?"
+msgstr "ما هو حال المنتج؟"
+
+#: apps/ads/templates/ads/add_edit.html:218
+msgid "Tell about your ad"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:219
+msgid "Title"
+msgstr "عنوان"
+
+#: apps/ads/templates/ads/add_edit.html:229
+msgid "Image"
+msgstr "صورة"
+
+#: apps/ads/templates/ads/add_edit.html:237
+msgid "Add image"
+msgstr "أضف صورة"
+
+#: apps/ads/templates/ads/add_edit.html:252
+msgid "Choose at least one image representing your ad."
+msgstr "اختر صورة واحدة على الأقل تعرف عن الإعلان"
+
+#: apps/ads/templates/ads/add_edit.html:258
+#, fuzzy
+#| msgid "Contact us"
+msgid "Contact details"
+msgstr "اتصل بنا"
+
+#: apps/ads/templates/ads/add_edit.html:261 apps/faq/templates/faq/ask.html:64
+#: apps/faq/templates/faq/question_detail.html:116
+msgid "Name"
+msgstr "إسم"
+
+#: apps/ads/templates/ads/add_edit.html:266 apps/faq/templates/faq/ask.html:71
+#: apps/faq/templates/faq/question_detail.html:123 apps/users/forms/auth.py:13
+#: apps/users/forms/auth.py:55 apps/users/forms/auth.py:104
+#: apps/users/forms/auth.py:151 apps/users/templates/profile/profile.html:53
+msgid "Email"
+msgstr "بريد إلكتروني"
+
+#: apps/ads/templates/ads/add_edit.html:275
+#: apps/ads/templates/ads/includes/filter_form.html:32
+#: apps/users/templates/profile/profile.html:63
+msgid "City"
+msgstr "مدينة"
+
+#: apps/ads/templates/ads/add_edit.html:279
+#: apps/users/templates/profile/profile.html:58
+msgid "Phone"
+msgstr "هاتف"
+
+#: apps/ads/templates/ads/add_edit.html:290
+msgid "Choose package of your ad"
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:298
+msgid "free"
+msgstr "مجاني"
+
+#: apps/ads/templates/ads/add_edit.html:301
+#: apps/ads/templates/ads/add_edit.html:322
+#: apps/ads/templates/ads/add_edit.html:323
+#: apps/ads/templates/ads/add_edit.html:324
+#: apps/ads/templates/ads/add_edit.html:325
+#: apps/ads/templates/ads/add_edit.html:326
+#: apps/ads/templates/ads/add_edit.html:327
+#: apps/payments/templates/payments/payment.html:38
+msgid "days"
+msgstr "أيام"
+
+#: apps/ads/templates/ads/add_edit.html:304
+msgid "kwd"
+msgstr "د‫.‬ك"
+
+#: apps/ads/templates/ads/add_edit.html:316
+msgid "Premium paid"
+msgstr "مدفوع"
+
+#: apps/ads/templates/ads/add_edit.html:321
+#, fuzzy
+#| msgid "days"
+msgid "day"
+msgstr "أيام"
+
+#: apps/ads/templates/ads/add_edit.html:342
+msgid ""
+"By selecting Post My Ad you agree you've read and accepted our Terms of Use "
+"and Posting Rules. Please see our Privacy Notice for information regarding "
+"the processing of your data."
+msgstr ""
+
+#: apps/ads/templates/ads/add_edit.html:345
+msgid "Edit my ad"
+msgstr "عدّل الاعلان"
+
+#: apps/ads/templates/ads/add_edit.html:345
+msgid "Add my ad"
+msgstr "أضف إعلان"
+
+#: apps/ads/templates/ads/ads.html:13
+#, fuzzy
+#| msgid "Add image"
+msgid "Add filter"
+msgstr "أضف صورة"
+
+#: apps/ads/templates/ads/ads.html:15
+msgid "ads in Appliances for Sale in Kuwait"
+msgstr "إعلانات في أجهزة للبيع داخل الكويت"
+
+#: apps/ads/templates/ads/ads.html:17 apps/blog/templates/blog/articles.html:38
+#: apps/events/templates/events/events.html:54
+msgid "Sorting by"
+msgstr "تصنيف حسب"
+
+#: apps/ads/templates/ads/ads.html:20
+msgid "Most recent"
+msgstr "الأحدث"
+
+#: apps/ads/templates/ads/ads.html:21
+msgid "Price low to high"
+msgstr "السعر من الأرخص إلى الأغلى"
+
+#: apps/ads/templates/ads/ads.html:22
+msgid "Price high to low"
+msgstr "السعر من الأغلى إلى الأرخص"
+
+#: apps/ads/templates/ads/ads.html:44
+msgid "load next"
+msgstr ""
+
+#: apps/ads/templates/ads/ads.html:44
+msgid "ads"
+msgstr ""
+
+#: apps/ads/templates/ads/home.html:17
+msgid "What are you looking for?"
+msgstr ""
+
+#: apps/ads/templates/ads/home.html:39
+#: project/templates/includes/footer.html:17
+msgid "Cars"
+msgstr ""
+
+#: apps/ads/templates/ads/home.html:45
+msgid "Mobile"
+msgstr ""
+
+#: apps/ads/templates/ads/home.html:51
+#: project/templates/includes/footer.html:19
+msgid "Services"
+msgstr ""
+
+#: apps/ads/templates/ads/home.html:57
+#: project/templates/includes/footer.html:24
+#: project/templates/includes/footer_mobile.html:17
+msgid "Jobs"
+msgstr ""
+
+#: apps/ads/templates/ads/home.html:63
+#: project/templates/includes/footer.html:18
+msgid "Real Estate"
+msgstr ""
+
+#: apps/ads/templates/ads/home.html:69
+#: project/templates/includes/footer.html:26
+#: project/templates/includes/footer_mobile.html:19
+msgid "Pets"
+msgstr ""
+
+#: apps/ads/templates/ads/home.html:128
+#, fuzzy
+#| msgid "Living in Kuwait"
+msgid "Latest ads in Kuwait"
+msgstr "المقيمين في الكويت"
+
+#: apps/ads/templates/ads/home.html:142
+#, fuzzy
+#| msgid "See more events in your city"
+msgid "Latest events in Kuwait City"
+msgstr "تعرف على مزيد من الأحداث القادمة داخل منطقتك"
+
+#: apps/ads/templates/ads/home.html:151
+#, fuzzy
+#| msgid "See more events in your city"
+msgid "See more events in Kuwait"
+msgstr "تعرف على مزيد من الأحداث القادمة داخل منطقتك"
+
+#: apps/ads/templates/ads/home.html:159
+msgid "Touristic top places in Armenia"
+msgstr ""
+
+#: apps/ads/templates/ads/home.html:204
+#, fuzzy
+#| msgid "See more events in your city"
+msgid "See more places in Kuwait"
+msgstr "تعرف على مزيد من الأحداث القادمة داخل منطقتك"
+
+#: apps/ads/templates/ads/home.html:211
+#: apps/blog/templates/blog/articles.html:266
+msgid "Subscribe to our news"
+msgstr "سجّل لمعرفة أخبارنا"
+
+#: apps/ads/templates/ads/home.html:218
+#: apps/blog/templates/blog/article_detail.html:109
+#: apps/blog/templates/blog/article_detail.html:115
+#: apps/blog/templates/blog/articles.html:273
+msgid "Subscribe"
+msgstr "سجّل"
+
+#: apps/ads/templates/ads/includes/ad_element.html:24
+#, fuzzy
+#| msgid "To"
+msgid "Top"
+msgstr "إلي"
+
+#: apps/ads/templates/ads/includes/ad_element.html:32
+msgid "More details"
+msgstr ""
+
+#: apps/ads/templates/ads/includes/ad_element.html:37
+msgid "For sale"
+msgstr "للبيع"
+
+#: apps/ads/templates/ads/includes/filter_form.html:7
+msgid "Notify me"
+msgstr ""
+
+#: apps/ads/templates/ads/includes/filter_form.html:10
+msgid "Keyword"
+msgstr "كلمات اساسية"
+
+#: apps/ads/templates/ads/includes/filter_form.html:24
+msgid "Business"
+msgstr "تجارة"
+
+#: apps/ads/templates/ads/includes/filter_form.html:27
+#: apps/ads/templates/ads/includes/filter_form.html:92
+#: apps/blog/templates/blog/articles.html:22
+msgid "All"
+msgstr "جميع"
+
+#: apps/ads/templates/ads/includes/filter_form.html:36
+msgid "All places"
+msgstr "جميع الاماكن"
+
+#: apps/ads/templates/ads/includes/filter_form.html:63
+msgid "From"
+msgstr "من"
+
+#: apps/ads/templates/ads/includes/filter_form.html:69
+msgid "To"
+msgstr "إلي"
+
+#: apps/ads/templates/ads/includes/filter_form.html:86
+msgid "NEW"
+msgstr "جديد"
+
+#: apps/ads/templates/ads/includes/filter_form.html:89
+msgid "b/a"
+msgstr "ب‫/‬أ"
+
+#: apps/ads/templates/ads/includes/filter_form.html:97
+#: apps/common/templates/common/services.html:37
+msgid "Filter"
+msgstr "فلتر"
+
+#: apps/ads/templates/ads/my.html:20
+msgid "Active"
+msgstr "فعال"
+
+#: apps/ads/templates/ads/my.html:24
+msgid "Inactive"
+msgstr "غير فعال"
+
+#: apps/ads/templates/ads/my.html:36
+#, fuzzy
+#| msgid "Product"
+msgid "Product"
+msgstr "منتج"
+
+#: apps/ads/templates/ads/my.html:42
+msgid "Date publish"
+msgstr "تاريخ النشر"
+
+#: apps/ads/templates/ads/my.html:45
+#: apps/messaging/templates/messaging/inbox_detail.html:25
+#: apps/users/templates/profile/includes/profile_nav.html:16
+#: project/templates/includes/header.html:33
+msgid "Messages"
+msgstr "رسائل"
+
+#: apps/ads/templates/ads/my.html:48
+#: apps/messaging/templates/messaging/inbox.html:30
+msgid "Actions"
+msgstr "افعال"
+
+#: apps/ads/templates/ads/seller.html:12
+msgid "Author of ads"
+msgstr "مؤلف الاعلانات"
+
+#: apps/ads/templates/ads/seller.html:16
+msgid "Location"
+msgstr "موقع"
+
+#: apps/ads/templates/ads/seller.html:25
+msgid "Contact number"
+msgstr "رقم التواصل"
+
+#: apps/ads/templates/ads/seller.html:34
+msgid "Email address"
+msgstr "بريد إلكتروني"
+
+#: apps/blog/templates/blog/article_detail.html:64
+msgid "Comments"
+msgstr "تعليقات"
+
+#: apps/blog/templates/blog/article_detail.html:75
+msgid "Write comment"
+msgstr "اكتب تعليق"
+
+#: apps/blog/templates/blog/article_detail.html:89
+msgid "Share it in Social Network"
+msgstr "شارك تعليقك على مواقع التواصل الاجتماعي"
+
+#: apps/blog/templates/blog/article_detail.html:95
+msgid "RECENT POST"
+msgstr "احدث منشور"
+
+#: apps/blog/templates/blog/article_detail.html:104
+msgid "Show more"
+msgstr "شاهد المزيد"
+
+#: apps/blog/templates/blog/article_detail.html:112
+msgid "Enter your email address"
+msgstr "أدخل بريدك الإلكتروني"
+
+#: apps/blog/templates/blog/articles.html:17
+msgid "Blog"
+msgstr "بلوغ"
+
+#: apps/blog/templates/blog/articles.html:30
+#: apps/common/templates/common/help.html:15
+#: apps/faq/templates/faq/questions.html:33
+msgid "Search question"
+msgstr "ابحث عن سؤال"
+
+#: apps/blog/templates/blog/articles.html:36
+msgid "Latest news"
+msgstr "أحدث الأخبار"
+
+#: apps/blog/templates/blog/articles.html:41
+#: apps/events/templates/events/events.html:57
+#: apps/messaging/templates/messaging/inbox.html:27
+#: apps/payments/templates/payments/history.html:19
+msgid "Date"
+msgstr "تاريخ"
+
+#: apps/blog/templates/blog/articles.html:42
+msgid "Most viewed"
+msgstr "الأكثر مشاهدة"
+
+#: apps/blog/templates/blog/articles.html:221
+msgid "News"
+msgstr "أخبار"
+
+#: apps/blog/templates/blog/includes/comment.html:21
+#: apps/faq/templates/faq/question_detail.html:91
+msgid "Report"
+msgstr "أبلغ عن"
+
+#: apps/blog/templates/blog/includes/comment.html:27
+#: apps/faq/templates/faq/question_detail.html:97
+msgid "Reply"
+msgstr "رد"
+
+#: apps/common/templates/common/contact_us.html:12
+#, fuzzy
+#| msgid "Contact us"
+msgid "Contact us"
+msgstr "اتصل بنا"
+
+#: apps/common/templates/common/contact_us.html:13
+msgid "Write us if you have any questions"
+msgstr "تواصل معنا في حال لديك أي استفسار "
+
+#: apps/common/templates/common/contact_us.html:41
+#: apps/messaging/templates/messaging/inbox_detail.html:49
+msgid "Send"
+msgstr "ارسل"
+
+#: apps/common/templates/common/help.html:10
+#, fuzzy
+#| msgid "Help & support"
+msgid "Help & support"
+msgstr "ساعد وادعم"
+
+#: apps/common/templates/common/help.html:11
+msgid "If you still have questions you can"
+msgstr "في حال كان لديك المزيد من الاستفسار يمكنك أن"
+
+#: apps/common/templates/common/help.html:11
+msgid "Write us"
+msgstr "تواصل معنا"
+
+#: apps/common/templates/common/living_in_kuwait.html:16
+#: apps/common/templates/common/services.html:16
+#: project/templates/includes/footer_mobile.html:23
+#: project/templates/includes/header.html:51
+#: project/templates/includes/header_mobile.html:12
+msgid "Living in Paris"
+msgstr "المقيمين في الكويت"
+
+#: apps/common/templates/common/living_in_kuwait.html:20
+msgid "Top FAQ"
+msgstr ""
+
+#: apps/common/templates/common/living_in_kuwait.html:27
+#: apps/common/templates/common/living_in_kuwait.html:66
+#: apps/faq/templates/faq/question_detail.html:67
+#: apps/faq/templates/faq/question_detail.html:72
+msgid "Answers"
+msgstr "أجوبة"
+
+#: apps/common/templates/common/living_in_kuwait.html:36
+#: apps/common/templates/common/living_in_kuwait.html:77
+#: apps/faq/templates/faq/question_detail.html:49
+#: apps/faq/templates/faq/question_detail.html:179
+#: apps/faq/templates/faq/questions.html:55
+msgid "Asked"
+msgstr "أسئلة مطروحة"
+
+#: apps/common/templates/common/living_in_kuwait.html:43
+#: apps/common/templates/common/living_in_kuwait.html:84
+#: apps/faq/templates/faq/question_detail.html:55
+#: apps/faq/templates/faq/question_detail.html:190
+#: apps/faq/templates/faq/questions.html:66
+msgid "Author"
+msgstr "مؤلف"
+
+#: apps/common/templates/common/living_in_kuwait.html:56
+#: apps/common/templates/common/living_in_kuwait.html:97
+msgid "See more FAQ"
+msgstr "اقرأ المزيد من الأسئلة الأكثر شيوعا"
+
+#: apps/common/templates/common/living_in_kuwait.html:101
+msgid "Organisations & Services"
+msgstr "منظمات وخدمات"
+
+#: apps/common/templates/common/living_in_kuwait.html:146
+#: apps/common/templates/common/living_in_kuwait.html:193
+msgid "See more Organisations & services in your city"
+msgstr "الاطلاع على المزيد من المنظمات والخدمات داخل منطقتك"
+
+#: apps/common/templates/common/living_in_kuwait.html:198
+#: apps/events/templates/events/events.html:51
+msgid "Upcoming events"
+msgstr "الأحداث القادمة"
+
+#: apps/common/templates/common/living_in_kuwait.html:205
+msgid "See more events in your city"
+msgstr "تعرف على مزيد من الأحداث القادمة داخل منطقتك"
+
+#: apps/common/templates/common/services.html:20
+msgid "Choose your location"
+msgstr "اختر موقعك"
+
+#: apps/common/templates/common/services.html:31
+msgid "Search organisation & service"
+msgstr "ابحث عن المنظمات والخدمات"
+
+#: apps/common/templates/common/services.html:54
+msgid "Organizations and Services in Kuwait"
+msgstr "منظمات وخدمات داخل الكويت "
+
+#: apps/common/utils.py:10
+#, fuzzy
+#| msgid "Contact us"
+msgid "Contact US"
+msgstr "اتصل بنا"
+
+#: apps/core/templates/core/includes/pagination.html:5
+msgid "first"
+msgstr "الأول"
+
+#: apps/core/templates/core/includes/pagination.html:32
+msgid "last"
+msgstr "الأخير"
+
+#: apps/core/utils/utils.py:82
+msgid "This field is required"
+msgstr ""
+
+#: apps/events/templates/events/event_detail.html:63
+msgid "Register to Event"
+msgstr "سجل في حدث"
+
+#: apps/events/templates/events/event_detail.html:66
+msgid "Add to Google Calendar"
+msgstr "أضف الى رزنامة غوغل"
+
+#: apps/events/templates/events/event_detail.html:70
+msgid "Share event"
+msgstr "شارك حدث"
+
+#: apps/events/templates/events/events.html:15
+#: project/templates/includes/footer.html:32
+#: project/templates/includes/footer_mobile.html:25
+msgid "Events"
+msgstr ""
+
+#: apps/events/templates/events/events.html:30
+#, fuzzy
+#| msgid "Location"
+msgid "All Locations"
+msgstr "موقع"
+
+#: apps/events/templates/events/events.html:38
+#, fuzzy
+#| msgid "All Categories"
+msgid "All Categories"
+msgstr "جميع الفئات"
+
+#: apps/events/templates/events/events.html:46
+#, fuzzy
+#| msgid "Share event"
+msgid "Search events"
+msgstr "شارك حدث"
+
+#: apps/events/templates/events/events.html:51
+msgid "Previous events"
+msgstr "الأحداث السابقة"
+
+#: apps/events/templates/events/events.html:75
+msgid "Show more events"
+msgstr "عرض المزيد من الأحداث"
+
+#: apps/faq/api/serializers.py:92 apps/faq/forms.py:21
+#: apps/users/api/serializers/profile.py:79 apps/users/forms/auth.py:80
+#: apps/users/forms/profile.py:26 build/lib/faq/forms.py:18
+#: build/lib/users/forms/auth.py:46 build/lib/users/forms/profile.py:26
+msgid "Make sure you have first and last names included."
+msgstr ""
+
+#: apps/faq/templates/faq/ask.html:15
+#: apps/faq/templates/faq/question_detail.html:22
+#: apps/faq/templates/faq/questions.html:15
+msgid "Ask question"
+msgstr "اطرح سؤال"
+
+#: apps/faq/templates/faq/ask.html:19
+#: apps/faq/templates/faq/question_detail.html:26
+#: apps/faq/templates/faq/questions.html:19
+msgid "Top questions"
+msgstr "أهم الأسئلة المطروحة"
+
+#: apps/faq/templates/faq/ask.html:22
+#: apps/faq/templates/faq/question_detail.html:29
+#: apps/faq/templates/faq/questions.html:22
+msgid "Recent questions"
+msgstr "الأسئلة المطروحة سابقا"
+
+#: apps/faq/templates/faq/ask.html:25
+#: apps/faq/templates/faq/question_detail.html:32
+#: apps/faq/templates/faq/questions.html:25
+msgid "Ask questions"
+msgstr "اطرح أسئلة"
+
+#: apps/faq/templates/faq/ask.html:31 apps/faq/templates/faq/ask.html:81
+#: apps/faq/templates/faq/question_detail.html:133
+msgid "Add question"
+msgstr "أضف سؤال"
+
+#: apps/faq/templates/faq/ask.html:33
+msgid "About your question"
+msgstr "فيما يتعلق بسؤالك"
+
+#: apps/faq/templates/faq/ask.html:37
+msgid "Question"
+msgstr "سؤال"
+
+#: apps/faq/templates/faq/ask.html:38
+msgid "In one sentence"
+msgstr "بجملة واحدة"
+
+#: apps/faq/templates/faq/ask.html:61
+msgid "Your contact info"
+msgstr "معلومات الاتصال الخاصة بك"
+
+#: apps/faq/templates/faq/question_detail.html:61
+#: apps/faq/templates/faq/question_detail.html:185
+#: apps/faq/templates/faq/questions.html:61
+msgid "Theme"
+msgstr "محور"
+
+#: apps/faq/templates/faq/question_detail.html:161
+msgid "Other questions"
+msgstr "أسئلة أخرى"
+
+#: apps/faq/templates/faq/question_detail.html:199
+msgid "See more questions"
+msgstr "اطلع على مزيد من الاسئلة"
+
+#: apps/faq/templates/faq/questions.html:39
+msgid "Questions"
+msgstr "أسئلة"
+
+#: apps/messaging/api/serializers.py:103
+msgid "Chat has been blocked."
+msgstr ""
+
+#: apps/messaging/templates/messaging/inbox.html:21
+msgid "Ad/messages"
+msgstr "إعلان/رسائل"
+
+#: apps/messaging/templates/messaging/inbox.html:24
+msgid "User"
+msgstr "مستخدم"
+
+#: apps/messaging/templates/messaging/inbox_detail.html:23
+msgid "Back"
+msgstr "رجوع"
+
+#: apps/messaging/templates/messaging/inbox_detail.html:47
+msgid "Enter Your message here"
+msgstr "ادخل رسالتك هنا"
+
+#: apps/messaging/views.py:108 build/lib/messaging/views.py:101
+#, fuzzy
+#| msgid "Write message"
+msgid "Invalid message."
+msgstr "اكتب رسالة"
+
+#: apps/messaging/views.py:123 apps/messaging/views.py:150
+#: build/lib/messaging/views.py:116
+msgid "Thread is blocked."
+msgstr ""
+
+#: apps/payments/api/serializers/payment.py:54
+msgid "Invalid Card Credentials."
+msgstr ""
+
+#: apps/payments/api/serializers/payment.py:91
+#, fuzzy
+#| msgid "Your payment was successful"
+msgid "Your Payment has been successfully proceed"
+msgstr "تمت عملية الدفع بنجاح"
+
+#: apps/payments/forms.py:15 apps/payments/templates/payments/payment.html:60
+msgid "Expiration"
+msgstr "انتهاء الصلاحية"
+
+#: apps/payments/forms.py:27 apps/payments/templates/payments/payment.html:52
+msgid "Credit card number"
+msgstr "رقم بطاقة الإئتمان"
+
+#: apps/payments/models.py:20 apps/payments/templates/payments/payment.html:18
+msgid "Credit Card"
+msgstr "بطاقة الإئتمان"
+
+#: apps/payments/models.py:21
+msgid "Paypal"
+msgstr ""
+
+#: apps/payments/models.py:22
+msgid "KNET"
+msgstr ""
+
+#: apps/payments/models.py:27
+msgid "advertisement ad"
+msgstr ""
+
+#: apps/payments/models.py:33
+msgid "pending"
+msgstr ""
+
+#: apps/payments/models.py:34
+msgid "paid"
+msgstr ""
+
+#: apps/payments/templates/payments/error.html:10
+msgid "Sorry"
+msgstr "عذرا"
+
+#: apps/payments/templates/payments/error.html:11
+msgid "Your payment wasn't successful"
+msgstr "تم رفض عملية الدفع"
+
+#: apps/payments/templates/payments/error.html:13
+msgid "Contact with support"
+msgstr "تواصل مع فرع المساعدة"
+
+#: apps/payments/templates/payments/history.html:25
+msgid "Number"
+msgstr "رقم"
+
+#: apps/payments/templates/payments/history.html:28
+msgid "Payment method"
+msgstr "طريقة الدفع"
+
+#: apps/payments/templates/payments/history.html:31
+msgid "Cost"
+msgstr "كلفة"
+
+#: apps/payments/templates/payments/payment.html:24
+msgid "Knet"
+msgstr "كي نت"
+
+#: apps/payments/templates/payments/payment.html:30
+msgid "PayPal"
+msgstr "باي بال"
+
+#: apps/payments/templates/payments/payment.html:37
+msgid "Total cost"
+msgstr "التكلفة الإجمالية"
+
+#: apps/payments/templates/payments/payment.html:38
+msgid "Top post on"
+msgstr "تشغيل أهم المنشورات"
+
+#: apps/payments/templates/payments/payment.html:48
+msgid "Info about card"
+msgstr "معلومات عن البطاقة"
+
+#: apps/payments/templates/payments/payment.html:82
+msgid "Pay now"
+msgstr "ادفع الآن"
+
+#: apps/payments/templates/payments/payment.html:93
+msgid "Pay Now with Knet"
+msgstr "ادفع الآن عن طريق الكي نت"
+
+#: apps/payments/templates/payments/payment.html:104
+msgid "Pay Now with paypal"
+msgstr "ادفع الآن عن طريق الباي بال"
+
+#: apps/payments/templates/payments/success.html:15
+msgid "Congratulation"
+msgstr "مبروك"
+
+#: apps/payments/templates/payments/success.html:16
+msgid "Your payment was successful"
+msgstr "تمت عملية الدفع بنجاح"
+
+#: apps/payments/templates/payments/success.html:18
+msgid "Go to homepage"
+msgstr "ارجع الى الصفحة الرئيسية"
+
+#: apps/users/api/serializers/auth.py:64 apps/users/forms/auth.py:33
+#: build/lib/users/forms/auth.py:16
+msgid "Invalid login credentials."
+msgstr ""
+
+#: apps/users/api/serializers/auth.py:91
+msgid "Provided name is invalid."
+msgstr ""
+
+#: apps/users/api/serializers/auth.py:101
+msgid "A user with this email address is already exists."
+msgstr ""
+
+#: apps/users/api/serializers/auth.py:120
+msgid "Please confirm your email."
+msgstr ""
+
+#: apps/users/api/serializers/auth.py:131
+msgid "Invalid token."
+msgstr ""
+
+#: apps/users/api/serializers/auth.py:142
+msgid "You have successfully confirmed you email address."
+msgstr ""
+
+#: apps/users/api/serializers/auth.py:160
+#, fuzzy
+#| msgid "Please, check your email and create new password."
+msgid "Please check your email."
+msgstr "الرجاء مراجعة بريدك الالكتروني وضع كلمة سر جديدة"
+
+#: apps/users/api/serializers/auth.py:173
+msgid "Invalid Reset Password Link."
+msgstr ""
+
+#: apps/users/api/serializers/profile.py:94
+msgid "Old password is required."
+msgstr ""
+
+#: apps/users/api/serializers/profile.py:97
+#, fuzzy
+#| msgid "Send password"
+msgid "Invalid password."
+msgstr "ارسل كلمة السر"
+
+#: apps/users/api/serializers/profile.py:111
+msgid "Your password updated."
+msgstr ""
+
+#: apps/users/forms/auth.py:17 apps/users/forms/auth.py:57
+#, fuzzy
+#| msgid "New password"
+msgid "Password"
+msgstr "كلمة السر الجديدة"
+
+#: apps/users/forms/auth.py:24 apps/users/forms/auth.py:65
+#: apps/users/forms/auth.py:110 apps/users/forms/auth.py:157
+#, fuzzy
+#| msgid "Enter your email address"
+msgid "Enter a valid email address"
+msgstr "أدخل بريدك الإلكتروني"
+
+#: apps/users/forms/auth.py:49
+msgid "First & Last name"
+msgstr ""
+
+#: apps/users/forms/auth.py:56
+#, fuzzy
+#| msgid "Number"
+msgid "Phone Number"
+msgstr "رقم"
+
+#: apps/users/forms/auth.py:133 apps/users/forms/profile.py:82
+#: build/lib/users/forms/auth.py:91 build/lib/users/forms/profile.py:82
+msgid "Passwords didn't match."
+msgstr ""
+
+#: apps/users/forms/auth.py:164 build/lib/users/forms/auth.py:114
+msgid "User with this email address already exist."
+msgstr ""
+
+#: apps/users/forms/profile.py:42 apps/users/templates/profile/profile.html:86
+#: build/lib/users/forms/profile.py:42
+msgid "Current password"
+msgstr "كلمة السر الحالية"
+
+#: apps/users/forms/profile.py:48 apps/users/templates/profile/profile.html:91
+#: build/lib/users/forms/profile.py:48
+msgid "New password"
+msgstr "كلمة السر الجديدة"
+
+#: apps/users/forms/profile.py:53 build/lib/users/forms/profile.py:53
+#, fuzzy
+#| msgid "Confirm password"
+msgid "Confirm new Password"
+msgstr "أكّد كلمة السر "
+
+#: apps/users/forms/profile.py:75 build/lib/users/forms/profile.py:75
+#, fuzzy
+#| msgid "Current password"
+msgid "Current password is incorrect."
+msgstr "كلمة السر الحالية"
+
+#: apps/users/templates/auth/forgot_password.html:14
+#: apps/users/templates/auth/login.html:14
+msgid "Sign in your account"
+msgstr "سجل حسابك"
+
+#: apps/users/templates/auth/forgot_password.html:15
+msgid "Enter your email and we will send you access"
+msgstr "ادخل بريدك الالكتروني لتستطيع الدخول"
+
+#: apps/users/templates/auth/forgot_password.html:29
+msgid "Send password"
+msgstr "ارسل كلمة السر"
+
+#: apps/users/templates/auth/forgot_password_success.html:17
+#: apps/users/templates/auth/signup_success.html:17
+msgid "Success"
+msgstr "نجاح"
+
+#: apps/users/templates/auth/forgot_password_success.html:18
+msgid "We’ve sent you access for access on your email"
+msgstr "يمكنك الآن الدخول الى بريدك الالكتروني"
+
+#: apps/users/templates/auth/forgot_password_success.html:19
+msgid "Please, check your email and create new password."
+msgstr "الرجاء مراجعة بريدك الالكتروني وضع كلمة سر جديدة"
+
+#: apps/users/templates/auth/includes/social.html:4
+msgid "Or use social"
+msgstr "او استخدم موقع تواصل اجتماعي آخر"
+
+#: apps/users/templates/auth/login.html:17
+#: apps/users/templates/auth/login.html:43
+#: apps/users/templates/auth/signup.html:19
+#, fuzzy
+#| msgid "Sign in"
+msgid "Sign in"
+msgstr "دخول"
+
+#: apps/users/templates/auth/login.html:20
+#: apps/users/templates/auth/oauth_email.html:29
+#: apps/users/templates/auth/signup.html:22
+#: apps/users/templates/auth/signup.html:56
+#: project/templates/includes/header.html:45
+msgid "Sign up"
+msgstr "خروج"
+
+#: apps/users/templates/auth/oauth_email.html:14
+msgid "Complete signup"
+msgstr "اكمل عملية الدخول"
+
+#: apps/users/templates/auth/oauth_email.html:15
+msgid "Enter your email to finish the last step"
+msgstr "ضع بريدك الالكتروني لتنجز آخر خطوة"
+
+#: apps/users/templates/auth/reset_password.html:14
+#, fuzzy
+#| msgid "Change Password"
+msgid "Change your password"
+msgstr "غير كلمة السر"
+
+#: apps/users/templates/auth/reset_password.html:15
+msgid "Enter your new password and confirm it"
+msgstr "غير كلمة السر"
+
+#: apps/users/templates/auth/reset_password.html:35
+msgid "Change password and return to sign in"
+msgstr "ادخل كلمة السر الجديدة وأكد دخولها"
+
+#: apps/users/templates/auth/signup.html:16
+msgid "Sign up to your account"
+msgstr "سجل الي حسابك"
+
+#: apps/users/templates/auth/signup_success.html:18
+msgid "We’ve sent you confirmation link on your email"
+msgstr "لقد ارسلنا لك رابط تأكيد على بريدك الالكتروني"
+
+#: apps/users/templates/auth/signup_success.html:19
+msgid "Please, check your email and activate your account."
+msgstr "الرجاء التأكد من البريد الالكتروني وقم بتشغيل حسابك"
+
+#: apps/users/templates/profile/includes/profile_heading.html:4
+msgid "Profile"
+msgstr "بروفايل"
+
+#: apps/users/templates/profile/includes/profile_heading.html:6
+msgid "Log out"
+msgstr "خروج"
+
+#: apps/users/templates/profile/includes/profile_nav.html:6
+#: apps/users/templates/profile/profile.html:23
+#: project/templates/includes/header.html:31
+msgid "Personal Information"
+msgstr "معلومات شخصية"
+
+#: apps/users/templates/profile/includes/profile_nav.html:11
+#: project/templates/includes/header.html:32
+msgid "My Ads"
+msgstr "الاعلانات الخاصة بي"
+
+#: apps/users/templates/profile/includes/profile_nav.html:21
+#: project/templates/includes/header.html:34
+msgid "Favorites"
+msgstr "الاشياء المفضلة"
+
+#: apps/users/templates/profile/includes/profile_nav.html:26
+#: project/templates/includes/header.html:35
+#, fuzzy
+#| msgid "Payment History"
+msgid "Payment History"
+msgstr "تاريخ الدفع"
+
+#: apps/users/templates/profile/includes/profile_nav.html:31
+#: project/templates/includes/header.html:36
+#, fuzzy
+#| msgid "Save changes"
+msgid "Saved Searches"
+msgstr "حفّظ التغييرات"
+
+#: apps/users/templates/profile/profile.html:20
+#, fuzzy
+#| msgid "Actions"
+msgid "Sections"
+msgstr "افعال"
+
+#: apps/users/templates/profile/profile.html:26
+#: apps/users/templates/profile/profile.html:83
+msgid "Change Password"
+msgstr "غير كلمة السر"
+
+#: apps/users/templates/profile/profile.html:29
+#: apps/users/templates/profile/profile.html:110
+msgid "Notifications"
+msgstr "إشعارات"
+
+#: apps/users/templates/profile/profile.html:34
+msgid "Contact Info"
+msgstr "معلومات الاتصال"
+
+#: apps/users/templates/profile/profile.html:48
+msgid "Full name"
+msgstr "الاسم الكامل"
+
+#: apps/users/templates/profile/profile.html:74
+#: apps/users/templates/profile/profile.html:102
+#: apps/users/templates/profile/profile.html:138
+msgid "Save changes"
+msgstr "حفّظ التغييرات"
+
+#: apps/users/templates/profile/profile.html:96
+msgid "Confirm password"
+msgstr "أكّد كلمة السر "
+
+#: apps/users/templates/profile/profile.html:114
+msgid "Do you want to take messages about answers on ads"
+msgstr "هل تريد استلام رسائل متعلقة بأجوبة الاعلانات"
+
+#: apps/users/templates/profile/profile.html:119
+#: apps/users/templates/profile/profile.html:130
+msgid "Yes"
+msgstr "نعم"
+
+#: apps/users/templates/profile/profile.html:123
+#: apps/users/templates/profile/profile.html:134
+msgid "No"
+msgstr "لا"
+
+#: apps/users/templates/profile/profile.html:126
+msgid "Do you want to receive news, offers and promotions from Masaha"
+msgstr "هل تريد استلام إشعارات عن أخبار وعروض من مساحة"
+
+#: project/settings/local.py:149
+msgid "English"
+msgstr ""
+
+#: project/settings/local.py:150
+msgid "Arabic"
+msgstr ""
+
+#: project/templates/includes/footer.html:7
+#: project/templates/includes/footer_mobile.html:7
+msgid "About Us"
+msgstr ""
+
+#: project/templates/includes/footer.html:9
+#: project/templates/includes/footer_mobile.html:9
+msgid "Home"
+msgstr ""
+
+#: project/templates/includes/footer.html:10
+#: project/templates/includes/footer_mobile.html:10
+#, fuzzy
+#| msgid "Product"
+msgid "Products"
+msgstr "منتج"
+
+#: project/templates/includes/footer.html:11
+#: project/templates/includes/footer_mobile.html:11
+msgid "About AddProduct"
+msgstr ""
+
+#: project/templates/includes/footer.html:25
+#: project/templates/includes/footer_mobile.html:18
+msgid "Properties"
+msgstr ""
+
+#: project/templates/includes/footer.html:34
+#: project/templates/includes/footer_mobile.html:15
+#: project/templates/includes/footer_mobile.html:27
+#, fuzzy
+#| msgid "All Categories"
+msgid "Categories"
+msgstr "جميع الفئات"
+
+#: project/templates/includes/footer.html:35
+#: project/templates/includes/footer_mobile.html:28
+#: project/templates/includes/header_mobile.html:15
+#, fuzzy
+#| msgid "Top FAQ"
+msgid "FAQ"
+msgstr "الأسئلة الأكثر شيوعا"
+
+#: project/templates/includes/footer.html:39
+#: project/templates/includes/footer_mobile.html:32
+#: project/templates/includes/header_mobile.html:18
+#, fuzzy
+#| msgid "Help & support"
+msgid "Help & Contact"
+msgstr "ساعد وادعم"
+
+#: project/templates/includes/footer.html:41
+#: project/templates/includes/footer_mobile.html:34
+#, fuzzy
+#| msgid "Contact us"
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: project/templates/includes/footer.html:42
+#: project/templates/includes/footer_mobile.html:35
+msgid "Terms of Use"
+msgstr ""
+
+#: project/templates/includes/footer.html:43
+#: project/templates/includes/footer_mobile.html:36
+#, fuzzy
+#| msgid "Help & support"
+msgid "Help & Support"
+msgstr "ساعد وادعم"
+
+#: project/templates/includes/footer.html:44
+#: project/templates/includes/footer_mobile.html:37
+msgid "Privacy Policy"
+msgstr ""
+
+#: project/templates/includes/footer.html:48
+msgid "Mobile apps"
+msgstr ""
+
+#: project/templates/includes/footer.html:64
+#: project/templates/includes/footer_mobile.html:56
+msgid "Copyright"
+msgstr ""
+
+#: project/templates/includes/footer.html:64
+#: project/templates/includes/footer_mobile.html:56
+msgid "All rights reserved."
+msgstr ""
+
+#: project/templates/includes/header.html:37
+#: project/templates/includes/header_mobile.html:27
+msgid "Logout"
+msgstr ""
+
+#: project/templates/includes/header.html:43
+#, fuzzy
+#| msgid "Sign in"
+msgid "Sign In"
+msgstr "دخول"
+
+#: project/templates/includes/header.html:56
+#, fuzzy
+#| msgid "Search events"
+msgid "Search Ad"
+msgstr "ابحث عن حدث"
+
+#: project/templates/includes/header.html:60
+#, fuzzy
+#| msgid "Add an ad"
+msgid "Add an Ad"
+msgstr "أضف إعلان"
+
+#~ msgid "Sale"
+#~ msgstr "تخفيضات"

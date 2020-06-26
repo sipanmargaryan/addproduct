@@ -1,0 +1,32 @@
+---
+
+- name: Install supervisor
+  apt:
+    name: supervisor
+  tags:
+    - celery
+
+- name: Add config file
+  template:
+    src: templates/project.conf
+    dest: "/etc/supervisor/conf.d/project.conf"
+  tags:
+    - celery
+
+- name: Reread supervisor
+  become: yes
+  shell: supervisorctl reread
+  tags:
+    - celery
+
+- name: Update supervisor
+  become: yes
+  shell: supervisorctl update
+  tags:
+    - celery
+
+- name: Restart supervisor
+  become: yes
+  shell: supervisorctl restart all
+  tags:
+    - celery

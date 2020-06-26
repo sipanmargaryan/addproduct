@@ -1,0 +1,214 @@
+.authorisation {
+  width: 100%;
+  display: flex;
+  margin-top: 42px;
+  position: relative;
+
+  > .leftSide,
+  > .rightSide {
+    width: 50%;
+  }
+
+  > .leftSide {
+    padding-right: 130px;
+    display: flex;
+    align-items: center;
+
+    > .leftSide-content {
+      width: 100%;
+
+      > .title {
+        color: $textBlack;
+        text-align: center;
+        font-family: Gotham-Bold,sans-serif;
+        font-size: 24px;
+      }
+
+      > .subTitle {
+        color: #626773;
+        text-align: center;
+        font-family: Gotham-Light,sans-serif;
+        font-size: 16px;
+      }
+
+      > .topMenu {
+        width: 100%;
+        display: flex;
+        margin-top: 62px;
+
+        > .leftSide,
+        > .rightSide {
+          width: 50%;
+        }
+      }
+
+      > .mainMenu {
+        width: 100%;
+
+        > .mainMenu-topSide {
+          width: 100%;
+          margin-top: 32px;
+
+          > form {
+            width: 100%;
+
+            > .element {
+              width: 100%;
+              height: 46px;
+              margin-top: 16px;
+
+
+              > a {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        > .mainMenu-bottomSide {
+          width: 100%;
+          margin-top: 32px;
+
+          > .title {
+            color: $textGrey;
+            text-align: center;
+            font-family: Gotham-Light,sans-serif;
+            font-size: 14px;
+            margin-bottom: 32px;
+          }
+
+          > .elementWrap {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            > .element {
+              width: calc(50% - 15px);
+              height: 44px;
+              font-size: 14px;
+              text-transform: capitalize;
+
+              > .button {
+                > span {
+                  margin-right: 12px;
+                }
+              }
+
+              &:nth-child(-n+2) {
+                margin-bottom: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > .rightSide {
+    overflow: hidden;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  > .popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 164px 0;
+    background: $backgroundWhite;
+
+    > .messageContent {
+      max-width: 324px;
+
+      > .iconWrap {
+        display: flex;
+        justify-content: center;
+
+        > .circle {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background-color: $successColor;
+        }
+      }
+
+      > .title {
+        width: 100%;
+        margin: 28px 0 18px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        text-transform: capitalize;
+        font-family: Gotham-Medium,sans-serif;
+        font-size: 24px;
+        color: $textBlack;
+      }
+
+      > .text {
+        width: 100%;
+        text-align: center;
+        font-family: Gotham-Book,sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: $textdarkVV;
+        line-height: 1.62;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-bottom:32px;
+
+    > .rightSide {
+      display: none;
+    }
+
+    > .leftSide {
+      padding: 0 15px;
+      width: 100%;
+
+      > .leftSide-content {
+
+        > .title{
+          font-size: 18px;
+        }
+
+        > .mainMenu {
+          > .mainMenu-bottomSide {
+            > .elementWrap {
+              > .element {
+                width:calc(25% - 15px);
+
+                > .button {
+                  display: block;
+                  overflow: hidden;
+
+                  > span {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    align-items: center;
+                    justify-content: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    > .popup{
+      padding: 0;
+    }
+  }
+}

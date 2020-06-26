@@ -1,0 +1,53 @@
+{% load i18n %}
+{% load storage %}
+
+<div class="hotSaleElement {% if top %}top-ad{% endif %}">
+  <a href="{{ ad.get_absolute_url }}" class="topSide js-top-side">
+    {% if ad.primary_image %}
+      <div class="imgWrap">
+        <img src="{% storage_url ad.primary_image %}" class="js-img-click" alt="{{ ad.title }}"/>
+      </div>
+    {% endif %}
+    <div class="iconsWrap cursorPointer
+      {% if ad.is_favorite %}favorite{% else %}noFavorite{% endif %}
+      {% if ad.is_premium %}sale{% endif %}"
+      data-favorite-url="{% url 'ads:add_remove_favorite' %}"
+      data-ad-id="{{ ad.pk }}"
+    >
+      <span class="iconWrap noFavorite js-toggle-favorite">
+        <i class="icon empty"></i>
+      </span>
+      <span class="iconWrap favorite js-toggle-favorite">
+        <i class="icon favorite"></i>
+      </span>
+      <span class="iconWrap sale">
+        <i class="sale">{% trans "Top" %}</i>
+      </span>
+    </div>
+  </a>
+  <div class="bottomSide">
+    <a href="{{ ad.get_absolute_url }}" class="itemName">{{ ad.title }}</a>
+    <p class="cost">
+      {% if ad.price == 0 and ad.external_url %}
+        <a href="{{ ad.external_url }}" class="itemName" target="_blank">{% trans "More details" %}</a>
+      {% else %}
+        {{ ad.price }} {{ ad.currency }}
+      {% endif %}
+    </p>
+    <p class="info">{% trans "For sale" %}</p>
+    <div class="locationWrap">
+      <div class="location">
+        <span class="iconWrap">
+          <i class="icon locationActive"></i>
+        </span>
+        <a href="{% url 'ads:ads' %}?city={{ ad.city.name }}" class="text">{{ ad.city.name }}</a>
+      </div>
+      <div class="view">
+        <span class="iconWrap">
+          <i class="icon view"></i>
+        </span>
+        <span class="text">{{ ad.views }}</span>
+      </div>
+    </div>
+  </div>
+</div>

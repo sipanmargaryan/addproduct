@@ -1,0 +1,7 @@
+{% load core_utils %}
+
+{% for i in 5|custom_range %}
+  <span>
+    <i class="icon {% if i < rate %}starActive{% else %}starGrey{% endif %}"></i>
+  </span>
+{% endfor %}

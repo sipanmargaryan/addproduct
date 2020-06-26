@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load opengraph %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'plugins/jssocials/jssocials.css' %}">
+
+{% endblock %}
+
+{% block opengraph_meta %}
+  {% opengraph_meta title=article.title image=article.cover.url description=article.description|striptags %}
+{% endblock %}
+
+
+{% block content %}
+
+<main class="main article">
+  <div class="main-component">
+    <div class="topSide">
+      <div class="bgWrap">
+        <div class="imgWrap">
+          <img src="{{ article.cover.url }}" alt="{{ article.title }}" style="object-fit: cover;"/>
+        </div>
+      </div>
+    </div>
+    <div class="main-content ">
+      <div class="leftSide">
+        <div class="content">
+          <div class="topSide">
+            <div class="leftSide">
+              <div class="element">
+                  <span class="iconWrap">
+                    <i class="icon clockActive"></i>
+                  </span>
+                <span class="text date">{{ article.created|date:"d.m.y" }}</span>
+              </div>
+              <div class="element">
+                  <span class="iconWrap">
+                    <i class="icon commentGrey"></i>
+                  </span>
+                <span class="text">{{ comments|length }}</span>
+              </div>
+              <div class="element">
+                  <span class="iconWrap">
+                    <i class="icon view"></i>
+                  </span>
+                <span class="text">{{ article.hit_count }}</span>
+              </div>
+            </div>
+            <div class="rightSide">
+              <a href="#" class="button sale">{{ article.category.name }}</a>
+            </div>
+          </div>
+          <h1 class="title">{{ article.title }}</h1>
+          <div class="description" style="overflow: hidden;">
+            {{ article.description|safe }}
+          </div>
+
+          <div class="commentsWrap">
+            <h1 class="title">{% trans "Comments" %} ({{ comments|length }})</h1>
+            <div class="comments">
+              {% for comment in comments %}
+                {% include 'blog/includes/comment.html' with comment=comment %}
+              {% endfor %}
+            </div>
+            {% if request.user.is_authenticated %}
+              <div class="inputWrap input">
+                <i class="icon editActive"></i>
+                <input class="inputAuthorisation js-article-comment"
+                       data-article="{{ article.pk }}"
+                       placeholder='{% trans "Write comment" %}…'
+                />
+                <form id="comment-form" action="{% url 'blog:new_comment' %}" method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="article_id" value="{{ article.pk }}">
+                  <input type="hidden" name="description" class="js-comment-description">
+                </form>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="rightSide">
+        <div class="social">
+          <h1 class="title">{% trans "Share it in Social Network" %}</h1>
+          <div class="elementWrap">
+            <div id="share" class="jssocialsSmall blogShare"></div>
+          </div>
+        </div>
+        <div class="recentPost">
+          <h1 class="title">{% trans "RECENT POST" %}</h1>
+
+          <div class="elementWrap js-recent-posts">
+            {% for post in recent_posts %}
+              {% include 'blog/includes/article_element.html' with post=post %}
+            {% endfor %}
+          </div>
+          {% if recent_posts_show_more %}
+            <div class="buttonWrap">
+              <a href="#" data-url="{% url 'blog:last_articles' %}" data-page="2" class="button transparent js-show-more-posts">{% trans "Show more" %}</a>
+            </div>
+          {% endif %}
+        </div>
+        <div class="subscribe">
+          <h1 class="title">{% trans "Subscribe" %}</h1>
+
+          <div class="element input">
+            <input class="inputAuthorisation" type="email" placeholder='{% trans "Enter your email address" %}'/>
+          </div>
+          <div class="element buttonWrap">
+            <a href="#" class="button mainColor">{% trans "Subscribe" %}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'plugins/jssocials/jssocials.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/article_detail.js' %}"></script>
+
+{% endblock %}

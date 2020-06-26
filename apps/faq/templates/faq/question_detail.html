@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% load mptt_tags %}
+{% load opengraph %}
+
+{% block opengraph_meta %}
+  {% opengraph_meta title=question.title description=question.description %}
+{% endblock %}
+
+{% block content %}
+
+<main class="main faq">
+  <div class="main-component">
+    <div class="topSide">
+      <div class="bgWrap">
+        <div class="imgWrap">
+          <img src="{% static 'assets/images/faq/bg.jpg' %}" alt="{{ question.title }}" />
+        </div>
+        <h1 class="title">{% trans "Ask question" %}</h1>
+      </div>
+      <nav class="navWrap">
+        <div class="element">
+          <a href="{% url 'faq:top_questions' %}" class="breadcrumbs">{% trans "Top questions" %}</a>
+        </div>
+        <div class="element">
+          <a href="{% url 'faq:recent_questions' %}" class="breadcrumbs">{% trans "Recent questions" %}</a>
+        </div>
+        <div class="element">
+          <a href="{% url 'faq:ask_question' %}" class="breadcrumbs ">{% trans "Ask questions" %}</a>
+        </div>
+      </nav>
+    </div>
+    <div class="main-content view-question">
+      <div class="questionWrap">
+        {% with question.answer_set.all as answers %}
+          <div class="listWrap">
+          <div class="topSide">
+            <h1 class="title">{{ question.title }}</h1>
+          </div>
+          <div class="main-content">
+            <div class="questionInfo">
+              <div class="element">
+                <span class="iconWrap">
+                  <i class="icon clockActive"></i>
+                </span>
+                <span class="info">{% trans "Asked" %}: <span>{{ question.created|date:"m.d.y" }}</span></span>
+              </div>
+              <div class="element">
+                <span class="iconWrap">
+                  <i class="icon author"></i>
+                </span>
+                <span class="info">{% trans "Author" %}: <span>{{ question.author_full_name }}</span></span>
+              </div>
+              <div class="element">
+                <span class="iconWrap">
+                  <i class="icon theme"></i>
+                </span>
+                <span class="info">{% trans "Theme" %}: <span>{{ question.category.name }}</span></span>
+              </div>
+              <div class="element">
+                <span class="iconWrap">
+                  <i class="icon messageActive"></i>
+                </span>
+                <span class="info">{% trans "Answers" %}: <span>{{ answers|length }}</span></span>
+              </div>
+            </div>
+            <p class="fullQuestion">{{ question.description }}</p>
+            <div class="answersWrap">
+              <h1 class="title">{% trans "Answers" %} ({{ answers|length }})</h1>
+              <div class="elementWrap">
+                {% for answer in answers %}
+                  <div class="element">
+                    <div class="topSide">
+                      <h1 class="title">{{ answer.author_full_name }}</h1>
+                      <div class="time">
+                        <span class="iconWrap">
+                          <i class="icon clockGrey"></i>
+                        </span>
+                        <span class="info">{{ answer.created|date:"m.d.y" }}</span>
+                      </div>
+                    </div>
+                    <p class="text">{{ answer.description }}</p>
+                    <div class="bottomSide">
+                      <div class="element">
+                        <span class="iconWrap">
+                          <i class="icon reportSmall"></i>
+                        </span>
+                        <span class="js-report info cursorPointer" data-url="{% url 'faq:report' pk=answer.pk %}">{% trans "Report" %}</span>
+                      </div>
+                      <div class="element">
+                        <span class="iconWrap">
+                          <i class="icon replySmall"></i>
+                        </span>
+                        <span class="js-reply info cursorPointer" data-answer-id="{{ answer.pk }}">{% trans "Reply" %}</span>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+              <form action="{% url 'faq:question_detail' pk=question.pk slug=question.slug %}" method="post" novalidate>
+                {% csrf_token %}
+                {{ form.answer_id.as_hidden }}
+                <div class="description">
+                  <h1 class="itemTitle">{% trans "Description" %}*</h1>
+                  <div class="element">
+                    {{ form.description|attr:"placeholder:Enter description of your answer" }}
+                  </div>
+                  {{ form.description.errors }}
+                </div>
+                <div class="contactInfo">
+                  <div class="infoWrap">
+                    <div class="leftSide">
+                      <h1 class="itemTitle">{% trans "Name" %}*</h1>
+                      <div class="element input">
+                        {{ form.author_full_name|attr:"class:inputAuthorisation"|attr:"placeholder:Enter your full name" }}
+                      </div>
+                      {{ form.author_full_name.errors }}
+                    </div>
+                    <div class="rightSide">
+                      <h1 class="itemTitle">{% trans "Email" %}*</h1>
+                      <div class="element input">
+                        {{ form.author_email|attr:"class:inputAuthorisation"|attr:"placeholder:Enter your email address" }}
+                      </div>
+                      {{ form.author_email.errors }}
+                    </div>
+                  </div>
+                </div>
+                <div class="buttonWrap">
+                  <div class="element">
+                    <button type="submit" class="button mainColor">{% trans "Add question" %}</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        {% endwith %}
+        <div class="filterWrap">
+          <h1 class="title">{% trans "Category" %}</h1>
+          <div class="content">
+            {% for category_question in category_questions %}
+              <label>
+                <input type="checkbox" name="category" class="category"
+                       value="{{ category_question.pk }}"
+                       data-url="{% url 'faq:recent_questions' %}?category={{ category_question.pk }}"
+                />
+                <div class="info">
+                  <span>{{ category_question.name }}</span>
+                  <span>({{ category_question.count }})</span>
+                </div>
+              </label>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% if other_questions %}
+        <div class="otherQuestions">
+            <h1 class="title">{% trans "Other questions" %}</h1>
+            <div class="sliderWrap">
+            {% for other_question in other_questions %}
+              <a href="{{ other_question.get_absolute_url }}" class="element">
+                <div class="topSide">
+                  <div class="leftSide">
+                    <h1 class="title">{{ other_question.answer_count }}</h1>
+                    <p class="text">{{ other_question.title }}</p>
+                  </div>
+                  <div class="rightSide">
+                    <p class="text">{{ other_question.description|truncatechars:142 }}</p>
+                  </div>
+                </div>
+                <div class="infoWrap">
+                  <div class="leftSide">
+                    <span class="iconWrap">
+                      <i class="icon clockActive"></i>
+                    </span>
+                    <span class="info">{% trans "Asked" %}: <span>{{ other_question.created|date:"m.d.y" }}</span></span>
+                  </div>
+                  <div class="rightSide">
+                    <span class="iconWrap">
+                      <i class="icon theme"></i>
+                    </span>
+                    <span class="info">{% trans "Theme" %}: <span>{{ other_question.category }}</span></span>
+                    <span class="split">/</span>
+                    <span class="iconWrap">
+                      <i class="icon author"></i>
+                    </span>
+                    <span class="info">{% trans "Author" %}<span>: {{ other_question.author_full_name }}</span></span>
+                  </div>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+          <div class="sliderButton">
+            <button class="eventsPrev prev slick-arrow cursorPointer"></button>
+            <div class="element">
+              <a href="{% url 'faq:recent_questions' %}" class="button mainColor">{% trans "See more questions" %}</a>
+            </div>
+            <button type="button" class="eventsNext next slick-arrow cursorPointer"></button>
+          </div>
+          <div class="sliderButtonMobile">
+            <a href="#" class="button mainColor">see more questions</a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  </main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'js/components/question_detail.js' %}"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.sliderWrap').slick({
+        centerMode: true,
+        slidesToShow: 2,
+        prevArrow: $('.eventsPrev'),
+        nextArrow: $('.eventsNext'),
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1,
+                    dots: true,
+                }
+            }
+        ]
+    });
+  });
+</script>
+
+{% endblock %}

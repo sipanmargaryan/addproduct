@@ -1,0 +1,59 @@
+---
+
+- name: Check if mailhog is running
+  raw: "docker ps | grep mailhog"
+  register: mailhog_container
+  ignore_errors: yes
+  tags:
+    - mailhog
+
+- name: Run mailhog inside docker
+  command: "docker run -d -p 1025:1025 -p 8025:8025 mailhog/mailhog"
+  when: mailhog_container.stdout == ""
+  tags:
+    - mailhog
+
+- name: Add auth file
+  template:
+    src: templates/auth_file
+    dest: "/etc/nginx/.mailhogpass"
+  tags:
+    - mailhog
+
+- name: Add Nginx configuration for mailhog
+  template:
+    src: templates/mailhog.conf
+    dest: "/etc/nginx/sites-available/mailhog"
+  tags:
+    - mailhog
+
+- name: Enable Nginx configuration for mailhog
+  file:
+    src: "/etc/nginx/sites-available/mailhog"
+    dest: "/etc/nginx/sites-enabled/mailhog"
+    state: link
+  notify: restart_nginx_handler
+  tags:
+    - mailhog
+
+- name: Create certificate
+  shell: certbot certonly --nginx --noninteractive --agree-tos --email dev@{{ server_name }} --domains {{ mailhog_server_name }}
+  tags:
+    - webserver
+
+- name: Add Nginx configuration for mailhog SSL
+  template:
+    src: templates/mailhog-ssl.conf
+    dest: "/etc/nginx/sites-available/mailhog-ssl"
+  notify: restart_nginx_handler
+  tags:
+    - mailhog
+
+- name: Enable Nginx configuration for mailhog SSL
+  file:
+    src: "/etc/nginx/sites-available/mailhog-ssl"
+    dest: "/etc/nginx/sites-enabled/mailhog-ssl"
+    state: link
+  notify: restart_nginx_handler
+  tags:
+    - mailhog

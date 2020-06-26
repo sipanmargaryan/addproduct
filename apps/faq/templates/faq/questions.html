@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load core_utils %}
+
+{% block content %}
+<main class="main faq">
+  <div class="main-component">
+    <div class="topSide">
+      <div class="bgWrap">
+        <div class="imgWrap">
+          <img src="{% static 'assets/images/faq/bg.jpg' %}" />
+        </div>
+        <h1 class="title">{% trans "Ask question" %}</h1>
+      </div>
+      <nav class="navWrap">
+        <div class="element">
+          <a href="{% url 'faq:top_questions' %}" class="breadcrumbs {% active request '/top-questions/' %}">{% trans "Top questions" %}</a>
+        </div>
+        <div class="element">
+          <a href="{% url 'faq:recent_questions' %}" class="breadcrumbs {% active request '/recent-questions/' %}">{% trans "Recent questions" %}</a>
+        </div>
+        <div class="element">
+          <a href="{% url 'faq:ask_question' %}" class="breadcrumbs ">{% trans "Ask questions" %}</a>
+        </div>
+      </nav>
+    </div>
+    <div class="main-content">
+      <div class="searchWrap">
+        <div class="element input">
+          <i class="icon search"></i>
+          <input name="q" id="search" class="inputAuthorisation"  placeholder='{% trans "Search question" %}'/>
+        </div>
+      </div>
+      <div class="questionWrap">
+        <div class="listWrap">
+          <div class="topSide">
+            <h1 class="title">{% trans "Questions" %}</h1>
+          </div>
+          <div class="bottomSide">
+            {% for question in questions %}
+              <a href="{{ question.get_absolute_url }}" class="element">
+                <div class="leftSide">
+                  <h1 class="title">{{ question.answer_count }}</h1>
+                  <p class="text">answers</p>
+                </div>
+                <div class="rightSide">
+                  <p class="text">{{ question.title|truncatechars:142 }}</p>
+                  <div class="infoWrap">
+                    <div class="leftSide">
+                      <span class="iconWrap">
+                        <i class="icon clockActive"></i>
+                      </span>
+                      <span class="info">{% trans "Asked" %}: <span>{{ question.created|date:"m.d.Y" }}</span></span>
+                    </div>
+                    <div class="rightSide">
+                      <span class="iconWrap">
+                        <i class="icon theme"></i>
+                      </span>
+                      <span class="info">{% trans "Theme" %}: <span>{{ question.category }}</span></span>
+                      <span class="split">/</span>
+                      <span class="iconWrap">
+                        <i class="icon author"></i>
+                      </span>
+                      <span class="info">{% trans "Author" %}: <span>{{ question.author_full_name }}</span></span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="filterWrap">
+          <h1 class="title">{% trans "Category" %}</h1>
+          <div class="content">
+            {% for category_question in category_questions %}
+              <label>
+                <input type="checkbox" name="category" class="category" value="{{ category_question.pk }}">
+                <div class="info">
+                  <span>{{ category_question.name }}</span>
+                  <span>({{ category_question.count }})</span>
+                </div>
+              </label>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="bottomSide">
+        {% if is_paginated %}
+          {% include "core/includes/pagination.html" with page_obj=page_obj %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'js/components/questions.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% load i18n %}
+
+<div class="elementWrap">
+  <div class="element">
+    <a href="{% url 'users:profile' %}" class="breadcrumbs{% ifequal tab 'profile' %} active{% endifequal %}">
+      {% trans "Personal Information" %}
+    </a>
+  </div>
+  <div class="element">
+    <a href="{% url 'ads:my' %}" class="breadcrumbs{% ifequal tab 'myads' %} active{% endifequal %}">
+      {% trans "My Ads" %}
+    </a>
+  </div>
+  <div class="element">
+    <a href="{% url 'messaging:inbox' %}" class="breadcrumbs{% ifequal tab 'messages' %} active{% endifequal %}">
+      {% trans "Messages" %}
+    </a>
+  </div>
+  <div class="element">
+    <a href="{% url 'ads:favorites' %}" class="breadcrumbs{% ifequal tab 'favoriteads' %} active{% endifequal %}">
+      {% trans "Favorites" %}
+    </a>
+  </div>
+  <div class="element">
+    <a href="{% url 'payments:history' %}" class="breadcrumbs{% ifequal tab 'paymenthistory' %} active{% endifequal %}">
+      {% trans "Payment History" %}
+    </a>
+  </div>
+  <div class="element">
+    <a href="{% url 'ads:save_search' %}" class="breadcrumbs{% ifequal tab 'searches' %} active{% endifequal %}">
+      {% trans "Saved Searches" %}
+    </a>
+  </div>
+</div>

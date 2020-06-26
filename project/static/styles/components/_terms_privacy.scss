@@ -1,0 +1,81 @@
+.terms {
+  background-color: $mainBgColor;
+  padding: 100px 0;
+
+
+
+  .terms_privacy {
+    width: 100%;
+    padding: 75px 100px 82px 100px;
+    background-color: $backgroundWhite;
+
+    > .title {
+      color: $textBlack;
+      text-align: center;
+      font-family: Gotham-Medium,sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      margin-bottom: 55px;
+    }
+
+    > .heading {
+      color: $textBlack;
+      font-family: Gotham-Medium,sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      padding: 48px 0 46px 0;
+    }
+
+    > .text {
+      width: 100%;
+      font-family: Gotham-Book,sans-serif;
+      font-size: 16px;
+      line-height: 1.62;
+      color: $textdarkVV;
+      margin-top: 10px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &.withIcon {
+        padding-left: 36px;
+        position: relative;
+        margin-top: 24px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:before {
+          position: absolute;
+          left: 0;
+          content: url("../assets/icons/tick.svg");
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 0;
+
+    .terms_privacy {
+      padding: 32px 15px;
+
+      > .title {
+        font-size: 20px;
+        margin-bottom: 24px;
+      }
+
+      > .text {
+        font-size: 14px;
+      }
+
+      > .heading {
+        font-size: 18px;
+        padding: 32px 0 34px 0;
+      }
+    }
+  }
+}

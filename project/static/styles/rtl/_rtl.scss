@@ -1,0 +1,2315 @@
+body {
+  &.rtl {
+    direction: rtl;
+
+    .input {
+      > .icon {
+        width: 50px;
+        height: 100%;
+        border-right: 0;
+        border-left: 1px solid $borderColor;
+      }
+
+      > .inputAuthorisation {
+        padding-right: 16px;
+        padding-left: 0;
+      }
+    }
+
+    .header {
+
+      > .header-content {
+
+        > .leftSide {
+
+
+          > .langBar {
+            margin-left: 0;
+            margin-right: 43px;
+          }
+        }
+
+        > .rightSide {
+
+          > div:not(.supportWrap, .buttonWrap) {
+            &:before {
+              content: '';
+              width: 1px;
+              height: 14px;
+              background-color: #e5e5e5;
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translate(0,-50%);
+            }
+          }
+
+          > .personalWrap {
+            margin-left: 0;
+            margin-right: 24px;
+          }
+
+          > .searchWrap,
+          > .location {
+            > .topSide {
+              > .heading {
+                padding-right: 0;
+                padding-left: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .authorisation {
+      > .leftSide {
+        padding-right: 0;
+        padding-left: 130px;
+
+        > .leftSide-content {
+
+          > .mainMenu {
+
+            > .mainMenu-topSide {
+
+              > form {
+
+                > .element {
+
+                  > .icon {
+                    border-right: 0;
+                    border-left: 1px solid $borderColor;
+
+                    &.help {
+                      border-left: 0;
+                    }
+                  }
+
+                  > .inputAuthorisation {
+                    padding-left: 0;
+                    padding-right: 16px;
+
+
+                    &::placeholder {
+                      color: $textLightGray;
+                    }
+                  }
+                }
+              }
+            }
+
+            > .mainMenu-bottomSide {
+
+
+              > .elementWrap {
+
+                > .element {
+
+                  > .button {
+                    > span {
+                      margin-left: 12px;
+                      margin-right: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .terms_privacy {
+
+      > .text {
+
+        &.withIcon {
+          padding-left: 0;
+          padding-right: 36px;
+
+          &:before {
+            right: 0;
+            left: unset;
+          }
+        }
+      }
+    }
+
+    .profile {
+
+      > .heading {
+
+        > .heading-bottomSide {
+
+          > .elementWrap {
+
+            > .element {
+              margin-left: 24px;
+              margin-right: 0;
+            }
+          }
+
+          > .switchWrap {
+
+            > form {
+              > span {
+                display: inline-flex;
+                align-items: center;
+                margin-left: 28px;
+                margin-right: 0;
+
+                &:last-child {
+                  margin-left: 0;
+                }
+
+
+                > label {
+                  margin-right: 8px;
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > .mainMenu {
+
+        &.personalInfo {
+          > .leftSide {
+            padding-left: 64px;
+            padding-right: 0;
+          }
+
+          > .rightSide {
+            padding-left: 0;
+            padding-right: 64px;
+
+
+            > form {
+
+              > span {
+                margin-right: 0;
+                margin-left: 30px;
+
+                &:last-child {
+                  margin-left: 0;
+                }
+
+                > .radio {
+                  margin-right: 0;
+                  margin-left: 8px;
+                }
+              }
+            }
+          }
+        }
+
+        &.my-Ads,
+        &.messages {
+
+          > .container {
+
+            > .heading {
+              margin-left: 0;
+              margin-right: 15px;
+
+              > .checkbox {
+                margin-right: 0;
+                margin-left: 16px;
+              }
+            }
+
+            > .column {
+              padding-left: 0;
+              padding-right: 15px;
+
+              > .imgWrap {
+
+                > .text {
+                  margin-left: 0;
+                  margin-right: 15px;
+                }
+              }
+
+              > .checkbox {
+                margin-right: 0;
+                margin-left: 16px;
+              }
+
+              &.messages {
+
+                > .iconWrap {
+                  margin-right: 8px;
+                  margin-left: 0;
+                }
+              }
+
+              &.actions {
+                > .iconWrap {
+                  margin-left: 16px;
+                  margin-right: 0;
+
+                  &:last-child {
+                    margin-left: 16px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.messageSingle {
+
+          > .container {
+
+            > .breadcrumbsBottom {
+
+              > .backLink {
+
+                > .icon {
+                  margin-left: 8px;
+                  margin-right: 0;
+                }
+              }
+
+              > .text {
+                margin-right: 15px;
+                margin-left: 0;
+              }
+            }
+
+            > .messageTitle {
+              > .text {
+                margin-right: 24px;
+                margin-left: 0;
+              }
+            }
+
+            > .messageWrap {
+
+              > .nameWrap {
+                text-align: right;
+              }
+
+              > .messages {
+
+                > .messageBox {
+
+                  &.leftSide {
+                    margin-left: auto;
+                    margin-right: 0;
+
+                    > .text {
+                      border-top-right-radius: 0;
+                      border-top-left-radius: 6px;
+                    }
+                  }
+
+                  &.rightSide {
+                    margin-right: auto;
+                    margin-left: 0;
+
+                    > .text {
+                      border-top-left-radius: 0;
+                      border-top-right-radius: 6px;
+                    }
+                  }
+                }
+              }
+            }
+
+            > .sendWrap {
+
+              > .element {
+
+                > .button {
+                  border-top-left-radius: 6px;
+                  border-bottom-left-radius: 6px;
+                  border-top-right-radius: 0;
+                  border-bottom-right-radius: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .addAdd {
+
+      > .title {
+        text-align: right;
+      }
+
+      > .addAdd-content {
+
+
+        > .field {
+
+          &.categoryWrap {
+            > .content {
+
+              > .leftSide {
+                margin-right: 0;
+                margin-left: 30px;
+              }
+
+
+
+              > .rightSide {
+
+                > .estateType {
+
+                  > form {
+
+
+                    > .element {
+                      margin-left: 30px;
+                      margin-right: 0;
+
+                      &:last-child {
+                        margin-left: 0;
+                      }
+                    }
+                  }
+                }
+
+                > .categoryType {
+
+                  > form {
+                    display: flex;
+
+                    > .item {
+                      margin-left: 30px;
+                      margin-right: 0;
+
+                      &.noHeading {
+                        padding-top: 50px;
+                      }
+
+                      &:last-child {
+                        margin-left: 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &.package {
+
+            > form {
+
+              > input {
+                display: none;
+              }
+
+              > .switch {
+
+                > .typeWrap {
+
+                  > .text {
+                    margin-left: 0;
+                    margin-right: 24px;
+                  }
+                }
+
+                > .dayWrap {
+
+                  .select2-selection__rendered {
+                    padding-left: 0;
+                    font-family: Gotham-Book, sans-serif;
+                    font-size: 16px;
+                    color: $textdarkVV;
+                  }
+
+                  .select2-selection__arrow {
+                    position: static;
+
+                    > b {
+                      position: static;
+                    }
+                  }
+                }
+
+                > .priceWrap {
+
+                  > .price {
+                  }
+
+                  > .element {
+                    width: 170px;
+                    height: 44px;
+                    margin-left: 0;
+                    margin-right: 22px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > .terms {
+        > .text {
+          margin-left: 20px;
+          margin-right: 0;
+        }
+      }
+
+
+      > .payment {
+        > .main-content {
+          > form {
+            > .headingWrap {
+              > .element {
+
+                > .breadcrumbs {
+
+                  &.visa {
+                    &:before {
+                      margin-left: 6px;
+                      margin-right: 0;
+                    }
+                  }
+
+                  &.knet {
+                    > img {
+                      margin-left: 6px;
+                      margin-right: 0;
+                    }
+                  }
+
+                  &.paypal {
+                    > img {
+                      margin-left: 6px;
+                      margin-right: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .itemNaming,
+      .subTitle {
+        text-align: right;
+      }
+
+
+      .select2-selection {
+        flex-direction: row-reverse;
+      }
+
+      .select2-dropdown {
+        text-align: right;
+      }
+
+      .select2-selection__arrow {
+        right: unset;
+        left: 25px;
+      }
+    }
+
+    .homepage {
+
+      > .heading {
+
+        > .content {
+
+          > .topSide {
+
+            .select2-selection__arrow {
+              right: unset;
+              left: -9px;
+            }
+
+            .select2-selection__rendered {
+              margin-left: auto;
+            }
+          }
+
+          > .bottomSide {
+
+            > .element {
+
+              &:first-child {
+                &:after {
+                  content: '';
+                  width: 1px;
+                  height: 20px;
+                  position: absolute;
+                  right: 0;
+                  top: 50%;
+                  transform: translate(0, -50%);
+                  background: red;
+                  background: rgba($backgroundWhite, .1);
+                }
+              }
+
+              &:last-child {
+                &:after {
+                  content: none;
+                }
+              }
+
+              .select2-container {
+
+                .select2-selection {
+
+
+                  .select2-selection__rendered {
+                    padding-right: 8px;
+                    padding-left: 20px;
+                  }
+
+                  .select2-selection__arrow {
+                    right: unset;
+                    left: 1px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > .main-content {
+        .title {
+          text-align: right;
+        }
+
+        > .events {
+          direction: ltr;
+        }
+
+        > .tours {
+          direction: ltr;
+
+          > .toursWrap {
+            .toursElement {
+              float: right;
+              margin-left: 30px;
+              margin-right: 0;
+
+
+              > .infoWrap {
+
+                > .stars {
+
+                  > .iconWrap {
+                    margin-right: 0;
+                    margin-left: 8px;
+
+                    &:last-child {
+                      margin-left: 0;
+                    }
+                  }
+                }
+
+                > .text {
+
+                  > .iconWrap {
+                    margin-left: 6px;
+                    margin-right: 0;
+                  }
+
+                  &:last-child {
+                    margin-bottom: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        > .subscribeWrap {
+          > .title {
+            text-align: center;
+          }
+
+          > .elementWrap {
+
+
+            > .buttonWrap {
+              width: 170px;
+              height: 44px;
+              margin-right: 30px;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .errorlist {
+      text-align: right;
+    }
+
+    .hotSaleElement {
+
+      > .topSide {
+
+
+        > .iconsWrap {
+
+          > .iconWrap {
+
+            &.noFavorite,
+            &.favorite {
+              left: 20px;
+              right: unset;
+            }
+
+            &.new {
+              right: 20px;
+              left: unset;
+            }
+
+            &.sale {
+              border-width: 0 70px 70px 0;
+              border-color: transparent #35cf66 transparent transparent;
+
+              > .sale {
+                transform: translate(195%, 103%) rotate(47deg)
+              }
+            }
+          }
+        }
+      }
+
+      > .bottomSide {
+
+        > .itemName {
+          text-align: right;
+        }
+
+        > .cost {
+          text-align: right;
+        }
+
+        > .info {
+          text-align: right;
+        }
+
+        > .locationWrap {
+
+          > .location {
+            flex-direction: row-reverse;
+
+            > .text {
+              margin-right: 0;
+              margin-left: 8px;
+            }
+          }
+
+          > .view {
+            flex-direction: row-reverse;
+
+            > .text {
+              margin-right: 0;
+              margin-left: 4px;
+            }
+          }
+        }
+      }
+
+      &.slick-slide {
+
+        > .bottomSide {
+
+          > .locationWrap {
+
+            > .location {
+
+              > .text {
+                margin-left: 0;
+                margin-right: 8px;
+              }
+            }
+
+            > .view {
+
+              > .text {
+                margin-left: 0;
+                margin-right: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .eventsElement {
+
+
+      > .topSide {
+
+
+        > .iconsWrap {
+
+          > .dateWrap {
+            right: 32px;
+            left: unset;
+          }
+
+          > .typeWrap {
+            right: unset;
+            left: 20px;
+          }
+        }
+      }
+
+      > .bottomSide {
+
+        > .time,
+        > .title {
+          text-align: right;
+        }
+
+        > .location {
+
+          > .text {
+            margin-right: 8px;
+            margin-left: 8px;
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .productList {
+
+      > .main-component {
+        > .heading {
+
+          > .title {
+            text-align: right;
+          }
+
+          > .sorting {
+
+            > .text {
+              margin-left: 16px;
+              margin-right: 0;
+            }
+          }
+        }
+
+        > .main-content {
+
+          > .leftSide {
+
+            > form {
+
+
+              > .categoryType {
+
+                &.useType {
+
+
+
+                  > .content {
+
+
+                    > label {
+
+                      > input {
+                        margin-right: 0;
+                        margin-left: 8px;
+                      }
+                    }
+                  }
+                }
+
+
+                &.additional {
+
+                  > .content {
+
+                    > label {
+
+
+                      > input {
+                        margin-left: 10px;
+                        margin-right: 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .itemNaming {
+              text-align: right;
+            }
+          }
+
+          > .bottomSide {
+
+            > .pagination {
+
+              > a {
+                margin-left: 5px;
+                margin-right: 0;
+
+                &:last-child {
+                  margin-left: 0;
+                }
+              }
+
+              > .left,
+              > .right {
+
+                &:before {
+                  left: unset;
+                  right: 50%;
+                  transform: translate(50%, -50%);
+                }
+              }
+
+              > .left {
+                &:before {
+                  width: 0;
+                  height: 0;
+                  border-style: solid;
+                  border-width: 5px 0 5px 6px;
+                  border-color: transparent transparent transparent $textWhite;
+                }
+              }
+
+              > .right {
+                &:before {
+                  width: 0;
+                  height: 0;
+                  border-style: solid;
+                  border-width: 5px 6px 5px 0;
+                  border-color: transparent $textWhite transparent transparent;
+                }
+              }
+            }
+          }
+        }
+
+        > .bottomSide {
+          direction: ltr;
+
+          > .title {
+            font-family: Gotham-Bold, sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: $textdarkVV;
+            text-transform: uppercase;
+            margin-bottom: 65px;
+          }
+
+          .hotSaleElement {
+            width: 370px;
+            margin: 0 15px;
+          }
+
+
+          > .elementWrap {
+            width: 100%;
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+
+            > .element {
+              max-width: 570px;
+              width: 100%;
+              text-transform: uppercase;
+              height: 100%;
+              font-size: 12px;
+              margin: 0 30px;
+            }
+          }
+
+          .next {
+            width: 270px;
+            height: 44px;
+            background-color: #dae9ff;
+            border: 0;
+            color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+
+            &:before {
+              content: url("../assets/icons/arrowR.svg");
+              font-size: 0;
+            }
+          }
+
+          .prev {
+            width: 270px;
+            height: 44px;
+            background-color: #dae9ff;
+            border: 0;
+            color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:before {
+              content: url("../assets/icons/arrowL.svg");
+              font-size: 0;
+            }
+          }
+        }
+      }
+
+
+      &.company,
+      &.user {
+
+        > .main-component {
+
+          > .topSide {
+
+
+            > .rightSide {
+
+              > .title {
+                text-align: right;
+              }
+
+              > .reviewsWrap {
+
+                > span {
+                  margin-left: 10px;
+                  margin-right: 0;
+
+                  &:last-child {
+                    margin-right: 8px;
+                    margin-left: 0;
+                  }
+                }
+              }
+
+              > .location {
+
+                > span {
+
+                  &.text {
+                    margin-right: 10px;
+                    margin-left: 0;
+                  }
+                }
+              }
+
+              > .timeWrap {
+
+                > .element {
+                  margin-left: 12px;
+                  margin-right: 0;
+
+                  &:nth-child(3n) {
+                    margin-left: 0;
+                  }
+
+
+                  > .text {
+                    margin-left: 0;
+                    margin-right: 8px;
+                    text-align: right;
+                  }
+                }
+              }
+
+              > .shareWrap {
+
+
+                > .social {
+
+                  > a {
+                    margin-left: 16px;
+                    margin-right: 0;
+                  }
+                }
+              }
+
+
+              &.user {
+                > .priceWrap {
+
+
+                  > .author {
+
+                    > b {
+                      margin-left: 5px;
+                      margin-right: 0;
+                    }
+                  }
+                }
+
+                > .location {
+
+                  > .locationWrap {
+                    > span {
+                      &.text {
+                        margin-right: 10px;
+                        margin-left: 0;
+                      }
+                    }
+                  }
+                }
+
+                > .socialWrap {
+
+                  > .element {
+
+
+                    > .button {
+
+                      > .iconWrap {
+                        margin-left: 8px;
+                        margin-right: 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          > .description {
+
+            > .heading {
+
+              > .title {
+                text-align: right;
+              }
+
+              > .info {
+                font-size: 14px;
+                text-align: right;
+
+                > span {
+
+                  &.publish {
+                    margin-left: 85px;
+                    margin-right: 0;
+                  }
+
+                  > span {
+                    margin-left: 0;
+                    margin-right: 8px;
+                  }
+
+                  > b {
+                    margin-right: 6px;
+                    margin-left: 0;
+                  }
+                }
+              }
+            }
+
+            > .descriptionText {
+              text-align: right;
+            }
+
+            > .reviewsWrap {
+
+              > .heading {
+
+
+                > .title {
+                  text-align: right;
+                }
+
+                > .rating {
+
+                  > .text {
+                    margin-left: 16px;
+                    margin-right: 0;
+                  }
+
+                  > .iconWrap {
+                    margin-left: 10px;
+                    margin-right: 0;
+                  }
+                }
+              }
+
+              > .review {
+                > .nameWrap {
+                  > .name {
+                    text-align: right;
+                  }
+                }
+
+
+                > .commentRate {
+
+                  > .iconWrap {
+                    margin-right: 0;
+                    margin-left: 8px;
+
+                    &:last-child {
+                      margin-left: 0;
+                    }
+                  }
+                }
+
+                > .comment {
+                  text-align: right;
+                }
+              }
+
+              > .likes {
+
+                > .dislikeWrap {
+                  margin-left: 0;
+                  margin-right: 22px;
+                }
+
+                .text {
+                  margin-right: 6px;
+                  margin-left: 0;
+                }
+              }
+            }
+
+
+
+            > .commentWrap {
+
+              > textarea {
+                width: 100%;
+                height: 100%;
+                padding: 16px 24px 0 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .productOther {
+
+      > .main-component {
+
+        > .topSide {
+
+          > .topSide-content {
+            > .element {
+              > .title {
+                text-align: right;
+              }
+
+              > .name {
+                text-align: right;
+              }
+
+              > .item {
+
+                > .text {
+                  margin-right: 10px;
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+
+        > .otherWrap {
+
+          > .otherWrap-content {
+
+            > .hotSaleElement {
+              width: 270px;
+            }
+          }
+        }
+      }
+    }
+
+    .faq {
+
+      > .main-component {
+
+
+        > .topSide {
+          > .title {
+            text-align: right;
+          }
+        }
+
+
+        > .main-content {
+
+          > .searchWrap {
+
+            > .element {
+
+              > .icon {
+                border: 0;
+                padding-right: 24px;
+                padding-left: 0;
+              }
+            }
+          }
+
+          > .questionWrap {
+
+            > .listWrap {
+              padding-right: 135px;
+              padding-left: 0;
+              margin-left: 30px;
+              margin-right: 0;
+
+              > .topSide {
+
+                > .title {
+                  text-align: right;
+                }
+
+                > .sortWrap {
+
+                  > .text {
+                    margin-left: 0;
+                    margin-right: 10px;
+                    text-align: right;
+                  }
+                }
+              }
+
+              > .bottomSide {
+
+                > .element {
+
+
+                  > .leftSide {
+                    margin-left: 30px;
+                    margin-right: 0;
+                  }
+
+                  > .rightSide {
+
+                    > .text {
+                      text-align: right;
+                    }
+
+                    > .infoWrap {
+                      padding-right: 0;
+                      padding-left: 84px;
+
+
+                      .info {
+                        margin-right: 8px;
+                        margin-left: 0;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            > .filterWrap {
+              margin-right: unset;
+              margin-left: 30px;
+              padding: 0 35px 34px 24px;
+
+              > .title {
+                text-align: right;
+              }
+
+              > .content {
+                > label {
+
+                  > input {
+                    margin-right: 0;
+                    margin-left: 10px;
+                  }
+                }
+              }
+            }
+          }
+
+          &.add-question {
+
+            > .title {
+              text-align: right;
+            }
+
+            > .add-question {
+
+
+              > .contentWrap {
+              }
+            }
+
+            > .description {
+
+              > .element {
+
+                > textArea {
+                  padding: 10px 24px 0 0;
+                  text-align: right;
+                }
+              }
+            }
+
+            > .contactInfo {
+
+              > .infoWrap {
+
+                > .leftSide,
+                > .rightSide {
+
+                  > .element {
+                    text-align: right;
+                  }
+                }
+              }
+            }
+
+
+            .componentTitle {
+              text-align: right;
+            }
+
+            .itemTitle {
+              text-align: right;
+            }
+          }
+
+
+          &.view-question {
+
+            > .questionWrap {
+
+
+              > .listWrap {
+                padding-left: 335px;
+                padding-right: 135px;
+
+                > .main-content {
+                  > .questionInfo {
+
+                    > .element {
+                      margin-right: 0;
+                      margin-left: 48px;
+
+                      &:last-child {
+                        margin-left: 0;
+                      }
+
+                      > .info {
+                        margin-right: 8px;
+                        margin-left: 0;
+                        text-align: right;
+                      }
+                    }
+                  }
+
+                  > .fullQuestion {
+                    text-align: right;
+                  }
+
+                  > .answersWrap {
+                    > .title {
+                      text-align: right;
+                    }
+
+                    > .elementWrap {
+
+                      > .element {
+
+                        > .topSide {
+
+                          > .title {
+                            text-align: right;
+                          }
+
+                          > .time {
+                            > .info {
+                              margin-right: 8px;
+                              margin-left: 0;
+                            }
+                          }
+                        }
+
+                        > .text {
+                          text-align: right;
+                        }
+
+                        > .bottomSide {
+
+                          > .element {
+                            margin-left: 40px;
+                            margin-right: 0;
+
+                            &:last-child {
+                              margin-left: 0;
+                            }
+
+                            > .iconWrap {
+                              margin-left: 8px;
+                              margin-right: 0;
+                            }
+                          }
+                        }
+                      }
+                    }
+
+                    > .description {
+
+                      > .itemTitle {
+                        text-align: right;
+
+                        &::first-letter {
+                          text-transform: uppercase;
+                        }
+                      }
+
+                      > .element {
+
+                        > textArea {
+                          padding: 10px 24px 0 0;
+                          text-align: right;
+                        }
+                      }
+                    }
+
+                    > .contactInfo {
+
+                      .itemTitle {
+                        text-align: right;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            > .otherQuestions {
+
+              > .title {
+                padding: 0 135px 64px 0;
+                text-align: right;
+              }
+
+              > .sliderWrap {
+                direction: ltr;
+
+
+                .element {
+                  direction: ltr;
+
+                  > .topSide {
+
+                    > .leftSide {
+                      padding-left: 28px;
+                      padding-right: 0;
+                      border-left: 1px solid #edeef4;
+                      border-right: 0;
+                      margin-left: 30px;
+                      margin-right: 0;
+                    }
+
+                    > .rightSide {
+
+                      > .text {
+                        text-align: right;
+                      }
+
+                      > .infoWrap {
+                        padding-left: 84px;
+                        padding-right: 0;
+
+                        .info {
+                          margin-left: 0;
+                          margin-right: 8px;
+                          text-align: right;
+                        }
+                      }
+                    }
+                  }
+
+                  > .infoWrap {
+
+                    .info {
+                      margin-right: 8px;
+                      margin-left: 0;
+                    }
+                  }
+                }
+              }
+
+              > .sliderButton {
+                direction: ltr;
+              }
+            }
+          }
+
+          > .bottomSide {
+
+            > .pagination {
+
+              > a {
+                margin-left: 5px;
+                margin-right: 0;
+                cursor: pointer;
+
+                &:last-child {
+                  margin-left: 0;
+                }
+              }
+
+              > .left {
+                &:before {
+                  width: 0;
+                  height: 0;
+                  border-style: solid;
+                  right: 50%;
+                  left: unset;
+                  transform: translate(50%, -50%);
+                  border-width: 5px 0 5px 6px;
+                  border-color: transparent transparent transparent $textWhite;
+                }
+              }
+
+              > .right {
+                &:before {
+                  width: 0;
+                  height: 0;
+                  right: 50%;
+                  left: unset;
+                  transform: translate(50%, -50%);
+                  border-style: solid;
+                  border-width: 5px 6px 5px 0;
+                  border-color: transparent $textWhite transparent transparent;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        > .main-component {
+          > .main-content {
+            > .questionWrap {
+              > .listWrap {
+                padding: 0;
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .events {
+
+      > .main-component {
+        &.upcoming,
+        &.previous {
+
+          > .main-content {
+
+            > .filterWrap {
+              > .element {
+
+                > .icon {
+                  border-left: 0;
+                }
+              }
+            }
+
+            > .sortWrap {
+
+              > .title {
+                text-align: right;
+              }
+
+              > .sort {
+
+                > .text {
+                  margin-left: 10px;
+                  margin-right: 0;
+                }
+              }
+            }
+
+
+            > .eventsWrapper {
+
+              > .eventsElement {
+                margin-right: 0;
+                margin-left: 30px;
+
+                &:nth-child(3n) {
+                  margin-left: 0;
+                }
+
+                > .bottomSide {
+                  background-color: $backgroundWhite;
+                  text-align: right;
+
+                  > .location {
+                    margin-top: 22px;
+                  }
+                }
+              }
+            }
+
+
+            .select2 {
+
+              .select2-selection__arrow {
+                right: 16px !important;
+              }
+            }
+          }
+        }
+
+        &.viewEvent {
+
+          > .main-content {
+
+            > .title {
+              text-align: right;
+            }
+
+            > .infoWrap {
+
+              > .element {
+
+                > .text {
+                  margin-right: 8px;
+                  margin-left: 0;
+                }
+              }
+            }
+
+            > .shareWrap {
+
+
+              > .rightSide {
+                > .text {
+                  text-align: right;
+                }
+
+                > .iconSet {
+                  > .iconWrap {
+                    margin-right: 14px;
+                    margin-left: 0;
+                  }
+                }
+              }
+            }
+
+            > .descriptionWrap {
+              > .title {
+                text-align: right;
+              }
+
+              > .text {
+                text-align: right;
+              }
+            }
+          }
+
+          > .map {
+
+            > .element {
+
+              > .icon {
+                border-left: 0;
+              }
+            }
+          }
+        }
+
+        &.single {
+
+          > .main-content {
+
+            .title {
+              text-align: right;
+            }
+
+            > .text {
+              text-align: right;
+            }
+
+            > .map {
+
+              > .element {
+
+                > .icon {
+                  border-left: 0;
+                }
+              }
+            }
+          }
+        }
+
+        &.services {
+
+          > .main-content {
+
+            > .leftSide {
+              right: 0;
+              left: unset;
+
+              > .title {
+                text-align: center;
+              }
+
+              > .categoryType {
+
+                > .fieldNaming {
+                  text-align: right;
+                }
+
+                > .content {
+
+                  > label {
+                    > input {
+                      margin-left: 10px;
+                      margin-right: 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            > .rightSide {
+              padding-right: 295px;
+              padding-left: 0;
+
+              > .contentWrap {
+
+                .toursElement {
+
+                  > .infoWrap {
+
+                    > .title {
+                      text-align: right;
+                    }
+
+                    > .stars {
+
+                      > .iconWrap {
+                        margin-right: 0;
+                        margin-left: 8px;
+
+                        &:last-child {
+                          margin-right: 0;
+                        }
+                      }
+                    }
+
+                    > .text {
+                      text-align: right;
+
+                      > .iconWrap {
+                        margin-right: 0;
+                        margin-left: 6px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.livingInKuwait {
+
+          > .main-content {
+
+
+            > .leftSide {
+              width: 100%;
+              padding-left: 300px;
+              padding-right: 0;
+
+              > .title {
+                text-align: right;
+              }
+
+              > .contentWrap {
+
+                > .element {
+
+
+                  > .rightSide {
+
+                    > .infoWrap {
+
+                      > .element {
+                        margin-left: 58px;
+                        margin-right: 0;
+
+                        > .iconWrap {
+                          margin-left: 8px;
+                          margin-right: 0;
+                        }
+
+                        &:last-child {
+                          margin-left: 0;
+                        }
+                      }
+                    }
+
+                    > .description {
+                      text-align: right;
+                    }
+
+                    > .text {
+                      text-align: right;
+                    }
+                  }
+                }
+              }
+
+              > .faqWrap {
+
+
+                > .element {
+
+
+                  > .leftSide {
+                    padding-left: 28px;
+                    padding-right: 0;
+                    margin-left: 30px;
+                    margin-right: 0;
+
+                    > .title {
+                      text-align: right;
+                    }
+
+                    > .text {
+                      text-align: right;
+                    }
+                  }
+
+                  > .rightSide {
+
+                    > .text {
+                      text-align: right;
+                    }
+
+                    > .infoWrap {
+                      padding-left: 84px;
+                      padding-right: 0;
+
+                      .info {
+                        margin-left: 0;
+                        margin-right: 8px;
+                        text-align: right;
+                      }
+                    }
+                  }
+                }
+              }
+
+              > .org {
+
+                > .contentWrap {
+
+                  > .toursElement {
+
+
+                    > .infoWrap {
+
+                      > .title {
+                        text-align: right;
+                      }
+
+                      > .stars {
+
+                        > .iconWrap {
+                          margin-right: 0;
+                          margin-left: 8px;
+
+                          &:last-child {
+                            margin-left: 0;
+                          }
+                        }
+                      }
+
+                      > .text {
+                        text-align: right;
+
+                        > .iconWrap {
+                          margin-right: 0;
+                          margin-left: 6px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            > .rightSide {
+              right: unset;
+              left: 0;
+
+              > .title {
+                text-align: right;
+              }
+
+              > .contentWrap {
+
+                > .eventsElement {
+                  margin-left: 30px;
+                  margin-right: 0;
+
+
+                  > .bottomSide {
+                    text-align: right;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .blog {
+      > .main-component {
+
+        > .topSide {
+
+          > .filterWrap {
+            > .element {
+
+              &.dropdown {
+
+                .select2-selection {
+                  direction: rtl;
+
+                  &__arrow {
+                    right: unset;
+                    left: 1px;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        > .main-content {
+
+          > .topSide {
+
+            > .title {
+              text-align: right;
+            }
+
+            > .sortWrap {
+
+              > span {
+                text-align: right;
+              }
+
+              > .element {
+                margin-right: 10px;
+                margin-left: 0;
+              }
+            }
+          }
+
+          > .mainWrap {
+
+            > .tableWrap {
+
+              > div {
+                > .bottomSide {
+
+                  > .infoWrap {
+                    width: 100%;
+                    display: flex;
+                    padding-left: 0;
+                    padding-right: 38px;
+                    color: $textWhite;
+
+                    > .element {
+                      display: flex;
+                      margin-right: 0;
+                      margin-left: 62px;
+
+                      > .iconWrap {
+                        margin-left: 8px;
+                        margin-right: 0;
+                      }
+                    }
+                  }
+
+                  > .text {
+                    text-align: right;
+                  }
+                }
+              }
+
+              > .normal {
+
+
+                > .bottomSide {
+                  > .text {
+                    text-align: right;
+                  }
+                }
+              }
+            }
+
+            > .newsWrap {
+
+              > .title {
+                text-align: right;
+              }
+
+              > .elementWrap {
+
+
+                > .element {
+                  > .bottomSide {
+
+                    > .infoWrap {
+                      padding-right: 38px;
+                      padding-left: 0;
+
+                      > .element {
+                        margin-right: 0;
+                        margin-left: 62px;
+
+                        > .iconWrap {
+                          margin-right: 0;
+                          margin-left: 8px;
+                        }
+
+                        > .text {
+                          text-align: right;
+                        }
+                      }
+                    }
+
+                    > .text {
+                      text-align: right;
+                    }
+
+                    > .smallText {
+                      text-align: right;
+                    }
+                  }
+                }
+              }
+            }
+
+            > .bottomSide {
+
+              > .pagination {
+
+                > a {
+                  margin-right: 0;
+                  margin-left: 5px;
+
+                  &:last-child {
+                    margin-left: 0;
+                  }
+                }
+
+                > .left {
+                  &:before {
+                    border-width: 5px 0 5px 6px;
+                    border-color: transparent transparent transparent $textWhite;
+                  }
+                }
+
+                > .right {
+                  &:before {
+                    border-width: 5px 6px 5px 0;
+                    border-color: transparent $textWhite transparent transparent;
+                  }
+                }
+              }
+            }
+          }
+
+          > .subscribeWrap {
+            padding: 66px 0 64px 0;
+
+            > .elementWrap {
+
+
+              > .buttonWrap {
+                margin-right: 30px;
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .article {
+      > .main-component {
+
+
+        > .main-content {
+
+          > .leftSide {
+            padding: 0 135px 0 336px;
+
+            > .content {
+
+              > .topSide {
+
+                > .leftSide {
+
+                  > .element {
+                    margin-left: 64px;
+                    margin-right: 0;
+
+                    > .text {
+                      margin-right: 8px;
+                      margin-left: 8px;
+                    }
+                  }
+                }
+              }
+
+              > .title {
+                text-align: right;
+              }
+
+              > .text {
+                text-align: right;
+              }
+
+              > .commentsWrap {
+
+                > .title {
+                  text-align: right;
+                }
+
+                > .comments {
+
+                  > .element {
+
+                    > .topSide {
+
+                      > .title {
+                        text-align: right;
+                      }
+
+                      > .time {
+
+
+                        > .info {
+                          margin-right: 8px;
+                          margin-left: 0;
+                        }
+                      }
+                    }
+
+                    > .text {
+                      text-align: right;
+                    }
+
+                    > .bottomSide {
+
+                      > .element {
+                        margin-left: 40px;
+                        margin-right: 0;
+
+                        &:last-child {
+                          margin-left: 0;
+                        }
+
+                        > .iconWrap {
+                          margin-left: 8px;
+                          margin-right: 0;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          > .rightSide {
+            right: unset;
+            left: 35px;
+            width: 270px;
+
+            > .social {
+              padding: 28px 32px 32px 19px;
+
+              > .title {
+                text-align: right;
+              }
+
+
+              > .elementWrap {
+
+                > a {
+                  margin-right: 0;
+                  margin-left: 16px;
+
+                  &:last-child {
+                    margin-left: 0;
+                  }
+                }
+              }
+            }
+
+            > .recentPost {
+
+              > .title {
+                text-align: right;
+              }
+
+              > .elementWrap {
+
+                > .element {
+
+                  > .topSide {
+                    text-align: right;
+
+                    > .iconWrap {
+                      margin-left: 8px;
+                      margin-right: 0;
+                    }
+                  }
+
+                  > .text {
+                    text-align: right;
+                  }
+                }
+              }
+            }
+
+            > .subscribe {
+
+              > .title {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .terms {
+      text-align: right !important;
+    }
+  }
+}

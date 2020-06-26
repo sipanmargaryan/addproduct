@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<main class="main">
+  <div class="main-content">
+    <div class="addAdd">
+      <div class="payment">
+        <h1 class="title">{% trans "Add an ad" %}</h1>
+        <div class="main-content">
+          <form id="creditCard-payment-form">
+            <div class="headingWrap">
+              <div class="element">
+                <a href="#" class="breadcrumbs js-breadcrumb active visa" data-component="visa">
+                  {% trans "Credit Card" %}
+                </a>
+              </div>
+              <div class="element">
+                <a href="#" class="breadcrumbs js-breadcrumb knet" data-component="knet">
+                  <img src="{% static 'assets/icons/knet@3x.jpg' %}" />
+                  {% trans "Knet" %}
+                </a>
+              </div>
+              <div class="element">
+                <a href="#" class="breadcrumbs js-breadcrumb paypal" data-component="paypal">
+                  <img src="{% static 'assets/icons/paypal@3x.jpg' %}" />
+                  {% trans "PayPal" %}
+                </a>
+              </div>
+            </div>
+            <div class="component costWrap">
+              <div class="heading">
+                <div class="element">
+                  <h1 class="subTitle">{% trans "Total cost" %}</h1>
+                  <span class="date">{% trans "Top post on" %} 7 {% trans "days" %}</span>
+                </div>
+                <div class="element">
+                  <h1 class="cost">100 kwd</h1>
+                </div>
+              </div>
+            </div>
+            <div class="component js-component js-visa">
+              <div class="heading">
+                <div class="element">
+                  <h1 class="subTitle">{% trans "Info about card" %}</h1>
+                </div>
+              </div>
+              <div class="content ">
+                <h1 class="itemNaming">{% trans "Credit card number" %}</h1>
+                <div class="element input">
+                  {{ form.number|attr:"class:inputAuthorisation"|attr:"placeholder:4584" }}
+                </div>
+                {{ form.number.errors }}
+              </div>
+              <div class="content info">
+                <div class="item">
+                  <h1 class="itemNaming">{% trans "Expiration" %}</h1>
+                  <div class="element input">
+                    {{ form.exp_month|attr:"class:form-control js-select2"}}
+                  </div>
+                </div>
+                <div class="item">
+                  <h1 class="itemNaming">{% trans "Year" %}</h1>
+                  <div class="element input">
+                    {{ form.exp_year|attr:"class:form-control js-select2"}}
+                  </div>
+                </div>
+                <div class="item">
+                  <h1 class="itemNaming">CVC/CVV</h1>
+                  <div class="element input">
+                    {{ form.cvc|attr:"class:inputAuthorisation"|attr:"placeholder:4031" }}
+                  </div>
+                  {{ form.cvc.errors }}
+                </div>
+              </div>
+              <div class="content payNow">
+                <div class="element">
+                  <button class="button mainColor" id="creditCard-button" data-payment-id="{{payment.pk}}" data-card-url="{% url 'payments:credit_charge' %}">
+                    {% trans "Pay now" %}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <form>
+            <div class="component js-component js-knet" hidden>
+              <div class="content payNow">
+                <div class="element">
+                  <button type="submit" id="knet-button" class="button mainColor" data-payment-id="{{payment.pk}}" data-knet-url="{% url 'payments:knet_charge' %}">
+                    {% trans "Pay Now with Knet" %}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <form action="{{paypal_form.get_endpoint}}" method="post" id="paypal-form">
+          <div class="component js-component js-paypal" hidden>
+            {{ paypal_form.as_p }}
+            <div class="content payNow">
+              <button type="submit" id="paypal-button" class="button mainColor">
+                {% trans "Pay Now with paypal" %}
+              </button>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'js/jquery.payform.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/payment.js' %}"></script>
+{% endblock %}

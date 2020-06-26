@@ -1,0 +1,63 @@
+{% load static %}
+{% load i18n %}
+
+<div class="header-content">
+  <div class="leftSide">
+    <div class="logoWrap">
+      <a href="/"><img src="{% static 'assets/logo/logo.svg' %}" style="width: 110px" alt="Masaha"/></a>
+    </div>
+    <div id="language-switcher" class="langBar">
+      <a href="{% url 'common:switch_language' %}">eng</a>
+      <i>/</i>
+      <a href="{% url 'common:switch_language' %}?code=ar">عربي</a>
+    </div>
+  </div>
+  <div class="rightSide">
+    <a href="{% url 'common:help_and_support' %}" class="supportWrap">
+      <i class="icon help-support"></i>
+    </a>
+    {% if request.user.is_authenticated %}
+    <div class="personalWrap login active openDrop">
+      <span class="iconWrap">
+        <i class="icon user"></i>
+      </span>
+      <div class="topSide">
+        <span class="heading">{{ request.user.get_full_name|default:"Profile" }}</span>
+        <span class="dropdown">
+          <i class="icon dropdown"></i>
+        </span>
+      </div>
+      <div class="dropdownWrap">
+        <a href="{% url 'users:profile' %}" class="item">{% trans "Personal Information" %}</a>
+        <a href="{% url 'ads:my' %}" class="item">{% trans "My Ads" %}</a>
+        <a href="{% url 'messaging:inbox' %}" class="item">{% trans "Messages" %}</a>
+        <a href="{% url 'ads:favorites' %}" class="item">{% trans "Favorites" %}</a>
+        <a href="{% url 'payments:history' %}" class="item">{% trans "Payment History" %}</a>
+        <a href="{% url 'ads:save_search' %}" class="item">{% trans "Saved Searches" %}</a>
+        <a href="{% url 'users:logout' %}" class="item">{% trans "Logout" %}</a>
+      </div>
+    </div>
+    {% else %}
+    <div class="signInWrap active">
+      <span class="text">
+        <a href="{% url 'users:login' %}?next={{ request.path }}" id="header-signin">{% trans "Sign In" %}</a>
+        /
+        <a href="{% url 'users:signup' %}">{% trans "Sign up" %}</a>
+      </span>
+    </div>
+    {% endif %}
+    <div class="location openDrop">
+      <div class="topSide">
+        <a href="{% url 'common:living_in_armenia' %}" class="heading">{% trans "Living in Armenia" %}</a>
+      </div>
+    </div>
+    <div class="searchWrap openDrop">
+      <div class="topSide">
+        <a href="{% url 'ads:ads' %}" class="heading">{% trans "Search Ad" %}</a>
+      </div>
+    </div>
+    <div class="buttonWrap">
+      <a href="{% url 'ads:add' %}" class="button mainColor">{% trans "Add an Ad" %}</a>
+    </div>
+  </div>
+</div>

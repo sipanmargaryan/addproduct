@@ -1,0 +1,33 @@
+{% load i18n %}
+{% load core_utils %}
+
+<div class="pagination">
+  <a href="?{% param_replace page=1 %}" class="firstLast">{% trans "first" %}</a>
+  {% if page_obj.has_previous %}
+    <a href="?{% param_replace page=page_obj.previous_page_number %}" class="left"></a>
+  {% endif %}
+  {% if page_obj.number|subtract:"3" > 0 %}
+    <span class="numbers">...</span>
+  {% endif %}
+  {% with start=page_obj.number|subtract:"2" end=page_obj.number|add:"1" %}
+    {% for i in end|custom_range:start %}
+      {% if i > 0 %}
+          <a href="?{% param_replace page=i  %}" class="numbers {% if page_obj.number == i %} selected {% endif %}">{{ i }}</a>
+      {% endif %}
+    {% endfor %}
+  {% endwith %}
+  {% with start=page_obj.number|add:"1" end=page_obj.number|add:"3" %}
+    {% for i in end|custom_range:start %}
+      {% if i <= page_obj.paginator.num_pages %}
+          <a href="?{% param_replace page=i  %}" class="numbers {% if page_obj.number == i %} selected {% endif %}">{{ i }}</a>
+      {% endif %}
+    {% endfor %}
+  {% endwith %}
+  {% if page_obj.paginator.num_pages|subtract:page_obj.number > 2 %}
+    <span class="numbers">...</span>
+  {% endif %}
+  {% if page_obj.has_next %}
+    <a href="?{% param_replace page=page_obj.next_page_number  %}" class="right"></a>
+  {% endif %}
+  <a href="?{% param_replace page=page_obj.paginator.num_pages  %}" class="firstLast">{% trans "last" %}</a>
+</div>

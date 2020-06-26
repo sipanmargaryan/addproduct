@@ -1,0 +1,160 @@
+﻿
+.popup {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(35, 37, 45, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > .loading {
+    width: 225px;
+
+    > .iconWrap {
+      > .icon {
+        &:before {
+          animation: rotate 1.5s linear infinite;
+        }
+      }
+    }
+
+    > .text {
+      font-family: Gotham-Book,sans-serif;
+      font-size: 20px;
+      text-align: center;
+      color: $textWhite;
+      margin-top: 32px;
+    }
+  }
+
+  > .content {
+    width: 570px;
+    padding: 124px 100px 100px 100px;
+    background-color: $backgroundWhite;
+
+    > .iconWrap {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    > .title {
+      font-family: Gotham-Book,sans-serif;
+      font-size: 28px;
+      text-align: center;
+      color: $textDarkGrey;
+      margin: 25px 0 16px 0;
+    }
+
+    > .text {
+      font-family: Gotham-Book,sans-serif;
+      font-size: 20px;
+      text-align: center;
+      color: $textGreyer;
+    }
+
+    > .element {
+      width: 100%;
+      height: 44px;
+      margin-top: 38px;
+      font-size: 14px;
+    }
+  }
+
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+
+    10% {
+      transform: rotate(0);
+    }
+
+    10.00001% {
+      transform: rotate(36deg);
+    }
+
+    20% {
+      transform: rotate(36deg);
+    }
+
+    20.00001% {
+      transform: rotate(72deg);
+    }
+
+    30% {
+      transform: rotate(72deg);
+    }
+
+    30.00001% {
+      transform: rotate(108deg);
+    }
+
+    40% {
+      transform: rotate(108deg);
+    }
+
+    40.00001% {
+      transform: rotate(144deg);
+    }
+
+    50% {
+      transform: rotate(144deg);
+    }
+
+    50.00001% {
+      transform: rotate(180deg);
+    }
+
+    60% {
+      transform: rotate(180deg);
+    }
+
+    60.00001% {
+      transform: rotate(216deg);
+    }
+
+    70% {
+      transform: rotate(216deg);
+    }
+
+    70.00001% {
+      transform: rotate(250deg);
+    }
+
+    80% {
+      transform: rotate(250deg);
+    }
+
+    80.00001% {
+      transform: rotate(286deg);
+    }
+
+    90% {
+      transform: rotate(286deg);
+    }
+
+    90.00001% {
+      transform: rotate(322deg);
+    }
+
+    100% {
+      transform: rotate(322deg);
+    }
+
+    100.00001% {
+      transform: rotate(358deg);
+    }
+  }
+
+
+  @media screen and (max-width: 767px) {
+    position: static;
+  }
+}

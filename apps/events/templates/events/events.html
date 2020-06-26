@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<main class="main events">
+    <div class="main-component previous">
+      <div class="topSide">
+        <div class="bgWrap">
+          <div class="imgWrap">
+            <img src="{% static 'assets/images/faq/bg.jpg' %}" />
+          </div>
+          <h1 class="title">{% trans "Events" %}</h1>
+        </div>
+        <nav class="navWrap">
+          <div class="element">
+            <a href="{% url 'events:upcoming_events' %}" class="breadcrumbs {% ifequal filter_by 'upcoming' %}active{% endifequal %} js-upcoming-events">Upcoming events</a>
+          </div>
+          <div class="element">
+            <a href="{% url 'events:previous_events' %}" class="breadcrumbs {% ifequal filter_by 'previous' %}active{% endifequal %} js-previous-events">Previous events</a>
+          </div>
+        </nav>
+      </div>
+      <div class="main-content  small">
+        <div class="filterWrap">
+          <div class="element">
+            <select class="form-control inputAuthorisation js-select2 js-event-city">
+              <option value="">{% trans "All Locations" %}</option>
+              {% for city in cities %}
+                <option value="{{ city.pk }}">{{ city.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="element ">
+            <select class="form-control inputAuthorisation js-select2 js-event-category">
+              <option value="">{% trans "All Categories" %}</option>
+              {% for category in categories %}
+                <option value="{{ category.pk }}">{{ category.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="element input">
+            <i class="icon search"></i>
+            <input class="inputAuthorisation js-event-search" placeholder='{% trans "Search events" %}'/>
+          </div>
+        </div>
+        <div class="sortWrap">
+          <h1 class="title">
+            {% ifequal filter_by 'upcoming' %}{% trans "Upcoming events" %}{% else %}{% trans "Previous events" %}{% endifequal %}
+          </h1>
+          <div class="sort">
+            <span class="text">{% trans "Sorting by" %}</span>
+            <div class="element ">
+              <select class="form-control inputAuthorisation js-select2 js-event-sort">
+                <option value="-start_date">{% trans "Date" %}</option>
+                <option value="category__name">{% trans "Category" %}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="eventsWrapper js-events-container" data-url="{% url 'events:event_list' %}">
+          {% for event in events %}
+            {% include 'events/includes/event_element.html' with event=event %}
+          {% endfor %}
+        </div>
+        {% if paginate.has_next %}
+          <div class="buttonWrap">
+            <div class="element">
+              <a href="#" class="button mainColor js-show-more"
+                 data-page="{{ paginate.next_page_number }}"
+                 data-filter="{{ filter_by }}"
+                 data-url="{% url 'events:event_list' %}"
+              >{% trans "Show more events" %}</a>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'js/components/events.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+---
+
+- name: restart_redis_handler
+  become: yes
+  service:
+    name: redis.service
+    state: restarted

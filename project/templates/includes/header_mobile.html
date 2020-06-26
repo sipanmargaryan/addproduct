@@ -1,0 +1,55 @@
+{% load static %}
+{% load i18n %}
+
+<div class="headerMobile-content">
+  <div class="menuWrapper">
+    <div class="switchWrap js-switch-menu">
+      <div class="iconWrap cursorPointer">
+        <i class="icon"></i>
+      </div>
+      <div class="bottomSide">
+        <div class="item">
+          <a href="{% url 'common:living_in_armenia' %}" class="link active">{% trans "Living in Armenia" %}</a>
+        </div>
+        <div class="item">
+          <a href="{% url 'faq:recent_questions' %}" class="link">{% trans "FAQ" %}</a>
+        </div>
+        <div class="item">
+          <a href="{% url 'common:help_and_support' %}" class="link">{% trans "Help & Contact" %}</a>
+        </div>
+        <div class="item">
+          <a href="{% url 'common:switch_language' %}" class="lang">eng</a>
+          <span class="slash">/</span>
+          <a href="{% url 'common:switch_language' %}?code=ar" class="lang">عربي</a>
+        </div>
+        {% if request.user.is_authenticated %}
+          <div class="item">
+            <a href="{% url 'users:logout' %}" class="button transparent">{% trans "Logout" %}</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="logoWrap">
+    <a class="link" href="/">
+      <img src="{% static 'assets/logo/logoMobile.svg' %}" alt="Masaha"/>
+    </a>
+  </div>
+  <div class="rightSide">
+    {% if request.user.is_authenticated %}
+      <a href="{% url 'users:profile' %}" class="link">
+        <i class="icon user"></i>
+      </a>
+    {% else %}
+      <a href="{% url 'users:login' %}?next={{ request.path }}" id="header-signin" class="link">
+        <i class="icon user"></i>
+      </a>
+    {% endif %}
+    <a href="{% url 'ads:ads' %}" class="link">
+      <i class="icon searchGrey"></i>
+    </a>
+    <a href="{% url 'ads:add' %}" class="link">
+      <i class="icon addActive"></i>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load opengraph %}
+{% load utcisoformat %}
+
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'plugins/jssocials/jssocials.css' %}">
+
+{% endblock %}
+
+{% block opengraph_meta %}
+  {% opengraph_meta title=event.title image=event.image.url description=event.description %}
+{% endblock %}
+
+{% block content %}
+
+<main class="main events">
+    <div class="main-component viewEvent ">
+      <div class="topSide ">
+        <div class="bgWrap">
+          <div class="imgWrap">
+            <img src="{{ event.image.url }}" alt="{{ event.title }}" />
+          </div>
+        </div>
+      </div>
+      <div class="main-content  ">
+        <h1 class="title">{{ event.title }}</h1>
+        <div class="infoWrap">
+          <div class="element">
+            <span class="infoWrap">
+              <i class="icon calendar"></i>
+            </span>
+            <span class="text">{{ event.start_date|date:"d" }}-{{ event.end_date|date:"d" }} {{ event.start_date|date:"M" }}</span>
+          </div>
+          <div class="element">
+            <span class="infoWrap">
+              <i class="icon clockActive"></i>
+            </span>
+            <span class="text">{{ event.start_date|date:"g:i a" }} - {{ event.end_date|date:"g:i a" }}</span>
+          </div>
+          <div class="element">
+            <span class="infoWrap">
+              <i class="icon locationActive"></i>
+            </span>
+            <span class="text">{{ event.city.name }}</span>
+          </div>
+          <div class="element">
+            <span class="infoWrap">
+              <i class="icon money"></i>
+            </span>
+            <span class="text">{{ event.price }}</span>
+          </div>
+        </div>
+        <div class="shareWrap">
+          <div class="leftSide">
+            <div class="element">
+              <a href="{{ event.registration_url }}" target="_blank" class="button mainColor">{% trans "Register to Event" %}</a>
+            </div>
+            <div class="element">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={{ event.title }}&dates={% utcisoformat event.start_date %}/{% utcisoformat event.end_date %}&details={{ event.description }}&location={{ event.address }}" target="_blank" rel="nofollow" class="button message">{% trans "Add to Google Calendar" %}</a>
+            </div>
+          </div>
+          <div class="rightSide">
+            <span class="text">{% trans "Share event" %}:</span>
+            <div id="share" class="jssocialsSmall"></div>
+          </div>
+        </div>
+        <div class="descriptionWrap">
+          <h1 class="title">{% trans "Description" %}</h1>
+          <p class="text">{{ event.description }}</p>
+        </div>
+      </div>
+      <div class="map">
+        <div id="googleMap" data-latitude="{{ event.latitude|floatformat:-4 }}" data-longitude="{{ event.longitude|floatformat:-4 }}" data-title="{{ event.title }}">
+
+        </div>
+        <div class="element input">
+          <i class="icon locationActive"></i>
+          <input type="text" class="inputAuthorisation bg-white" placeholder="{{ event.address }}" disabled>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&language={{ LANGUAGE_CODE }}"></script>
+<script type="text/javascript" src="{% static 'plugins/jssocials/jssocials.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/event_detail.js' %}"></script>
+
+{% endblock %}
+
+

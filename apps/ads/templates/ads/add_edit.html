@@ -1,0 +1,359 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+{% load core_utils %}
+
+{% block content %}
+
+<main class="main">
+  <div class="main-content">
+    <div class="addAdd js-ads-container">
+      {% if ad %}
+        <h1 class="title small">{% trans "Edit an ad" %}</h1>
+      {% else %}
+        <h1 class="title small">{% trans "Add an ad" %}</h1>
+      {% endif %}
+      <div class="addAdd-content small">
+        <div class="field categoryWrap js-first-row">
+          <h1 class="subTitle">{% trans "What do you want to sell?" %}</h1>
+          <div class="content">
+            <div class="leftSide">
+              <h2 class="itemNaming">{% trans "Category" %}*</h2>
+              <div class="element input" data-initial="{{ ad.category.pk }}">
+                {{ form.category|attr:"class:inputAuthorisation form-control js-select2" }}
+              </div>
+            </div>
+            <div class="rightSide js-cars-container" data-model-url="{% url 'ads:car_models' %}" {% ifequal related|to_class_name "CarAd" %}data-make="{{related.make.pk}}" data-model="{{related.model.pk}}"{% endifequal %}>
+              <div class="categoryType">
+                <form>
+                  <div class="item">
+                    <h3 class="itemNaming">Make *</h3>
+                    <div class="element input">
+                      <select class="inputAuthorisation form-control js-select2-sub js-cars-make">
+                        {% for make in makes %}
+                          <option value="{{ make.pk }}">{{ make.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <h3 class="itemNaming">Model *</h3>
+                    <div class="element input">
+                      <select class="inputAuthorisation form-control js-select2-sub js-cars-models">
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="rightSide js-mobile-container" data-model-url="{% url 'ads:mobile_models' %}" {% ifequal related|to_class_name "MobileAd" %}data-brand="{{related.brand.pk}}" data-model="{{related.model.pk}}"{% endifequal %}>
+              <div class="categoryType">
+                <form>
+                  <div class="item">
+                    <h3 class="itemNaming">Brand *</h3>
+                    <div class="element input">
+                      <select class="inputAuthorisation form-control js-select2-sub js-mobile-brand">
+                        {% for brand in brands %}
+                          <option value="{{ brand.pk }}">{{ brand.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <h3 class="itemNaming">Model *</h3>
+                    <div class="element input">
+                      <select class="inputAuthorisation form-control js-select2-sub js-mobile-models">
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="rightSide js-real-estate-container" {% ifequal related|to_class_name "RealEstateAd" %}data-purpose="{{related.purpose}}"{% endifequal %}>
+              <div class="estateType">
+                <h1 class="itemNaming">{% trans "Choose type of real estate" %}*</h1>
+                <form>
+                  <input type="radio" name="purpose" id="sell" class="hidden" checked/>
+                  <label for="sell" class="element">
+                    <span class="button transparent">{% trans "Sell" %}</span>
+                  </label>
+                  <input type="radio" name="purpose" id="rental" class="hidden" />
+                  <label for="rental" class="element">
+                    <span class="button transparent">{% trans "Rental" %}</span>
+                  </label>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="field categoryWrap js-cars-extra-fields hidden">
+          <div class="content">
+            <div class="leftSide">
+              <h1 class="subTitle">{% trans "Car details" %}</h1>
+              <h1 class="itemNaming">{% trans "Mileage" %}</h1>
+              <div class="element input">
+                {{ car_ad_form.mileage|attr:"class:inputAuthorisation"|attr:"placeholder:Enter mileage"|attr:"type:number" }}
+                <ul class="errorlist"></ul>
+              </div>
+            </div>
+
+            <div class="rightSide">
+              <div class="categoryType active">
+                <form novalidate>
+                  <div class="item noHeading">
+                    <h1 class="itemNaming">{% trans "Year" %}</h1>
+                    <div class="element value input">
+                      {{ car_ad_form.year|attr:"class:inputAuthorisation"|attr:"placeholder:Enter a year" }}
+                    </div>
+                  </div>
+                  <div class="item noHeading">
+                    <h1 class="itemNaming">{% trans "Body Style" %}</h1>
+                    <div class="element input">
+                      {{ car_ad_form.body_style|attr:"class:inputAuthorisation js-select2"|attr:"placeholder:Select body style" }}
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field categoryWrap js-estate-extra-fields hidden">
+          <div class="content">
+            <div class="leftSide">
+              <h1 class="subTitle">{% trans "Estate details" %}</h1>
+              <h1 class="itemNaming">{% trans "Type" %}</h1>
+              <div class="element input">
+                {{ estate_ad_form.estate_type|attr:"class:inputAuthorisation js-select2"|attr:"placeholder:Select estate type" }}
+                <ul class="errorlist"></ul>
+              </div>
+            </div>
+
+            <div class="rightSide">
+              <div class="categoryType active">
+                <form novalidate>
+                  <div class="item noHeading">
+                    <h1 class="itemNaming">{% trans "Bedrooms" %}</h1>
+                    <div class="element value input">
+                      {{ estate_ad_form.bedrooms|attr:"class:inputAuthorisation"|attr:"placeholder:Enter the number of bedrooms" }}
+                    </div>
+                  </div>
+                  <div class="item noHeading">
+                    <h1 class="itemNaming">{% trans "Bathrooms" %}</h1>
+                    <div class="element input">
+                      {{ estate_ad_form.bathrooms|attr:"class:inputAuthorisation"|attr:"placeholder:Enter the number of bathrooms" }}
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field categoryWrap">
+          <div class="content">
+            <div class="leftSide">
+              <h1 class="subTitle">{% trans "Select Price" %}</h1>
+              <h1 class="itemNaming">{% trans "Price" %}*</h1>
+              <div class="element input">
+                {{ form.price|attr:"class:inputAuthorisation"|attr:"placeholder:Enter your price" }}
+                <ul class="errorlist"></ul>
+              </div>
+            </div>
+
+            <div class="rightSide">
+              <div class="categoryType active">
+                <form novalidate>
+                  <div class="item noHeading">
+                    <h1 class="itemNaming">{% trans "Currency" %}*</h1>
+                    <div class="element value input">
+                      {{ form.currency|attr:"class:inputAuthorisation form-control js-select2" }}
+                    </div>
+                  </div>
+                  <div class="item">
+                    <h1 class="subTitle">{% trans "Type seller?" %}</h1>
+
+                    <h1 class="itemNaming">{% trans "Seller" %}*</h1>
+                    <div class="element input">
+                      {{ form.is_seller_private|attr:"class:inputAuthorisation form-control js-select2" }}
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field stateType categoryWrap">
+          <h1 class="subTitle">{% trans "What is the state of your product?" %}</h1>
+          <div class="content">
+
+            <div class="rightSide">
+              <div class="estateType stateType active">
+                <form>
+                  {% for choice in form.state.field.choices %}
+                  <input type="radio" name="state" id="id_state_{{ choice.0 }}" class="hidden"
+                         value="{{ choice.0 }}"
+                         {% ifequal form.state.value choice.0 %}
+                         checked="checked"
+                         {% endifequal %}
+                  >
+                  <label for="id_state_{{ choice.0 }}" class="element">
+                    <span class="button transparent">{{ choice.1 }}</span>
+                  </label>
+                  {% endfor %}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field categoryWrap">
+          <div class="content">
+            <div class="description">
+              <h1 class="subTitle">{% trans "Tell about your ad" %}</h1>
+              <h1 class="itemNaming">{% trans "Title" %}*</h1>
+              <div class="element input">
+                {{ form.title|attr:"class:inputAuthorisation"|attr:"placeholder:Enter title of ad" }}
+                <ul class="errorlist"></ul>
+              </div>
+              <h1 class="itemNaming">{% trans "Description" %}*</h1>
+              <div class="textField">
+                {{ form.description|attr:"placeholder:Enter description of ad" }}
+                <ul class="errorlist"></ul>
+              </div>
+              <h1 class="itemNaming">{% trans "Image" %}*</h1>
+              <form class="elementWrap">
+                {% for i in 5|custom_range %}
+                  <div class="element">
+                    <input type="file" class="imgUpload js-ad-image-file" name="ad-image-{{i}}" id="ad-image-{{i}}" accept="image/*">
+                    <label for="ad-image-{{i}}">
+                      <div class="item">
+                        <i class="icon add"></i>
+                        <span class="text">{% trans "Add image" %}</span>
+                      </div>
+                    </label>
+                    {% with images|index:i as img %}
+                      {% if img %}
+                      <div class="imgWrap">
+                        <img src="{{ img.image.url }}" alt="{{ ad.title }}" data-id="{{ img.pk }}" class="js-existing-image">
+                      </div>
+                      {% endif %}
+                    {% endwith %}
+                  </div>
+                {% endfor %}
+              </form>
+              <ul class="errorlist js-error-hustle" id="ad-image-required" style="display: none;">
+                <li>&nbsp;</li>
+                <li>{% trans "Choose at least one image representing your ad." %}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="field categoryWrap contacts">
+          <h1 class="subTitle">{% trans "Contact details" %}</h1>
+          <div class="content">
+            <div class="leftSide">
+              <h1 class="itemNaming">{% trans "Name" %}*</h1>
+              <div class="element input">
+                {{ contact_form.full_name|attr:"class:inputAuthorisation"|attr:"placeholder:Enter contact name" }}
+                <ul class="errorlist"></ul>
+              </div>
+              <h1 class="itemNaming">{% trans "Email" %}*</h1>
+              <div class="element input">
+                {{ contact_form.email|attr:"class:inputAuthorisation"|attr:"placeholder:Enter email address" }}
+                <ul class="errorlist"></ul>
+              </div>
+            </div>
+            <div class="rightSide">
+              <div class="categoryType active">
+                <div class="item">
+                  <h1 class="itemNaming">{% trans "City" %}*</h1>
+                  <div class="element input">
+                    {{ form.city|attr:"class:form-control js-select2" }}
+                  </div>
+                  <h1 class="itemNaming">{% trans "Phone" %}*</h1>
+                  <div class="element input">
+                    {{ contact_form.phone_number|attr:"type:tel"|attr:"class:inputAuthorisation"|attr:"placeholder:Enter contact phone number" }}
+                    <ul class="errorlist"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field package">
+          <h1 class="subTitle">{% trans "Choose package of your ad" %}</h1>
+          <form>
+            <input type="radio" name="package" id="pack1" checked/>
+            <label for="pack1" class="switch">
+              <div class="typeWrap">
+                <span class="iconWrap">
+                  <i class="icon marketing"></i>
+                </span>
+                <span class="text">{% trans "free" %}</span>
+              </div>
+              <div class="dayWrap">
+                <span class="day">0 {% trans "days" %}</span>
+              </div>
+              <div class="priceWrap">
+                <span class="price">0 {% trans "kwd" %}</span>
+                <div class="element">
+                  <span class="button transparent"></span>
+                </div>
+              </div>
+            </label>
+            <input type="radio" name="package" id="pack2" class="js-premium-package"/>
+            <label for="pack2" class="switch">
+              <div class="typeWrap">
+                <span class="iconWrap">
+                  <i class="icon fire"></i>
+                </span>
+                <span class="text">{% trans "Premium paid" %}</span>
+              </div>
+              <div class="dayWrap">
+                <div class="selectWrap">
+                  <select class="day form-control js-select2 js-day">
+                    <option value="1">1 {% trans "day" %}</option>
+                    <option value="2">2 {% trans "days" %}</option>
+                    <option value="3">3 {% trans "days" %}</option>
+                    <option value="4">4 {% trans "days" %}</option>
+                    <option value="5">5 {% trans "days" %}</option>
+                    <option value="6">6 {% trans "days" %}</option>
+                    <option value="7">7 {% trans "days" %}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="priceWrap">
+                <span class="price" id="price" data-day="{{ price_per_day }}"></span>
+                <div class="element">
+                  <span class="button transparent"></span>
+                </div>
+              </div>
+            </label>
+          </form>
+        </div>
+      </div>
+      <div class="terms small">
+        <p class="text">{% trans "By selecting Post My Ad you agree you've read and accepted our Terms of Use and Posting Rules. Please see our Privacy Notice for information regarding the processing of your data." %}</p>
+        <div class="element">
+          <button data-url="{{ request.path }}" class="button mainColor js-submit-ad">
+            {% if ad %}{% trans "Edit my ad" %}{% else %}{% trans "Add my ad" %}{% endif %}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock content %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'js/components/add_edit_ad.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+
+<main class="main min-h-300">
+  <div class="main-content small">
+    <div class="authorisation">
+      <div class="popup">
+        <div class="messageContent">
+          <div class="iconWrap">
+          <span class="circle">
+            <i class="icon check"></i>
+          </span>
+          </div>
+          <h1 class="title">{% trans "Success" %}</h1>
+          <p class="text">{% trans "We’ve sent you confirmation link on your email" %} - {{ email_address }}.
+            {% trans "Please, check your email and activate your account." %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

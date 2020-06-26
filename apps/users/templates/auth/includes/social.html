@@ -1,0 +1,27 @@
+{% load i18n %}
+
+<div class="mainMenu-bottomSide">
+  <h1 class="title">{% trans "Or use social" %}</h1>
+  <div class="elementWrap">
+    <div class="element">
+      <a href="{% url 'users:oauth' provider='facebook' %}" class="button facebook">
+        <span><i class="icon facebook"></i></span>facebook
+      </a>
+    </div>
+    <div class="element">
+      <a href="{% url 'users:oauth' provider='twitter' %}" class="button twitter">
+        <span><i class="icon twitter"></i></span>twitter
+      </a>
+    </div>
+    <div class="element">
+      <a href="{% url 'users:oauth' provider='google' %}" class="button google">
+        <span><i class="icon google"></i></span>google
+      </a>
+    </div>
+    <div class="element">
+      <a href="{% url 'users:oauth' provider='instagram' %}" class="button instagram">
+        <span><i class="icon instagram"></i></span>instagram
+      </a>
+    </div>
+  </div>
+</div>

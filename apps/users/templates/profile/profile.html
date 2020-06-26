@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="main">
+  <div class="main-content small">
+    <div class="profile">
+      <div class="heading">
+        {% include 'profile/includes/profile_heading.html' %}
+        <div class="heading-bottomSide">
+          {% include 'profile/includes/profile_nav.html' with tab='profile' %}
+        </div>
+      </div>
+      <div class="mainMenu personalInfo">
+        <div class="mobileDropdown">
+            <h5 class="sectionTitle">{% trans "Sections" %}</h1>
+            <select class="form-control js-select2 js-profile-section-value">
+              <option value="personal-info">
+                {% trans "Personal Information" %}
+              </option>
+              <option value="change-password">
+                {% trans "Change Password" %}
+              </option>
+              <option value="notifications">
+                {% trans "Notifications" %}
+              </option>
+            </select>
+          </div>
+        <div class="leftSide js-profile-section js-profile-section-personal-info">
+          <h1 class="title">{% trans "Contact Info" %}</h1>
+          <div class="iconWrap">
+            <span class="bigCircle">
+              <img class="img" id="avatar-preview" {% if request.user.get_avatar %}src="{{ request.user.get_avatar }}"{% else %}hidden{% endif %}>
+            </span>
+            <span class="tinnyCircle js-select-avatar">
+              <i class="icon pencil"></i>
+            </span>
+          </div>
+
+          <!--Personal info form-->
+          <div class="elementWrap">
+            <form id="contact-info-form" data-url="{% url 'users:contact_info' %}" autocomplete="off" enctype="multipart/form-data" novalidate>
+              {% csrf_token %}
+              <h1 class="title">{% trans "Full name" %}</h1>
+              <div class="element input">
+                <i class="icon person"></i>
+                {{ contact_info_form.full_name|attr:"class:inputAuthorisation"|attr:"placeholder:Full name" }}
+              </div>
+              <h1 class="title">{% trans "Email" %}</h1>
+              <div class="element input">
+                <i class="icon email"></i>
+                {{ contact_info_form.email|attr:"class:inputAuthorisation"|attr:"placeholder:Email" }}
+              </div>
+              <h1 class="title">{% trans "Phone" %}</h1>
+              <div class="element input">
+                <i class="icon smartphone"></i>
+                {{ contact_info_form.phone_number|attr:"type:tel"|attr:"class:inputAuthorisation"|attr:"placeholder:Phone number" }}
+              </div>
+              <h1 class="title">{% trans "City" %}</h1>
+              <div class="element input">
+                <i class="icon city"></i>
+                {{ contact_info_form.city|attr:"class:inputAuthorisation form-control js-select2" }}
+              </div>
+
+              <div hidden>
+                {{ contact_info_form.avatar }}
+              </div>
+
+              <div class="element">
+                <input type="submit" class="button transparent" value='{% trans "Save changes" %}'>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--End Personal info form-->
+
+        <!--Change password form-->
+        <div class="middle js-profile-section js-profile-section-change-password">
+          <h1 class="title">{% trans "Change Password" %}</h1>
+          <form id="change-password-form" data-url="{% url 'users:change_password' %}" autocomplete="off" novalidate>
+            {% csrf_token %}
+            <h1 class="title">{% trans "Current password" %}*</h1>
+            <div class="element input">
+              <i class="icon password"></i>
+              {{ change_password_form.old_password|attr:"class:inputAuthorisation"|attr:"placeholder:Current password" }}
+            </div>
+            <h1 class="title">{% trans "New password" %}*</h1>
+            <div class="element input">
+              <i class="icon password"></i>
+              {{ change_password_form.password|attr:"class:inputAuthorisation"|attr:"placeholder:New password" }}
+            </div>
+            <h1 class="title">{% trans "Confirm password" %}*</h1>
+            <div class="element input">
+              <i class="icon password"></i>
+              {{ change_password_form.password_confirmation|attr:"class:inputAuthorisation"|attr:"placeholder:Confirm password" }}
+            </div>
+            <div class="element">
+              <input type="submit" class="button transparent" value='{% trans "Save changes" %}'>
+            </div>
+          </form>
+        </div>
+        <!--End Change password form-->
+
+        <!--Notification form-->
+        <div class="rightSide js-profile-section js-profile-section-notifications">
+          <h1 class="title">{% trans "Notifications" %}</h1>
+          <form id="notification-form" data-url="{% url 'users:notification_settings' %}" autocomplete="off" novalidate>
+            {% csrf_token %}
+            <p class="text">
+              {% trans "Do you want to take messages about answers on ads" %}?
+            </p>
+            <div class="item">
+              <span>
+                <input type="radio" name="ad_answer" class="radio" id="ad-yes" value="yes" {% if notification_form.ad_answer.value %}checked{% endif %}>
+                <label for="ad-yes">{% trans "Yes" %}</label>
+              </span>
+              <span>
+                 <input type="radio" name="ad_answer" class="radio" id="ad-no" value="no" {% if notification_form.ad_answer.value is False %}checked{% endif %}>
+                <label for="ad-no">{% trans "No" %}</label>
+              </span>
+            </div>
+            <p class="text">{% trans "Do you want to receive news, offers and promotions from Masaha" %}</p>
+            <div class="item">
+              <span>
+                <input type="radio" name="news_offer_promotion" class="radio" id="news-yes" value="yes" {% if notification_form.news_offer_promotion.value %}checked{% endif %}>
+                <label for="news-yes">{% trans "Yes" %}</label>
+              </span>
+              <span>
+                <input type="radio" name="news_offer_promotion" class="radio" id="news-no" value="no" {% if notification_form.news_offer_promotion.value is False %}checked{% endif %}>
+                <label for="news-no">{% trans "No" %}</label>
+              </span>
+            </div>
+            <div class="element">
+              <input type="submit" class="button transparent" value='{% trans "Save changes" %}'>
+            </div>
+          </form>
+        </div>
+        <!--End Notification form-->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'js/components/profile.js' %}"></script>
+
+{% endblock %}

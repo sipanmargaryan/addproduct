@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<main class="main events">
+    <div class="main-component services">
+      <div class="topSide">
+        <div class="bgWrap">
+          <div class="imgWrap">
+            <img src="{% static 'assets/images/events/services.jpg' %}" />
+          </div>
+        </div>
+        <h1 class="title">{% trans "Living in Armenia" %}</h1>
+        <div class="filterWrap small">
+          <div class="element input">
+            <i class="icon locationActive"></i>
+            <input class="inputAuthorisation" placeholder='{% trans "Choose your location" %}' />
+          </div>
+          <div class="element">
+            <select class="form-control">
+              {% for category in categories %}
+                <option>{{ category.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="element input">
+            <i class="icon search"></i>
+            <input class="inputAuthorisation" placeholder='{% trans "Search organisation & service" %}' />
+          </div>
+        </div>
+      </div>
+      <div class="main-content small">
+        <div class="leftSide">
+          <h2 class="title">{% trans "Filter" %}</h2>
+          <div class="categoryType">
+            <h3 class="fieldNaming">{% trans "Category" %}</h3>
+            <div class="content">
+              {% for category in categories %}
+                <label>
+                  <input type="checkbox" name="privat" {% if category.selected %}checked{% endif %} data-name="{{ category.name }}" class="js-category-checkbox">
+                  <div class="info">
+                    <span>{{ category.name }}</span>
+                    <span>({{ category.service_count }})</span>
+                  </div>
+                </label>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="rightSide">
+          <h1 class="title">{% trans "Organizations and Services in Armenia" %} ({{ count }})</h1>
+
+          <div class="contentWrap">
+            {% for service in services %}
+
+              <div class="toursElement">
+                <div class="imgWrap">
+                  <img src="{{ service.cover.url }}" />
+                </div>
+                <div class="infoWrap">
+                  <h2 class="title">{{ service.name }}</h2>
+                  <div class="stars">
+                    <span class="iconWrap">
+                      <i class="icon starActive"></i>
+                    </span>
+                    <span class="iconWrap">
+                      <i class="icon starActive"></i>
+                    </span>
+                    <span class="iconWrap">
+                      <i class="icon starActive"></i>
+                    </span>
+                    <span class="iconWrap">
+                      <i class="icon starActive"></i>
+                    </span>
+                    <span class="iconWrap">
+                      <i class="icon starInActive"></i>
+                    </span>
+                  </div>
+                  <p class="text">
+                    <span class="iconWrap">
+                      <i class="icon clockWhite"></i>
+                    </span>
+                    {{ service.opening_time }} - {{ service.closing_time }}
+                  </p>
+                  <p class="text">
+                    <span class="iconWrap">
+                      <i class="icon locationWhite"></i>
+                    </span>
+                    {{ service.address }}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript">
+  $('.js-category-checkbox').on('change', function(){
+    var location = "{{ request.path }}?";
+    $.each(
+      $('.js-category-checkbox'),
+      function(_, item){
+        if($(item).prop('checked')) {
+          location += 'category=' + $(item).data('name') + '&';
+        }
+      }
+    );
+
+    window.location.href = location;
+  });
+</script>
+
+{% endblock %}

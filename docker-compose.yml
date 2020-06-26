@@ -1,0 +1,68 @@
+version: "2"
+
+services:
+  project_img:
+    build: .
+    image: masaha:latest
+
+  project_app:
+    image: masaha:latest
+    volumes:
+      - .:/project
+    env_file:
+      - .env
+
+  db:
+    image: postgres:10
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  redis:
+    image: redis:3.2
+    volumes:
+      - redis:/data
+
+  celery:
+    extends: project_app
+    depends_on:
+      - db
+      - redis
+    command: ./wait-for-it.sh db:5432 -- celery -A project worker -l info
+    environment:
+      C_FORCE_ROOT: "1"
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+    - "1025:1025"
+    - "8025:8025"
+
+  project:
+    extends: project_app
+    depends_on:
+      - db
+      - redis
+      - celery
+      - mailhog
+    command: ./wait-for-it.sh db:5432 -- python3 manage.py runserver 0:8000
+    ports:
+      - "8000:8000"
+
+  partial:
+    extends: project_app
+    depends_on:
+      - db
+      - redis
+      - celery
+    command: ./wait-for-it.sh db:5432 -- python3 manage.py runserver 0:8000
+    ports:
+      - "8000:8000"
+
+  packages:
+    extends: project_app
+    volumes:
+      - .:/host
+
+volumes:
+  db:
+  redis:

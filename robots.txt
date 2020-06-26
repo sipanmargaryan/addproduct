@@ -1,0 +1,5 @@
+User-agent: *
+
+Noindex: /admin*
+Noindex: /users/signup/success*
+Noindex: /users/oauth*

@@ -1,0 +1,9 @@
+---
+server_name: "addproduct.com"
+mailhog_server_name: "addproduct.com"
+app_client_domain: "addproduct.com"
+app_debug_toolbar: "False"
+app_basic_auth: "True"
+app_celery_eager: "False"
+aws_bucket_name: "masaha-staging"
+paypal_is_test_mode: "True"

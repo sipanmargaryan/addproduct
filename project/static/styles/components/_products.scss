@@ -1,0 +1,1471 @@
+﻿.productList {
+  width: 100%;
+  background-color: $mainBgColor;
+
+  > .main-component {
+    > .heading {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 72px 0 52px 0;
+
+      > .buttonWrap {
+        display: none;
+      }
+
+      > .title {
+        font-family: Gotham-Medium, sans-serif;
+        font-size: 24px;
+        color: $textBlack;
+      }
+
+      > .sorting {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > .text {
+          font-family: Gotham-Book,sans-serif;
+          font-size: 14px;
+          color: $textGreyV;
+          margin-right: 16px;
+        }
+
+        > .element {
+          width: 170px;
+          height: 40px;
+          box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.03);
+          border: 0;
+
+          > select {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    > .main-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      > .leftSide {
+        width: 270px;
+
+        > form {
+          width: 100%;
+
+
+          > .categoryType {
+            width: 100%;
+            border-bottom: 2px solid #d9dee2;
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+
+
+            &.useType {
+
+              > .fieldNaming {
+                margin-bottom: 28px;
+              }
+
+              > .content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                > label {
+                  display: inline-flex;
+                  align-items: center;
+                  font-family: Gotham-Book, sans-serif;
+                  font-size: 14px;
+                  color: $textdarkVV;
+
+                  > input {
+                    margin-right: 8px;
+                  }
+                }
+              }
+            }
+
+            &.location {
+              padding-bottom: 32px;
+
+              > .fieldNaming {
+                padding-bottom: 15px;
+                border-bottom: 2px solid #d9dee2;
+                margin-bottom: 26px;
+              }
+
+              > .content {
+                width: 100%;
+                margin-top: 5px;
+
+                > .element {
+                  width: 100%;
+                  height: 44px;
+                  text-transform: capitalize;
+                  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.03);
+
+                  > select {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+
+
+            &.additional {
+
+              > .fieldNaming {
+                padding-bottom: 15px;
+                border-bottom: 2px solid #d9dee2;
+                margin-bottom: 26px;
+              }
+
+              > .content {
+
+                > label {
+                  width: 100%;
+                  display: flex;
+                  align-items: center;
+                  font-family: Gotham-Book, sans-serif;
+                  font-size: 14px;
+                  color: $textdarkVV;
+                  margin-bottom: 10px;
+
+                  &:last-child {
+                    margin-bottom: 0;
+                  }
+
+                  > input {
+                    margin-right: 10px;
+                  }
+
+                  > .info {
+                    width: calc(100% - 26px);
+                    display: flex;
+                    justify-content: space-between;
+                  }
+                }
+              }
+            }
+
+            &.price {
+              width: 100%;
+
+              > .fieldNaming {
+                padding-bottom: 15px;
+                border-bottom: 2px solid #d9dee2;
+                margin-bottom: 26px;
+              }
+
+              > .content {
+                width: 100%;
+
+                > .topSide {
+                  width: 100%;
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 30px;
+
+                  > .leftSide,
+                  > .rightSide {
+                    width: calc(50% - 8px);
+
+                    > .element {
+                      width: 100%;
+                      border: 0;
+                      box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.03);
+                      margin-top: 5px;
+
+                      > input {
+                        width: 100%;
+                      }
+                    }
+                  }
+                }
+
+                > .bottomSide {
+
+                  .ui-slider-horizontal .ui-slider-range {
+                    background: $backgroundMain;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+
+
+
+
+        input[type=checkbox] {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          width: 16px;
+          height: 16px;
+          border: 2px solid #828e9f;
+          border-radius: 2px;
+          position: relative;
+
+          &:checked {
+            &:before {
+              display: block;
+            }
+          }
+
+          &:before {
+            content: '';
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 4px;
+            border: 2px solid $borderMainColor;
+            border-top: 0;
+            border-right: 0;
+            transform: translate(-50%, -50%) rotate(-45deg);
+          }
+        }
+
+        .fieldNaming {
+          width: 100%;
+          font-family: Gotham-Bold, sans-serif;
+          font-size: 12px;
+          letter-spacing: 1px;
+          color: $textdarkVV;
+          text-transform: uppercase;
+        }
+
+        .itemNaming {
+          width: 100%;
+          font-family: Gotham-Medium, sans-serif;
+          font-size: 12px;
+          color: $textGreyVV;
+          text-transform: uppercase;
+        }
+      }
+
+      > .rightSide {
+        width: calc(100% - 300px);
+
+        > .elementWrap {
+          display: flex;
+          flex-wrap: wrap;
+
+          > .hotSaleElement {
+            width: 270px;
+
+            &.top-ad {
+              box-shadow: 0 11px 14px 0 rgba(69, 73, 91, 0.08);
+            }
+
+            > .topSide {
+              > .imgWrap {
+                height: 180px;
+              }
+            }
+          }
+        }
+      }
+
+      > .bottomSide {
+        width: 100%;
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 100px;
+
+        > .pagination {
+          display: flex;
+
+          > a {
+            margin-right: 5px;
+            cursor: pointer;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+
+          > .firstLast {
+            width: 55px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1px;
+            background-color: #9ba9be;
+            font-family: Gotham-Light, sans-serif;
+            font-size: 14px;
+            color: $textWhite;
+            border-radius: 1px;
+            text-transform: capitalize;
+          }
+
+          > .left,
+          > .right {
+            width: 36px;
+            height: 36px;
+            background: $backgroundMain;
+            position: relative;
+            border-radius: 1px;
+
+            &:before {
+              content: '';
+              position: relative;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              display: block;
+            }
+          }
+
+          > .left {
+            &:before {
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 5px 6px 5px 0;
+              border-color: transparent $textWhite transparent transparent;
+            }
+          }
+
+          > .right {
+            &:before {
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 5px 0 5px 6px;
+              border-color: transparent transparent transparent $textWhite;
+            }
+          }
+
+          > .numbers {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1px;
+            background-color: #f9f9f9;
+
+            &.selected {
+              background-color: #e8f2ff;
+              color: #666ee8;
+            }
+          }
+        }
+
+        > .buttonWrap {
+          display: none;
+        }
+      }
+    }
+
+    > .bottomSide {
+      background: $backgroundWhite;
+      padding: 100px 0;
+
+      > .title {
+        font-family: Gotham-Bold, sans-serif;
+        font-size: 16px;
+        letter-spacing: 1px;
+        color: $textdarkVV;
+        text-transform: uppercase;
+        margin-bottom: 65px;
+      }
+
+      .hotSaleElement {
+        width: 370px;
+
+        &:nth-child(3n) {
+          margin-right: 30px;
+        }
+      }
+
+
+      > .elementWrap {
+        width: 100%;
+        height: 44px;
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+
+        > .element {
+          max-width: 570px;
+          width: 100%;
+          text-transform: uppercase;
+          height: 100%;
+          font-size: 12px;
+          margin: 0 30px;
+        }
+      }
+
+      .next {
+        width: 270px;
+        height: 44px;
+        background-color: #dae9ff;
+        border: 0;
+        color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+        &:before {
+          content: url("../assets/icons/arrowR.svg");
+          font-size: 0;
+        }
+      }
+
+      .prev {
+        width: 270px;
+        height: 44px;
+        background-color: #dae9ff;
+        border: 0;
+        color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:before {
+          content: url("../assets/icons/arrowL.svg");
+          font-size: 0;
+        }
+      }
+
+      > .elementWrapMobile,
+      > .buttonWrap {
+        display: none;
+      }
+    }
+  }
+
+  &.company,
+  &.user {
+    background-color: $backgroundWhite;
+
+    > .main-component {
+      margin-top: 70px;
+
+      > .topSide {
+        display: flex;
+        justify-content: space-between;
+
+        > .leftSide {
+          width: 580px;
+          height: 456px;
+          display: flex;
+          justify-content: space-between;
+
+          > .sliderImages {
+            width: 80px;
+
+            > .imgWrap {
+              width: 100%;
+              height: 80px;
+              display: block;
+              margin-bottom: 14px;
+              cursor: pointer;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              > img {
+                width: 100%;
+                object-fit: contain;
+              }
+            }
+          }
+
+
+          > .mainImg {
+            width: calc(100% - 110px);
+            height: 100%;
+
+            > img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+
+        > .rightSide {
+          width: calc(100% - 700px);
+          border-bottom: 2px solid $borderColor;
+
+
+          > .title {
+            font-family: Gotham-Medium, sans-serif;
+            font-size: 32px;
+            color: $textBlack;
+            margin-bottom: 22px;
+          }
+
+          .reviewsWrap {
+            width: 100%;
+            display: flex;
+            font-family: Gotham-Book, sans-serif;
+            margin-bottom: 22px;
+
+            > span {
+              display: inline-block;
+              margin-right: 10px;
+
+              &:last-child {
+                margin-right: 0;
+                margin-left: 8px;
+              }
+            }
+          }
+
+          > .location {
+            width: 100%;
+            display: flex;
+            margin-bottom: 28px;
+
+            > span {
+              display: inline-block;
+
+              &.text {
+                margin-left: 10px;
+              }
+            }
+          }
+
+          > .timeWrap {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            &.related-data {
+              margin-bottom: 20px;
+              padding-bottom: 24px;
+              border-bottom: 2px solid #e7e7e7;
+            }
+
+            > .element {
+              display: flex;
+              margin-right: 12px;
+              margin-bottom: 16px;
+
+              &:nth-child(3n) {
+                margin-right: 0;
+              }
+
+              &:nth-last-child(-n+3) {
+                margin-bottom: 0;
+              }
+
+              > .text {
+                font-family: Gotham-Book, sans-serif;
+                font-size: 14px;
+                color: $textGrey;
+                margin-left: 8px;
+              }
+            }
+          }
+
+          > .priceWrap {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 31px;
+
+            > .price {
+              font-family: Gotham-Book, sans-serif;
+              font-size: 24px;
+              color: $textMain;
+              text-transform: uppercase;
+            }
+
+            > .statWrap {
+              display: flex;
+              width: 88px;
+              justify-content: space-between;
+
+              > .iconWrap {
+                display: inline-block;
+              }
+            }
+          }
+
+          > .buttonWrap {
+            width: 100%;
+            height: 44px;
+            font-size: 14px;
+            margin-top: 32px;
+          }
+
+          > .shareWrap {
+            display: flex;
+            justify-content: space-between;
+            margin: 24px 0;
+
+            input[type=text] {
+              position:absolute;
+              left:-9999px;
+            }
+
+            > .text {
+              font-family: Gotham-Bold,sans-serif;
+              font-size: 12px;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              color: $textDarkGrey;
+              display: flex;
+              align-items: center;
+            }
+
+            > .social {
+              display: flex;
+
+              > a {
+                display: inline-block;
+                height: 30px;
+                margin-right: 16px;
+
+                &.twitter {
+                  border-radius: 50%;
+                  display: flex;
+                  width: 30px;
+                  align-items: center;
+                  justify-content: center;
+                  background: #31b0e3;
+                }
+
+                &:last-child {
+                  margin-right: 0;
+                }
+              }
+            }
+          }
+
+
+
+          &.user {
+            > .priceWrap {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              margin-top: 31px;
+              align-items: center;
+
+              > .price {
+                font-family: Gotham-Book, sans-serif;
+                font-size: 24px;
+                color: $textMain;
+                text-transform: uppercase;
+              }
+
+              > .author {
+                font-family: Gotham-Book,sans-serif;
+                font-size: 16px;
+                color: #a8a8a8;
+
+                > b {
+                  font-size: 16px;
+                  color: $textdarkVV;
+                  margin-right: 5px;
+                  text-transform: uppercase;
+                }
+              }
+            }
+
+            > .location {
+              width: 100%;
+              display: flex;
+              margin-bottom: 28px;
+              justify-content: space-between;
+              align-items: center;
+              padding-bottom: 24px;
+              border-bottom: 2px solid $borderColor;
+              margin-top: 34px;
+
+              > .locationWrap {
+                > span {
+                  display: inline-block;
+
+                  &.text {
+                    margin-left: 10px;
+                  }
+                }
+              }
+
+              > .statWrap {
+                display: flex;
+                width: 148px;
+                justify-content: space-between;
+                cursor: pointer;
+
+                > .iconWrap {
+                  display: inline-block;
+                }
+              }
+            }
+
+            > .socialWrap {
+              display: flex;
+              justify-content: space-between;
+              flex-wrap: wrap;
+
+              > .element {
+                width: calc(50% - 13px);
+                height: 44px;
+                font-size: 12px;
+                text-transform: uppercase;
+
+                &:nth-child(-n+2) {
+                  margin-bottom: 16px;
+                }
+
+                > .button {
+
+                  > .iconWrap {
+                    margin-right: 8px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > .description {
+        margin-top: 100px;
+
+        > .heading {
+          display: flex;
+          justify-content: space-between;
+
+          > .title {
+            font-family: Gotham-Bold, sans-serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: $textDarkGrey;
+            text-transform: uppercase;
+          }
+
+          > .info {
+            display: flex;
+            font-family: Gotham-Book, sans-serif;
+            font-size: 14px;
+            color: $textGrey;
+            text-transform: capitalize;
+
+            > span {
+              display: flex;
+
+              &.publish {
+                margin-right: 85px;
+              }
+
+              > span {
+                margin-left: 8px;
+              }
+
+              > b {
+                margin-left: 6px;
+              }
+
+              > .date {
+                font-family: Gotham-Bold, sans-serif;
+                font-size: 14px;
+                letter-spacing: 1px;
+                color: $textDarkGrey;
+                text-transform: uppercase;
+              }
+
+              > .iconWrap {
+                display: block;
+              }
+
+              > b {
+                font-family: Gotham-Bold, sans-serif;
+                font-size: 14px;
+                letter-spacing: 1px;
+                color: $textDarkGrey;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+
+        > .descriptionText {
+          font-family: Gotham-book, sans-serif;
+          font-size: 16px;
+          line-height: 2;
+          color: $textdarkVV;
+          margin-top: 24px;
+          padding-bottom: 100px;
+          border-bottom: 2px solid #dedede;
+          margin-bottom: 62px;
+        }
+
+        .reviewsWrap {
+          padding-bottom: 26px;
+          border-bottom: 2px solid rgba(146, 170, 186, 0.3);
+          margin-bottom: 26px;
+
+
+
+          > .heading {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+
+
+            > .title {
+              font-family: Gotham-Medium, sans-serif;
+              font-size: 16px;
+              color: $textdarkVV;
+            }
+
+            > .element {
+              width: 270px;
+              height: 44px;
+              font-size: 14px;
+            }
+
+            > .rating {
+              width: 100%;
+              display: inline-flex;
+              align-items: center;
+              margin-top: 34px;
+
+              > .text {
+                font-family: Gotham-Bold, sans-serif;
+                font-size: 12px;
+                color: $textDarkGrey;
+                margin-right: 16px;
+                text-transform: uppercase;
+              }
+
+              > .iconWrap {
+                display: block;
+                margin-right: 10px;
+              }
+            }
+          }
+
+          > .review {
+            width: 100%;
+
+
+            > .nameWrap {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 16px;
+
+
+              > .name {
+                width: 100%;
+                font-family: Gotham-Medium, sans-serif;
+                font-size: 16px;
+                color: $textdarkVV;
+              }
+
+              > .date {
+                font-family: Gotham-Book,sans-serif;
+                font-size: 14px;
+                color: $textGrey;
+              }
+            }
+
+            > .commentRate {
+              width: 100%;
+              display: flex;
+              justify-content: flex-start;
+
+              > .iconWrap {
+                margin-right: 8px;
+
+                &:last-child {
+                  margin-right: 0;
+                }
+              }
+            }
+
+            > .comment {
+              font-family: Gotham-Book, sans-serif;
+              font-size: 14px;
+              color: $textdarkVV;
+              margin-top: 16px;
+            }
+          }
+
+          > .likes {
+            display: flex;
+            margin-top: 28px;
+
+            > .likeWrap,
+            > .dislikeWrap {
+              display: flex;
+              align-items: center;
+
+              > .iconWrap {
+                display: inline-block;
+                cursor: pointer;
+              }
+            }
+
+            > .dislikeWrap {
+              margin-left: 22px;
+            }
+
+            .text {
+              font-family: Gotham-Book, sans-serif;
+              font-size: 14px;
+              color: $textGreyV;
+              margin-left: 6px;
+            }
+          }
+        }
+
+        > .adMessageWrap {
+          > .commentTitle {
+            font-family: Gotham-Bold, sans-serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: $textDarkGrey;
+            text-transform: uppercase;
+          }
+
+          > .commentWrap {
+            width: 100%;
+            height: 150px;
+            margin-top: 43px;
+
+            > textarea {
+              width: 100%;
+              height: 100%;
+              padding: 16px 0 0 24px;
+              font-family: Gotham-Book, sans-serif;
+              font-size: 16px;
+              color: #717171;
+              border-color: $borderColor;
+            }
+          }
+
+          > .buttonWrap {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 44px;
+
+            > .element {
+              width: 270px;
+              height: 44px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      > .buttonWrap {
+        width: 100%;
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+
+        > .element {
+          max-width: 570px;
+          width: 100%;
+          height: 44px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .slick-list {
+    height: 490px;
+  }
+
+  @media screen and (max-width: 767px) {
+
+    > .main-component {
+      > .heading {
+        display: block;
+        padding: 20px 15px 0 15px;
+
+        > .buttonWrap {
+          width: 100%;
+          display: block;
+          height: 44px;
+          margin-bottom: 20px;
+
+          > .button {
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            background: transparent;
+          }
+        }
+
+        > .title {
+          font-size: 18px;
+          margin-bottom: 32px;
+        }
+
+        > .sorting {
+          justify-content: space-between;
+        }
+      }
+
+      > .main-content {
+        > .leftSide {
+          position: absolute;
+          top: -250%;
+          width: 100%;
+          height: 100%;
+          overflow-y: scroll;
+          padding: 24px 15px;
+          transition: all ease .8s;
+          background: $mainBgColor;
+          z-index: 10;
+
+          > form {
+
+            > .buttonWrap {
+              width: 100%;
+              height: 44px;
+
+              > .button {
+                width: 100%;
+                height: 100%;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        > .rightSide {
+          width: 100%;
+          margin-top: 44px;
+
+          > .elementWrap {
+            padding: 0 15px;
+
+            > .hotSaleElement {
+              margin-right: 0;
+
+              > .bottomSide {
+                padding: 20px 24px 0 24px;
+
+                > .itemName {
+                  font-size: 14px;
+                }
+
+                > .cost {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+
+        > .bottomSide {
+          margin-top: 0;
+          padding: 0 15px;
+
+          > .pagination {
+            display: none;
+          }
+
+          > .buttonWrap {
+            width: 100%;
+            height: 44px;
+            display: block;
+
+
+            > .button {
+              width: 100%;
+              height: 100%;
+              text-transform: uppercase;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      > .bottomSide {
+        padding-bottom: 32px;
+
+        > .title {
+          font-size: 14px;
+          margin-bottom: 24px;
+        }
+
+        .slick-dots {
+          display: flex;
+          justify-content: center;
+          margin-top: 32px;
+
+          > li {
+            margin: 0 6px;
+
+            &.slick-active {
+              > button {
+                &:before {
+                  background: $backgroundMain;
+                }
+              }
+            }
+
+            > button {
+              border: 0;
+              border-radius: 50%;
+              width: 15px;
+              height: 15px;
+              overflow: hidden;
+
+              &:before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: #e0e7f1;
+                display: block;
+              }
+            }
+          }
+        }
+
+        .slick-track {
+          display: flex;
+
+          > .hotSaleElement {
+            margin: 0 5px;
+          }
+        }
+
+        > .elementWrap {
+          display: none;
+        }
+
+        > .buttonWrap {
+          width: 100%;
+          height: 44px;
+          display: block;
+          margin-top: 44px;
+          padding: 0 15px;
+
+
+          > .button {
+            width: 100%;
+            height: 100%;
+            text-transform: uppercase;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    &.company,
+    &.user {
+      > .main-component {
+        margin-top: 16px;
+
+        > .topSide {
+          display: block;
+
+          > .leftSide {
+            width: 100%;
+            height: initial;
+            flex-direction: column-reverse;
+
+            > .mainImg {
+              width: 100%;
+              height: initial;
+              margin-bottom: 5px;
+              padding: 0 15px;
+            }
+
+            > .sliderImages {
+              padding: 0 10px;
+              width: 100%;
+              display: flex;
+              flex-wrap: wrap;
+
+              > .imgWrap {
+                width: 90px;
+                height: 90px;
+                margin: 5px;
+              }
+            }
+          }
+
+          > .rightSide {
+            width: 100%;
+            margin-top: 34px;
+            padding: 0 15px;
+
+            > .title {
+              font-size: 24px;
+              margin-bottom: 20px;
+            }
+
+            > .location {
+              display: none;
+            }
+
+            > .timeWrap {
+              > .element {
+                height: 24px;
+
+                &:nth-child(3n) {
+                  margin-inline-end: 12px;
+                }
+              }
+            }
+
+            > .shareWrap {
+              display: block;
+              margin-top: 32px;
+
+              > .text {
+                justify-content: center;
+                margin-bottom: 24px;
+              }
+
+              > .social {
+                padding: 0 17px;
+                justify-content: space-between;
+              }
+            }
+          }
+        }
+
+        > .description {
+          margin-top: 32px;
+          padding: 0 15px;
+
+          > .heading {
+            display: block;
+
+            > .info {
+              margin-top: 26px;
+              justify-content: space-between;
+
+              > span {
+
+                &.publish {
+                  margin: 0;
+                }
+              }
+            }
+          }
+
+          > .descriptionText {
+            padding-bottom: 32px;
+            margin-bottom: 32px;
+          }
+
+          > .reviewsWrap {
+            > .heading {
+              > .element {
+                display: none;
+              }
+            }
+          }
+        }
+
+        > .buttonWrap {
+          padding: 0 15px;
+          margin-top: 32px;
+        }
+
+        > .bottomSide {
+          > .bottomSide-content {
+            > .slick-list {
+
+              > .slick-track {
+                display: flex;
+
+                .hotSaleElement {
+                  margin: 0 7px;
+
+                  > .bottomSide {
+                    background-color: $mainBgColor;
+                  }
+                }
+              }
+            }
+
+
+            .slick-dots {
+              display: flex;
+              justify-content: center;
+              margin-top: 32px;
+
+              > li {
+                margin: 0 6px;
+
+                &.slick-active {
+                  > button {
+                    &:before {
+                      background: $backgroundMain;
+                    }
+                  }
+                }
+
+                > button {
+                  border: 0;
+                  border-radius: 50%;
+                  width: 15px;
+                  height: 15px;
+                  overflow: hidden;
+
+                  &:before {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background: #e0e7f1;
+                    display: block;
+                  }
+                }
+              }
+            }
+          }
+
+
+          > .elementWrap {
+            display: none;
+          }
+
+          > .elementWrapMobile {
+            display: block;
+            width: 100%;
+            height: 44px;
+            padding: 0 15px;
+
+            > .button {
+              width: 100%;
+              height: 100%;
+              text-transform: uppercase;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.productOther {
+  width: 100%;
+  background-color: $mainBgColor;
+
+  > .main-component {
+
+    > .topSide {
+      background: $backgroundWhite;
+
+      > .topSide-content {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        padding: 44px 0;
+
+        > .element {
+          max-width: 230px;
+
+          > .title {
+            font-family: Gotham-Bold, sans-serif;
+            font-size: 12px;
+            color: $textdarkVV;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+          }
+
+          > .name {
+            font-family: Gotham-Medium, sans-serif;
+            font-size: 24px;
+            color: $textBlack;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          > .item {
+            display: flex;
+
+            > .iconWrap {
+              display: block;
+            }
+
+            > .text {
+              font-family: Gotham-Book, sans-serif;
+              font-size: 16px;
+              color: $textdarkVV;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    > .otherWrap {
+      background-color: $mainBgColor;
+      padding: 100px 0;
+
+      > .otherWrap-content {
+        display: flex;
+        flex-wrap: wrap;
+
+        > .hotSaleElement {
+          width: 270px;
+          margin: 10px;
+        }
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 767px) {
+    .topSide-content {
+      display: block !important;
+      padding: 0 15px !important;
+    }
+
+    > .main-component {
+
+      > .topSide {
+
+        > .topSide-content {
+          display: block;
+          padding: 15px !important;
+        }
+      }
+
+      > .otherWrap {
+        padding: 20px 15px;
+
+        > .otherWrap-content {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+
+          > .hotSaleElement {
+            width: 270px;
+            margin:10px 0 !important;
+          }
+        }
+      }
+    }
+  }
+}

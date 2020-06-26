@@ -1,0 +1,5 @@
+---
+server_name: "addproduct.com"
+app_client_domain: "addproduct.com"
+aws_bucket_name: "masaha"
+paypal_is_test_mode: "False"

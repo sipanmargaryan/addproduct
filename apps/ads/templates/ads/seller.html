@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+<main class="main productOther">
+    <div class="main-component">
+      <div class="topSide ">
+        <div class="topSide-content small">
+          <div class="element">
+            <h1 class="title">{% trans "Author of ads" %}</h1>
+            <h1 class="name">{{ author.get_full_name }}</h1>
+          </div>
+          <div class="element">
+            <h1 class="title">{% trans "Location" %}</h1>
+            <div class="item">
+              <span class="iconWrap">
+                <i class="icon  locationActive"></i>
+              </span>
+              <span class="text">{{ author.city.name }}</span>
+            </div>
+          </div>
+          <div class="element">
+            <h1 class="title">{% trans "Contact number" %}</h1>
+            <div class="item">
+              <span class="iconWrap">
+                <i class="icon  smartphone"></i>
+              </span>
+              <span class="text">{{ author.phone_number }}</span>
+            </div>
+          </div>
+          <div class="element">
+            <h1 class="title">{% trans "Email address" %}</h1>
+            <div class="item">
+              <span class="iconWrap">
+                <i class="icon  email"></i>
+              </span>
+              <span class="text">{{ author.email }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="otherWrap">
+        <div class="otherWrap-content small">
+          {% for ad in ads %}
+            {% include 'ads/includes/ad_element.html' with ad=ad %}
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Pagination -->
+  <main class="main productList">
+    <div class="main-component">
+      <div class="main-content small">
+        <div class="bottomSide">
+          {% if is_paginated %}
+            {% include "core/includes/pagination.html" with page_obj=page_obj %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<main class="main events">
+  <div class="main-component livingInKuwait">
+    <div class="topSide">
+      <div class="bgWrap">
+        <div class="imgWrap">
+          <img src="{% static 'assets/images/events/services.jpg' %}"/>
+        </div>
+      </div>
+      <h1 class="title">{% trans "Living in Armenia" %}</h1>
+    </div>
+    <div class="main-content small">
+      <div class="leftSide">
+        <h2 class="title">{% trans "Top FAQ" %}</h2>
+        <div class="faqWrap">
+
+          {% for question in questions %}
+          <div class="element">
+            <div class="leftSide">
+              <h3 class="title">{{ question.answer_count }}</h3>
+              <p class="text">{% trans "Answers" %}</p>
+            </div>
+            <div class="rightSide">
+              <a href="{{ question.get_absolute_url }}" class="text">{{ question.title }}</a>
+              <div class="infoWrap">
+                <div class="leftSide">
+                    <span class="iconWrap">
+                      <i class="icon clockActive"></i>
+                    </span>
+                  <span class="info">{% trans "Asked" %}: <span>{{ question.created|date:"d.m.Y" }}</span></span>
+                </div>
+
+                <div class="rightSide">
+                    <span class="iconWrap">
+                      <i class="icon theme"></i>
+                    </span>
+                  <span class="info">{% trans "Author" %}: <span>{{ question.author_full_name }}</span></span>
+                  <span class="split">/</span>
+                  <span class="iconWrap">
+                      <i class="icon author"></i>
+                    </span>
+                  <span class="info">{% trans "Category" %}: <span>{{ question.category.name }}</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          <div class="buttonWrap">
+            <a href="{% url 'faq:top_questions' %}" class="button mainColor">{% trans "See more FAQ" %}</a>
+          </div>
+        </div>
+
+        <div class="faqWrapMob">
+          <div class="faqWrapSlid l-i-k-s">
+            {% for question in questions %}
+            <div class="element">
+              <div class="leftSide">
+                <h1 class="title">{{ question.answer_count }}</h1>
+                <p class="text">{% trans "Answers" %}</p>
+              </div>
+              <div class="rightSide">
+                <a class="text" href="{{ question.get_absolute_url }}">
+                  {{ question.title }}
+                </a>
+                <div class="infoWrap">
+                  <div class="leftSide">
+                      <span class="iconWrap">
+                        <i class="icon clockActive"></i>
+                      </span>
+                    <span class="info">{% trans "Asked" %}: <span>{{ question.created|date:"d.m.Y" }}</span></span>
+                  </div>
+
+                  <div class="rightSide">
+                      <span class="iconWrap">
+                        <i class="icon theme"></i>
+                      </span>
+                    <span class="info">{% trans "Author" %}: <span>{{ question.author_full_name }}</span></span>
+                    <span class="split">/</span>
+                    <span class="iconWrap">
+                        <i class="icon author"></i>
+                      </span>
+                    <span class="info">{% trans "Category" %}: <span>{{ question.category.name }}</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="buttonWrap">
+            <a href="{% url 'faq:top_questions' %}" class="button mainColor">{% trans "See more FAQ" %}</a>
+          </div>
+        </div>
+
+        <h2 class="title">{% trans "Organisations & Services" %}</h2>
+        <div class="org">
+          <div class="contentWrap">
+
+            {% for service in services %}
+            <div class="toursElement">
+              <div class="imgWrap">
+                <img src="{{ service.cover.url }}">
+              </div>
+              <div class="infoWrap">
+                <h3 class="title">{{ service.name }}</h3>
+                <div class="stars">
+                  <span class="iconWrap">
+                    <i class="icon starActive"></i>
+                  </span>
+                  <span class="iconWrap">
+                    <i class="icon starActive"></i>
+                  </span>
+                  <span class="iconWrap">
+                    <i class="icon starActive"></i>
+                  </span>
+                  <span class="iconWrap">
+                    <i class="icon starActive"></i>
+                  </span>
+                  <span class="iconWrap">
+                    <i class="icon starInActive"></i>
+                  </span>
+                </div>
+                <p class="text">
+                  <span class="iconWrap">
+                    <i class="icon clockWhite"></i>
+                  </span>
+                  {{ service.opening_time }} - {{ service.closing_time }}
+                </p>
+                <p class="text">
+                  <span class="iconWrap">
+                    <i class="icon locationWhite"></i>
+                  </span>
+                  {{ service.address }}
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="buttonWrap">
+            <a href="{% url 'common:services' %}" class="button mainColor">{% trans "See more Organisations & services in your city" %}</a>
+          </div>
+        </div>
+
+        <div class="orgMobile">
+            <div class="contentWrap l-i-k-s">
+              {% for service in services %}
+              <div class="toursElement">
+                <div class="imgWrap">
+                  <img src="{{ service.cover.url }}">
+                </div>
+                <div class="infoWrap">
+                  <h1 class="title">{{ service.name }}</h1>
+                  <div class="stars">
+                    <span class="iconWrap">
+                      <i class="icon starActive"></i>
+                    </span>
+                    <span class="iconWrap">
+                      <i class="icon starActive"></i>
+                    </span>
+                    <span class="iconWrap">
+                      <i class="icon starActive"></i>
+                    </span>
+                    <span class="iconWrap">
+                      <i class="icon starActive"></i>
+                    </span>
+                    <span class="iconWrap">
+                      <i class="icon starInActive"></i>
+                    </span>
+                  </div>
+                  <p class="text">
+                    <span class="iconWrap">
+                      <i class="icon clockWhite"></i>
+                    </span>
+                    {{ service.opening_time }} - {{ service.closing_time }}
+                  </p>
+                  <p class="text">
+                    <span class="iconWrap">
+                      <i class="icon locationWhite"></i>
+                    </span>
+                    {{ service.address }}
+                  </p>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="buttonWrap">
+              <a href="{% url 'common:services' %}" class="button mainColor">{% trans "See more Organisations & services in your city" %}</a>
+            </div>
+          </div>
+      </div>
+      <div class="rightSide">
+        <h2 class="title">{% trans "Upcoming events" %}</h2>
+        <div class="contentWrap l-i-k-s">
+          {% for event in events %}
+            {% include 'events/includes/event_element.html' with event=event %}
+          {% endfor %}
+        </div>
+        <div class="buttonWrap">
+          <a href="{% url 'events:upcoming_events' %}" class="button mainColor">{% trans "See more events in your city" %}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript">
+  $('.l-i-k-s').slick({
+    centerMode: true,
+    slidesToShow: 1,
+
+    responsive: [
+      {
+        breakpoint: 9999,
+        settings: "unslick"
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '0',
+          slidesToShow: 1,
+          dots: true
+        }
+      }
+    ]
+  });
+</script>
+
+{% endblock %}

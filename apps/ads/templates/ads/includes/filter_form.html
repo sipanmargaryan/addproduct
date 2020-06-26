@@ -1,0 +1,100 @@
+{% load i18n %}
+{% load widget_tweaks %}
+
+<aside id="js-filter-ads" class="leftSide">
+  <form action="" method="get" id="filter-form">
+    <div class="buttonWrap">
+      <input id="notify-me" class="button mainColor notify-me" type="button" value='{% trans "Notify me" %}' {% if request.user.is_authenticated %}data-submit="{% url 'ads:save_search' %}"{% else %}data-redirect="{% url 'users:login' %}?next={{ request.path }}"{% endif %}>
+    </div>
+    <div class="categoryType location">
+      <h1 class="fieldNaming">{% trans "Keyword" %}</h1>
+      <div class="content">
+        <div class="element input">
+          {{ filter_form.q|attr:"class:inputAuthorisation"|attr:"style:width: 100%" }}
+        </div>
+      </div>
+    </div>
+    <div class="categoryType useType">
+      <h1 class="fieldNaming">{% trans "Type" %}</h1>
+      <div class="content">
+        <label>
+          <input type="radio" name="seller_type" value="private"/> {% trans "Private" %}
+        </label>
+        <label>
+          <input type="radio" name="seller_type" value="business"/> {% trans "Business" %}
+        </label>
+        <label>
+          <input type="radio" name="seller_type" value="all" checked/> {% trans "All" %}
+        </label>
+      </div>
+    </div>
+    <div class="categoryType location">
+      <h1 class="fieldNaming">{% trans "City" %}</h1>
+      <div class="content">
+        <div class="element">
+          <select name="city" class="form-control js-select2">
+            <option value="" {% ifequal filter_form.city.value "" %}selected{% endifequal %}>{% trans "All places" %}</option>
+            {% for city in cities %}
+              <option value="{{city.name}}" {% ifequal filter_form.city.value city.name %}selected{% endifequal %}>{{city.name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="categoryType additional">
+      <h1 class="fieldNaming">{% trans "Category" %}</h1>
+      <div class="content">
+        {% for categories_ad in categories_ads %}
+        <label>
+          <input type="checkbox" name="category" value="{{ categories_ad.name }}"/>
+          <div class="info">
+            <span>{{ categories_ad.name }}</span>
+            <span>({{ categories_ad.count }})</span>
+          </div>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="categoryType price">
+      <h1 class="fieldNaming">{% trans "Price" %}</h1>
+      <div class="content">
+        <div class="topSide">
+          <div class="leftSide">
+            <h1 class="itemNaming">{% trans "From" %}</h1>
+            <div class="element input">
+              {{ filter_form.price_min|attr:"class:inputAuthorisation"|attr:"placeholder:0" }}
+            </div>
+          </div>
+          <div class="rightSide">
+            <h1 class="itemNaming">{% trans "To" %}</h1>
+            <div class="element input">
+              {{ filter_form.price_max|attr:"class:inputAuthorisation"|attr:"placeholder:0" }}
+            </div>
+          </div>
+
+        </div>
+        <div class="bottomSide">
+          <div id="slider-range"></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <div class="categoryType useType">
+      <h1 class="fieldNaming">{% trans "Type" %}</h1>
+      <div class="content">
+        <label>
+          <input type="radio" name="status" value="new"/> {% trans "NEW" %}
+        </label>
+        <label>
+          <input type="radio" name="status" value="used"/> {% trans "b/a" %}
+        </label>
+        <label>
+          <input type="radio" name="status" value="all" checked/> {% trans "All" %}
+        </label>
+      </div>
+    </div>
+    <div class="buttonWrap">
+      <input class="button mainColor" type="submit" value='{% trans "Filter" %}' style="height: 36px;">
+    </div>
+  </form>
+</aside>

@@ -1,0 +1,27 @@
+<div class="eventsElement">
+  <a href="{{ event.get_absolute_url }}" class="topSide">
+    <div class="imgWrap">
+      <img src="{{ event.image.url }}" />
+    </div>
+    <div class="iconsWrap">
+      <span class="dateWrap">
+        <span class="text">
+          {{ event.start_date|date:"M" }}<br>{{ event.start_date|date:"d" }}-{{ event.end_date|date:"d" }}
+        </span>
+      </span>
+      <span class="typeWrap">
+        {{ event.category.name }}
+      </span>
+    </div>
+  </a>
+  <div class="bottomSide">
+    <h5 class="time">{{ event.start_date|date:"g:i a" }} - {{ event.end_date|date:"g:i a" }}</h5>
+    <a href="{{ event.get_absolute_url }}" class="title">{{ event.title|truncatechars:50 }}</a>
+    <div class="location">
+      <span class="iconWrap">
+        <i class="icon locationActive"></i>
+      </span>
+      <span class="text">{{ event.city.name }}</span>
+    </div>
+  </div>
+</div>

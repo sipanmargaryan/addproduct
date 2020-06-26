@@ -1,0 +1,81 @@
+---
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: latest
+  notify: restart_nginx_handler
+  tags:
+    - webserver
+
+- name: Add certbot ppa
+  apt_repository:
+    repo: "ppa:certbot/certbot"
+  tags:
+  - webserver
+
+- name: Install certbot
+  apt:
+    name: python-certbot-nginx
+  tags:
+    - webserver
+
+- name: Remove existing nginx configuration files
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "/etc/nginx/sites-available/default"
+    - "/etc/nginx/sites-enabled/default"
+    - "/etc/nginx/sites-available/default-ssl"
+    - "/etc/nginx/sites-enabled/default-ssl"
+    - "/etc/nginx/sites-available/mailhog"
+    - "/etc/nginx/sites-enabled/mailhog"
+    - "/etc/nginx/sites-available/mailhog-ssl"
+    - "/etc/nginx/sites-enabled/mailhog-ssl"
+  tags:
+    - webserver
+
+- name: Add Nginx configuration
+  template:
+    src: templates/default.conf
+    dest: "/etc/nginx/sites-available/default"
+  tags:
+    - webserver
+
+- name: Enable Nginx configuration
+  file:
+    src: "/etc/nginx/sites-available/default"
+    dest: "/etc/nginx/sites-enabled/default"
+    state: link
+  notify: restart_nginx_handler
+  tags:
+    - webserver
+
+- name: Generate dhparams
+  shell: openssl dhparam -out /etc/nginx/ssl-dhparams.pem 2048
+  args:
+    creates: /etc/nginx/ssl-dhparams.pem
+  tags:
+    - webserver
+
+- name: Create certificate
+  shell: certbot certonly --nginx --noninteractive --agree-tos --email dev@{{ server_name }} --domains {{ server_name }}
+  tags:
+    - webserver
+
+- name: Add Nginx configuration SSL
+  template:
+    src: templates/default-ssl.conf
+    dest: "/etc/nginx/sites-available/default-ssl"
+  tags:
+    - webserver
+
+- name: Enable Nginx configuration SSL
+  file:
+    src: "/etc/nginx/sites-available/default-ssl"
+    dest: "/etc/nginx/sites-enabled/default-ssl"
+    state: link
+  notify: restart_nginx_handler
+  tags:
+    - webserver

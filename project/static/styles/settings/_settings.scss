@@ -1,0 +1,77 @@
+//device width start __________________________________
+  $desktop: 1170px;
+
+//device width end __________________________________
+
+//colors start __________________________________don't use variables with !default property
+  $white: #ffffff !default;
+  $black: #000000 !default;
+  $grey: #6b6f81 !default;
+  $greyer: #626773 !default;
+  $greyVV: #575c64 !default;
+  $lightGrayV: #898ea2 !default;
+  $darkGrey: #3e425f !default;
+  $lightGray: #e7e7e7 !default;
+  $darkBlue: #3b5475 !default;
+  $darkBlueV: #34465f !default;
+  $darkBlueVV: #2c3440 !default;
+  $mainElement: #0a68ef !default;
+
+//status colors
+
+  $successColor: #28ce88;
+  $errorColor: #ff2033;
+  $messageOpponentColor: #819bc1;
+  $messageYourColor: #3789ff;
+
+//BG colors
+  $backgroundWhite: $white;
+  $backgroundBlack: $black;
+  $backgroundComponentDark: $darkBlue;
+  $backgroundComponentDarkV: $darkBlueV;
+  $backgroundComponentDarkVV: $darkBlueVV;
+  $mainBgColor: #f5f8fb;
+  $backgroundMain: $mainElement;
+
+//buttons and inputs colors
+  $inputPrimary: $white;
+  $buttonPrimary: $mainElement;
+  $buttonSecondary: $white;
+  $borderColor: $lightGray;
+  $borderColorGreyer: $greyer;
+  $borderMainColor: $mainElement;
+  $borderColorWhite: $white;
+
+//text colors
+  $textWhite: $white;
+  $textBlack: $black;
+  $textLightGray: $lightGray;
+  $textGrey: $grey;
+  $textGreyVV: $greyVV;
+  $textGreyer: $greyer;
+  $textGreyV: $lightGrayV;
+  $textDarkGrey: $darkGrey;
+  $textMain: $mainElement;
+  $textdarkVV: $darkBlueVV;
+//colors end __________________________________
+
+
+//borders start __________________________________
+
+  $mainBorderRadius: 2px;
+  $secondaryBorderRadius: 1px;
+
+//borders end __________________________________
+
+
+// random
+.min-h-300 {
+  min-height: 300px!important;
+}
+.bg-white {
+  background-color: white!important;
+}
+.notify-me {
+  height: 36px!important;
+  margin-bottom: 20px!important;
+}

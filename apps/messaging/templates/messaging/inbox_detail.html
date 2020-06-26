@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load storage %}
+
+{% block content %}
+
+<main class="main">
+  <div class="main-content">
+    <div class="profile">
+      <div class="heading small">
+        {% include 'profile/includes/profile_heading.html' %}
+        <div class="heading-bottomSide">
+          {% include 'profile/includes/profile_nav.html' with tab='messages' %}
+        </div>
+      </div>
+      <div class="mainMenu messageSingle">
+        <div class="container">
+          <div class="breadcrumbsBottom">
+            <a href="{% url 'messaging:inbox' %}" class="backLink">
+              <i class="icon arrow"></i>
+              {% trans "Back" %}
+            </a>
+            <span class="text">{% trans "Messages" %}</span>
+          </div>
+          <div class="messageTitle">
+            {% if thread.primary_image %}
+              <span class="img"><img src="{% storage_url thread.primary_image %}"></span>
+            {% endif %}
+            <span class="text">{{ thread.ad.title }}</span>
+          </div>
+          <div class="messageWrap">
+            <div class="nameWrap">
+              <span class="name">{{ thread.name }}</span>
+            </div>
+            <div class="messages">
+              {% for message in thread.messages %}
+                <div class="messageBox {% if request.user == message.sender %} leftSide {% else %} rightSide {% endif %}">
+                  <p class="text">{{ message.message }}</p>
+                  <span class="date">{{ message.sent_at|date:"m.d.Y"  }}</span>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <form id="message-form" class="sendWrap input" data-user="{{ request.user.pk }}" data-url="{{ thread.chat_url }}">
+            <input type="text" name="message" id="id_message" class="inputAuthorisation" {% if thread.blocked %} disabled {% endif %} placeholder='{% trans "Enter Your message here" %}'/>
+            <span class="element">
+              <button type="submit" class="button mainColor">{% trans "Send" %}</button>
+            </span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="msg_form" class="messageBox">
+  <p class="text"></p>
+  <span class="date"></span>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+  {% if not thread.blocked %}
+    <script type="text/javascript" src="{% static 'js/components/messaging_detail.js' %}"></script>
+  {% endif %}
+{% endblock %}

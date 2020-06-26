@@ -1,0 +1,30 @@
+{% load i18n %}
+
+<div class="element">
+  <div class="topSide">
+    <h1 class="title">{{ comment.user.get_full_name }}</h1>
+    <div class="time">
+        <span class="iconWrap">
+          <i class="icon clockGrey"></i>
+        </span>
+      <span class="info">{{ comment.created|date:"d.m.y" }}</span>
+    </div>
+  </div>
+  <p class="text">
+    {{ comment.description }}
+  </p>
+  <div class="bottomSide">
+    <div class="element">
+        <span class="iconWrap">
+          <i class="icon reportSmall"></i>
+        </span>
+      <span class="info" data-url="{{ comment.report_url }}">{% trans "Report" %}</span>
+    </div>
+    <div class="element">
+        <span class="iconWrap">
+          <i class="icon replySmall"></i>
+        </span>
+      <span class="info">{% trans "Reply" %}</span>
+    </div>
+  </div>
+</div>

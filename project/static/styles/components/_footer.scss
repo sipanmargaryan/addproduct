@@ -1,0 +1,208 @@
+.footer {
+  width: 100%;
+
+  > .footer-content {
+    max-width: $desktop;
+    margin: 0 auto;
+
+    > .footer-topSide {
+      width: 100%;
+      padding: 66px 0 56px 0;
+      display: flex;
+      justify-content: space-between;
+
+      > .listBlock {
+
+        &.noHeading {
+          padding-top: 66px;
+        }
+
+        > .title {
+          width: 100%;
+          padding-bottom: 18px;
+          margin-bottom: 28px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-transform: uppercase;
+          font-family: Gotham-Bold,sans-serif;
+          font-size: 12px;
+          letter-spacing: 1px;
+          white-space: nowrap;
+          color: $textdarkVV;
+          position: relative;
+
+          &:before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #464855;
+          }
+        }
+
+
+        > .list {
+          width: 100%;
+          display: block;
+
+          > .item {
+            width: 100%;
+            margin-bottom: 8px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            > .link {
+              font-family: Gotham-Light,sans-serif;
+              font-size: 14px;
+              font-weight: 500;
+              text-transform: capitalize;
+              text-decoration: none;
+              color: $textGrey;
+              @include transition;
+
+              &:hover {
+                color: rgba($textGrey, .6);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    > .footer-bottomSide {
+      width: 100%;
+      box-shadow: inset 0 1px 0 0 rgba(199, 199, 199, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      > .copy {
+        font-family: Gotham-Bold, sans-serif;
+        font-size: 14px;
+        color: $textGrey;
+      }
+
+      > .social {
+        width: 212px;
+        height: 50px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+
+        > .element {
+          width: 50px;
+          height: 24px;
+        }
+      }
+    }
+  }
+
+  > .footerMobile-content {
+    display: none;
+  }
+
+
+  @media screen and (max-width: 767px) {
+    > .footer-content {
+      display: none;
+    }
+
+    > .footerMobile-content {
+      width: 100%;
+      display: block;
+
+      > .footer-topSide {
+        display: block;
+        padding: 0 15px;
+
+        > .listBlock {
+
+          > .title {
+            width: 100%;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-transform: uppercase;
+            font-family: Gotham-Bold,sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            color: $textdarkVV;
+            box-shadow: inset 0 -1px 0 0 rgba(226, 226, 226, 0.5);
+
+            &:after {
+              content: '';
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 6px 4px 0 4px;
+              border-color: #9ba9be transparent transparent transparent;
+            }
+          }
+
+
+          > .footerMenuList {
+            width: 100%;
+            display: none;
+
+            > .item {
+              width: 100%;
+              margin-bottom: 8px;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              > .link {
+                font-family: Gotham-Light,sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                text-transform: capitalize;
+                text-decoration: none;
+                color: $textGrey;
+                @include transition;
+
+                &:hover {
+                  color: rgba($textGrey, .6);
+                }
+              }
+            }
+          }
+        }
+
+        > .applinks {
+          margin-top: 24px;
+
+          > .list {
+            display: flex;
+            justify-content: space-around;
+          }
+        }
+      }
+
+      > .footer-bottomSide {
+        box-shadow: inset 0 1px 0 0 rgba(199, 199, 199, 0.3);
+        margin-top: 24px;
+        padding: 16px 16px 14px 16px;
+
+        > .copy {
+          font-family: Gotham-Book, sans-serif;
+          font-size: 12px;
+          color: $textGrey;
+        }
+        > .social{
+          display: flex;
+          justify-content: space-between;
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+}

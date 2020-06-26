@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<main class="main faq">
+  <div class="main-component">
+    <div class="topSide">
+      <div class="bgWrap">
+        <div class="imgWrap">
+          <img src="{% static 'assets/images/faq/bg.jpg' %}" />
+        </div>
+        <h1 class="title">{% trans "Ask question" %}</h1>
+      </div>
+      <nav class="navWrap">
+        <div class="element">
+          <a href="{% url 'faq:top_questions' %}" class="breadcrumbs ">{% trans "Top questions" %}</a>
+        </div>
+        <div class="element">
+          <a href="{% url 'faq:recent_questions' %}" class="breadcrumbs ">{% trans "Recent questions" %}</a>
+        </div>
+        <div class="element">
+          <a href="{% url 'faq:ask_question' %}" class="breadcrumbs active">{% trans "Ask questions" %}</a>
+        </div>
+      </nav>
+    </div>
+    <form action="{% url 'faq:ask_question' %}" method="post" class="main-content add-question small">
+      {% csrf_token %}
+      <h1 class="title">{% trans "Add question" %}</h1>
+      <div class="add-question">
+        <h1 class="componentTitle">{% trans "About your question" %}</h1>
+        <div class="contentWrap">
+          <div class="leftSide">
+            <div class="topSide">
+              <h1 class="itemTitle">{% trans "Question" %}*</h1>
+              <h1 class="itemTitle">{% trans "In one sentence" %}*</h1>
+            </div>
+            <div class="element input">
+              {{ form.title|attr:"class:inputAuthorisation"|attr:"placeholder:Enter your question" }}
+            </div>
+            {{ form.title.errors }}
+          </div>
+          <div class="rightSide">
+            <h1 class="itemTitle">{% trans "Category" %}</h1>
+            <div class="element">
+              {{ form.category|attr:"class:inputAuthorisation form-control js-select2" }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="description">
+        <h1 class="itemTitle">{% trans "Description" %}*</h1>
+        <div class="element">
+           {{ form.description|attr:"placeholder:Enter description of your question" }}
+        </div>
+        {{ form.description.errors }}
+      </div>
+      <div class="contactInfo">
+        <h1 class="componentTitle">{% trans "Your contact info" %}</h1>
+        <div class="infoWrap">
+          <div class="leftSide">
+            <h1 class="itemTitle">{% trans "Name" %}*</h1>
+            <div class="element input">
+              {{ form.author_full_name|attr:"class:inputAuthorisation"|attr:"placeholder:Enter your Full name" }}
+            </div>
+            {{ form.author_full_name.errors }}
+          </div>
+          <div class="rightSide">
+            <h1 class="itemTitle">{% trans "Email" %}*</h1>
+            <div class="element input">
+              {{ form.author_email|attr:"class:inputAuthorisation"|attr:"placeholder:Enter your email address" }}
+            </div>
+            {{ form.author_email.errors }}
+          </div>
+        </div>
+      </div>
+      <div class="buttonWrap">
+        <div class="element">
+          <button type="submit" class="button mainColor">{% trans "Add question" %}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+
+{% endblock %}

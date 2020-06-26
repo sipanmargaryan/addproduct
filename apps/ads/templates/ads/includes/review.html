@@ -1,0 +1,29 @@
+<div class="reviewsWrap">
+  <div class="review">
+    <div class="nameWrap">
+      <h1 class="name">{{ review.user.get_full_name }}</h1>
+      <span class="date">{{ review.save_at|date:"d.m.Y" }}</span>
+    </div>
+    <div class="commentRate">
+      {% include 'ads/includes/stars.html' rate=review.rating %}
+    </div>
+    <p class="comment">
+      {{ review.feedback }}
+    </p>
+
+  </div>
+  <div class="likes">
+    <div class="likeWrap">
+      <span class="iconWrap">
+        <i class="icon like"></i>
+      </span>
+      <span class="text">0</span>
+    </div>
+    <div class="dislikeWrap">
+      <span class="iconWrap">
+        <i class="icon dislike"></i>
+      </span>
+      <span class="text">0</span>
+    </div>
+  </div>
+</div>

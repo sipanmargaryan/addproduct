@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+{% load opengraph %}
+{% load i18n %}
+{% load compress %}
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>{% block title %}{% if page_title %}{{ page_title }} | {% endif %} Add Product{% endblock %}</title>
+  {% if meta_description %}
+  <meta name="description" content="{{ meta_description }}">
+  {% endif %}
+  {% block opengraph_meta %}
+    {% opengraph_meta title=page_title description=meta_description %}
+  {% endblock %}
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="verifyownership" content="4fe2cd586e3a1f9425c75c34d2aa7730"/>
+  <link rel="stylesheet" href="{% static 'plugins/select2/select2.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/slick/slick.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/jquery-ui/jquery-ui.min.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+  {% block extra_css %}{% endblock %}
+
+</head>
+<body {% ifequal LANGUAGE_CODE "ar" %}class="rtl"{% endifequal %}>
+
+{% include "includes/ga.html" %}
+
+<header class="header">
+  {% include "includes/header.html" %}
+  {% include "includes/header_mobile.html" %}
+</header>
+
+
+<div class="popup" id="loading-container" style="display: none; position: fixed;">
+  <div class="loading">
+    <div class="iconWrap">
+      <i class="icon loader"></i>
+    </div>
+    <p class="text" id="loading-message"></p>
+  </div>
+</div>
+
+{% block content %}{% endblock %}
+
+
+<footer class="footer">
+  {% include "includes/footer.html" %}
+  {% include "includes/footer_mobile.html" %}
+</footer>
+
+<script type="text/javascript">
+  window.csrftoken = '{{ csrf_token }}';
+</script>
+
+{% include "includes/javascript.html" %}
+
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

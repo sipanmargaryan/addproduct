@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<main class="main">
+  <div class="main-content">
+    <div class="profile">
+      <div class="heading small">
+        {% include 'profile/includes/profile_heading.html' %}
+        <div class="heading-bottomSide">
+          {% include 'profile/includes/profile_nav.html' with tab='messages' %}
+        </div>
+      </div>
+      <div class="mainMenu messages">
+        <div class="container small">
+
+          <div class="heading heading1">
+            <h3 class="title">{% trans "Ad/messages" %}</h3>
+          </div>
+          <div class="heading heading2">
+            <h3 class="title">{% trans "User" %}</h3>
+          </div>
+          <div class="heading heading3">
+            <h3 class="title">{% trans "Date" %}</h3>
+          </div>
+          <div class="heading heading4">
+            <h3 class="title">{% trans "Actions" %}</h3>
+          </div>
+
+          {% for thread in threads %}
+            <div class="column oneLine">
+              <div class="textWrap">
+                <a href="{% url 'messaging:inbox_detail' pk=thread.thread.pk %}" class="title">{{ thread.thread.ad.title }}</a>
+                <span class="text">{{ threads.0.message }}</span>
+              </div>
+            </div>
+            <div class="column mail">
+                <span>{{ thread.thread.users.all|join:"," }}</span>
+            </div>
+            <div class="column time">
+              <span>{{ threads.0.sent_at|date:"m.d.Y, h:i a" }}</span>
+            </div>
+            <div class="column actions">
+              <a href="{% url 'messaging:inbox_detail' pk=thread.thread.pk %}" class="iconWrap">
+                <i class="icon reply"></i>
+              </a>
+              {% if not thread.thread.blocked %}
+                <span class="block-thread iconWrap" data-id="{{ thread.thread.pk }}" data-url="{% url 'messaging:block_thread' %}">
+                  <i class="icon delete"></i>
+                </span>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="{% static 'js/components/messaging.js' %}"></script>
+
+{% endblock %}
